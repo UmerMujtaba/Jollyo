@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "268373443030",
+    "project_id": "kidduapp-a167b",
+    "storage_bucket": "kidduapp-a167b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268373443030:android:17442aba136f6ae5316477",
+        "android_client_info": {
+          "package_name": "com.kidslearningapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJZATzR3AmQb7xSqHlHMQtEpVcQw9ajMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

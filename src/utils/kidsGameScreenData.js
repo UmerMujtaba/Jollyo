@@ -1,0 +1,26 @@
+import {images} from '../assets/images';
+
+export const GameExerciseData = [
+  {name: 'Bus', image: images.letterB.bus},
+  {name: 'Banana', image: images.letterB.banana},
+  {name: 'Car', image: images.letterC.car},
+  {name: 'Egg', image: images.letterE.egg},
+  {name: 'Grapes', image: images.letterG.grape},
+  {name: 'Honey', image: images.letterH.honey},
+  {name: 'Ice Cream', image: images.letterI.iceCream},
+  {name: 'Jet', image: images.letterJ.jet},
+  {name: 'Kites', image: images.letterK.kite},
+  {name: 'Lamp', image: images.letterL.lamp},
+  {name: 'Log', image: images.letterL.log},
+  {name: 'Mug', image: images.letterM.mug},
+  {name: 'Nurse', image: images.letterN.nurse},
+  {name: 'Orange', image: images.letterO.orange},
+  {name: 'Pencil', image: images.letterP.pencil},
+  {name: 'FLower', image: images.letterR.rose},
+  {name: 'Sea', image: images.letterS.sea},
+  {name: 'circle', image: images.shapes.circular},
+  {name: 'Mango', image: images.letterM.mango},
+  {name: 'Leaf', image: images.letterL.leaf},
+  {name: 'Comb', image: images.letterC.comb},
+  {name: 'Bag', image: images.letterB.bag},
+];

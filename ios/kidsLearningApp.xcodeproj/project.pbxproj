@@ -1,0 +1,818 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E356F31AD99517003FC87E /* kidsLearningAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* kidsLearningAppTests.m */; };
+		0C80B921A6F3F58F76C31292 /* libPods-kidsLearningApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-kidsLearningApp.a */; };
+		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		7699B88040F8A987B510C191 /* libPods-kidsLearningApp-kidsLearningAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-kidsLearningApp-kidsLearningAppTests.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A9725A6953923A3BFDDDF5F9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		0A6C60DFDB6743889E48327E /* Fredoka-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 583AD334BE784BCEBF91FC9E /* Fredoka-Bold.ttf */; };
+		7B556D8B372A4BD9A21F41A6 /* Fredoka-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DA98C7436F94546B4B4E587 /* Fredoka-Light.ttf */; };
+		F0F6F9B0A01C4A5B8F5E80BC /* Fredoka-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8E8A8156CBF45278F66E99B /* Fredoka-Medium.ttf */; };
+		40E43DAE91F5461CBD60CB48 /* Fredoka-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C5D7CECE133414ABFF4BFBB /* Fredoka-Regular.ttf */; };
+		940F5D937A6C4634968B3A3B /* Fredoka-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 077D0C799DD04263BDA4D891 /* Fredoka-SemiBold.ttf */; };
+		6A833AE40C3E4F87A2225383 /* Fredoka-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E48062A8BDF4F03823D068F /* Fredoka-VariableFont_wdth,wght.ttf */; };
+		88CFDABD4BD7436CA6A29A2E /* Fredoka_Condensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 614957DE77074442AB78BF65 /* Fredoka_Condensed-Bold.ttf */; };
+		18205F8AEDC54E4B8C351718 /* Fredoka_Condensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CADFBF8FBDC4F5E98055A03 /* Fredoka_Condensed-Light.ttf */; };
+		C50EEC43C6094311896B0D24 /* Fredoka_Condensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D160F772FE949F38DB5498F /* Fredoka_Condensed-Medium.ttf */; };
+		1093C0D0B2534532BE722B47 /* Fredoka_Condensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAA183674F7243ACB165A3A3 /* Fredoka_Condensed-Regular.ttf */; };
+		49EC877752BD4B63AE4EA75C /* Fredoka_Condensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E7EB2E8214702912BD7A9 /* Fredoka_Condensed-SemiBold.ttf */; };
+		A640BE566F2A410297DC3B6F /* Fredoka_Expanded-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25E9443A16DD4579894B9496 /* Fredoka_Expanded-Bold.ttf */; };
+		307D51024A2E40E596BA1FE0 /* Fredoka_Expanded-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0DE471F5FC14092A33C9FB8 /* Fredoka_Expanded-Light.ttf */; };
+		8ECC1B8EAA0243DDAE67930D /* Fredoka_Expanded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C40FA2F111040CC90623805 /* Fredoka_Expanded-Medium.ttf */; };
+		B050B5E2F6C04C8F82207EB7 /* Fredoka_Expanded-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DEBD2D4AED444E2A8EC2394 /* Fredoka_Expanded-Regular.ttf */; };
+		C9A87B400E1A4808BCB63DA7 /* Fredoka_Expanded-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F73A9F1E925C46D9825369C2 /* Fredoka_Expanded-SemiBold.ttf */; };
+		A9A79410A33A402EB0B9A7B7 /* Fredoka_SemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 887F9B7E910949218556DA06 /* Fredoka_SemiCondensed-Bold.ttf */; };
+		8549C58C66D14AA88AB3ED5B /* Fredoka_SemiCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A76372837124485987CE04C4 /* Fredoka_SemiCondensed-Light.ttf */; };
+		3310959D41574D7CA8FA446A /* Fredoka_SemiCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52DC27F488C442E872F7C7B /* Fredoka_SemiCondensed-Medium.ttf */; };
+		8AF2A5F1EED64ADD85BAF0B8 /* Fredoka_SemiCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36F3AFC2150D4C62B058C7C9 /* Fredoka_SemiCondensed-Regular.ttf */; };
+		5BEE4BD195214338B0B59BFD /* Fredoka_SemiCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7113963BEEC54FF88A65EBD7 /* Fredoka_SemiCondensed-SemiBold.ttf */; };
+		8D80B051299C4BAA856C2EDC /* Fredoka_SemiExpanded-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B139C2F5B93C4764BBD64AA8 /* Fredoka_SemiExpanded-Bold.ttf */; };
+		BF46C53865EA4771BFEBC260 /* Fredoka_SemiExpanded-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA722BE7AECF4AA2A7421983 /* Fredoka_SemiExpanded-Light.ttf */; };
+		4134216FBF6849398E3AB93E /* Fredoka_SemiExpanded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44941EF2E69D4E2CA46A9027 /* Fredoka_SemiExpanded-Medium.ttf */; };
+		91FEE91581BD409694F7F099 /* Fredoka_SemiExpanded-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BB3420901014B72938CBEAE /* Fredoka_SemiExpanded-Regular.ttf */; };
+		C62C9A17DA7843ADA3EFAB0C /* Fredoka_SemiExpanded-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15621F2FD86D4EF68F4EDF9E /* Fredoka_SemiExpanded-SemiBold.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = kidsLearningApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00E356EE1AD99517003FC87E /* kidsLearningAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kidsLearningAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* kidsLearningAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kidsLearningAppTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* kidsLearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kidsLearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = kidsLearningApp/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = kidsLearningApp/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = kidsLearningApp/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = kidsLearningApp/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = kidsLearningApp/main.m; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = kidsLearningApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		19F6CBCC0A4E27FBF8BF4A61 /* libPods-kidsLearningApp-kidsLearningAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kidsLearningApp-kidsLearningAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4392A12AC88292D35C810B /* Pods-kidsLearningApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsLearningApp.debug.xcconfig"; path = "Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp.debug.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-kidsLearningApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsLearningApp.release.xcconfig"; path = "Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-kidsLearningApp-kidsLearningAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsLearningApp-kidsLearningAppTests.debug.xcconfig"; path = "Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-kidsLearningApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-kidsLearningApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = kidsLearningApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-kidsLearningApp-kidsLearningAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsLearningApp-kidsLearningAppTests.release.xcconfig"; path = "Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		583AD334BE784BCEBF91FC9E /* Fredoka-Bold.ttf */ = {isa = PBXFileReference; name = "Fredoka-Bold.ttf"; path = "../src/assets/fonts/Fredoka-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5DA98C7436F94546B4B4E587 /* Fredoka-Light.ttf */ = {isa = PBXFileReference; name = "Fredoka-Light.ttf"; path = "../src/assets/fonts/Fredoka-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C8E8A8156CBF45278F66E99B /* Fredoka-Medium.ttf */ = {isa = PBXFileReference; name = "Fredoka-Medium.ttf"; path = "../src/assets/fonts/Fredoka-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1C5D7CECE133414ABFF4BFBB /* Fredoka-Regular.ttf */ = {isa = PBXFileReference; name = "Fredoka-Regular.ttf"; path = "../src/assets/fonts/Fredoka-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		077D0C799DD04263BDA4D891 /* Fredoka-SemiBold.ttf */ = {isa = PBXFileReference; name = "Fredoka-SemiBold.ttf"; path = "../src/assets/fonts/Fredoka-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3E48062A8BDF4F03823D068F /* Fredoka-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; name = "Fredoka-VariableFont_wdth,wght.ttf"; path = "../src/assets/fonts/Fredoka-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		614957DE77074442AB78BF65 /* Fredoka_Condensed-Bold.ttf */ = {isa = PBXFileReference; name = "Fredoka_Condensed-Bold.ttf"; path = "../src/assets/fonts/Fredoka_Condensed-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5CADFBF8FBDC4F5E98055A03 /* Fredoka_Condensed-Light.ttf */ = {isa = PBXFileReference; name = "Fredoka_Condensed-Light.ttf"; path = "../src/assets/fonts/Fredoka_Condensed-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3D160F772FE949F38DB5498F /* Fredoka_Condensed-Medium.ttf */ = {isa = PBXFileReference; name = "Fredoka_Condensed-Medium.ttf"; path = "../src/assets/fonts/Fredoka_Condensed-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EAA183674F7243ACB165A3A3 /* Fredoka_Condensed-Regular.ttf */ = {isa = PBXFileReference; name = "Fredoka_Condensed-Regular.ttf"; path = "../src/assets/fonts/Fredoka_Condensed-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4A5E7EB2E8214702912BD7A9 /* Fredoka_Condensed-SemiBold.ttf */ = {isa = PBXFileReference; name = "Fredoka_Condensed-SemiBold.ttf"; path = "../src/assets/fonts/Fredoka_Condensed-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		25E9443A16DD4579894B9496 /* Fredoka_Expanded-Bold.ttf */ = {isa = PBXFileReference; name = "Fredoka_Expanded-Bold.ttf"; path = "../src/assets/fonts/Fredoka_Expanded-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E0DE471F5FC14092A33C9FB8 /* Fredoka_Expanded-Light.ttf */ = {isa = PBXFileReference; name = "Fredoka_Expanded-Light.ttf"; path = "../src/assets/fonts/Fredoka_Expanded-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8C40FA2F111040CC90623805 /* Fredoka_Expanded-Medium.ttf */ = {isa = PBXFileReference; name = "Fredoka_Expanded-Medium.ttf"; path = "../src/assets/fonts/Fredoka_Expanded-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5DEBD2D4AED444E2A8EC2394 /* Fredoka_Expanded-Regular.ttf */ = {isa = PBXFileReference; name = "Fredoka_Expanded-Regular.ttf"; path = "../src/assets/fonts/Fredoka_Expanded-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F73A9F1E925C46D9825369C2 /* Fredoka_Expanded-SemiBold.ttf */ = {isa = PBXFileReference; name = "Fredoka_Expanded-SemiBold.ttf"; path = "../src/assets/fonts/Fredoka_Expanded-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		887F9B7E910949218556DA06 /* Fredoka_SemiCondensed-Bold.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiCondensed-Bold.ttf"; path = "../src/assets/fonts/Fredoka_SemiCondensed-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A76372837124485987CE04C4 /* Fredoka_SemiCondensed-Light.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiCondensed-Light.ttf"; path = "../src/assets/fonts/Fredoka_SemiCondensed-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F52DC27F488C442E872F7C7B /* Fredoka_SemiCondensed-Medium.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiCondensed-Medium.ttf"; path = "../src/assets/fonts/Fredoka_SemiCondensed-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		36F3AFC2150D4C62B058C7C9 /* Fredoka_SemiCondensed-Regular.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiCondensed-Regular.ttf"; path = "../src/assets/fonts/Fredoka_SemiCondensed-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7113963BEEC54FF88A65EBD7 /* Fredoka_SemiCondensed-SemiBold.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiCondensed-SemiBold.ttf"; path = "../src/assets/fonts/Fredoka_SemiCondensed-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B139C2F5B93C4764BBD64AA8 /* Fredoka_SemiExpanded-Bold.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiExpanded-Bold.ttf"; path = "../src/assets/fonts/Fredoka_SemiExpanded-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BA722BE7AECF4AA2A7421983 /* Fredoka_SemiExpanded-Light.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiExpanded-Light.ttf"; path = "../src/assets/fonts/Fredoka_SemiExpanded-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		44941EF2E69D4E2CA46A9027 /* Fredoka_SemiExpanded-Medium.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiExpanded-Medium.ttf"; path = "../src/assets/fonts/Fredoka_SemiExpanded-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1BB3420901014B72938CBEAE /* Fredoka_SemiExpanded-Regular.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiExpanded-Regular.ttf"; path = "../src/assets/fonts/Fredoka_SemiExpanded-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		15621F2FD86D4EF68F4EDF9E /* Fredoka_SemiExpanded-SemiBold.ttf */ = {isa = PBXFileReference; name = "Fredoka_SemiExpanded-SemiBold.ttf"; path = "../src/assets/fonts/Fredoka_SemiExpanded-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7699B88040F8A987B510C191 /* libPods-kidsLearningApp-kidsLearningAppTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C80B921A6F3F58F76C31292 /* libPods-kidsLearningApp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* kidsLearningAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* kidsLearningAppTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = kidsLearningAppTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F11AD99517003FC87E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* kidsLearningApp */ = {
+			isa = PBXGroup;
+			children = (
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB71A68108700A75B9A /* main.m */,
+				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+			);
+			name = kidsLearningApp;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-kidsLearningApp.a */,
+				19F6CBCC0A4E27FBF8BF4A61 /* libPods-kidsLearningApp-kidsLearningAppTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				13B07FAE1A68108700A75B9A /* kidsLearningApp */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* kidsLearningAppTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				C80CA997E7684E71958C2345 /* Resources */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* kidsLearningApp.app */,
+				00E356EE1AD99517003FC87E /* kidsLearningAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B4392A12AC88292D35C810B /* Pods-kidsLearningApp.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-kidsLearningApp.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-kidsLearningApp-kidsLearningAppTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-kidsLearningApp-kidsLearningAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C80CA997E7684E71958C2345 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				583AD334BE784BCEBF91FC9E /* Fredoka-Bold.ttf */,
+				5DA98C7436F94546B4B4E587 /* Fredoka-Light.ttf */,
+				C8E8A8156CBF45278F66E99B /* Fredoka-Medium.ttf */,
+				1C5D7CECE133414ABFF4BFBB /* Fredoka-Regular.ttf */,
+				077D0C799DD04263BDA4D891 /* Fredoka-SemiBold.ttf */,
+				3E48062A8BDF4F03823D068F /* Fredoka-VariableFont_wdth,wght.ttf */,
+				614957DE77074442AB78BF65 /* Fredoka_Condensed-Bold.ttf */,
+				5CADFBF8FBDC4F5E98055A03 /* Fredoka_Condensed-Light.ttf */,
+				3D160F772FE949F38DB5498F /* Fredoka_Condensed-Medium.ttf */,
+				EAA183674F7243ACB165A3A3 /* Fredoka_Condensed-Regular.ttf */,
+				4A5E7EB2E8214702912BD7A9 /* Fredoka_Condensed-SemiBold.ttf */,
+				25E9443A16DD4579894B9496 /* Fredoka_Expanded-Bold.ttf */,
+				E0DE471F5FC14092A33C9FB8 /* Fredoka_Expanded-Light.ttf */,
+				8C40FA2F111040CC90623805 /* Fredoka_Expanded-Medium.ttf */,
+				5DEBD2D4AED444E2A8EC2394 /* Fredoka_Expanded-Regular.ttf */,
+				F73A9F1E925C46D9825369C2 /* Fredoka_Expanded-SemiBold.ttf */,
+				887F9B7E910949218556DA06 /* Fredoka_SemiCondensed-Bold.ttf */,
+				A76372837124485987CE04C4 /* Fredoka_SemiCondensed-Light.ttf */,
+				F52DC27F488C442E872F7C7B /* Fredoka_SemiCondensed-Medium.ttf */,
+				36F3AFC2150D4C62B058C7C9 /* Fredoka_SemiCondensed-Regular.ttf */,
+				7113963BEEC54FF88A65EBD7 /* Fredoka_SemiCondensed-SemiBold.ttf */,
+				B139C2F5B93C4764BBD64AA8 /* Fredoka_SemiExpanded-Bold.ttf */,
+				BA722BE7AECF4AA2A7421983 /* Fredoka_SemiExpanded-Light.ttf */,
+				44941EF2E69D4E2CA46A9027 /* Fredoka_SemiExpanded-Medium.ttf */,
+				1BB3420901014B72938CBEAE /* Fredoka_SemiExpanded-Regular.ttf */,
+				15621F2FD86D4EF68F4EDF9E /* Fredoka_SemiExpanded-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00E356ED1AD99517003FC87E /* kidsLearningAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "kidsLearningAppTests" */;
+			buildPhases = (
+				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
+				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = kidsLearningAppTests;
+			productName = kidsLearningAppTests;
+			productReference = 00E356EE1AD99517003FC87E /* kidsLearningAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13B07F861A680F5B00A75B9A /* kidsLearningApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "kidsLearningApp" */;
+			buildPhases = (
+				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
+				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kidsLearningApp;
+			productName = kidsLearningApp;
+			productReference = 13B07F961A680F5B00A75B9A /* kidsLearningApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "kidsLearningApp" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* kidsLearningApp */,
+				00E356ED1AD99517003FC87E /* kidsLearningAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				A9725A6953923A3BFDDDF5F9 /* PrivacyInfo.xcprivacy in Resources */,
+				0A6C60DFDB6743889E48327E /* Fredoka-Bold.ttf in Resources */,
+				7B556D8B372A4BD9A21F41A6 /* Fredoka-Light.ttf in Resources */,
+				F0F6F9B0A01C4A5B8F5E80BC /* Fredoka-Medium.ttf in Resources */,
+				40E43DAE91F5461CBD60CB48 /* Fredoka-Regular.ttf in Resources */,
+				940F5D937A6C4634968B3A3B /* Fredoka-SemiBold.ttf in Resources */,
+				6A833AE40C3E4F87A2225383 /* Fredoka-VariableFont_wdth,wght.ttf in Resources */,
+				88CFDABD4BD7436CA6A29A2E /* Fredoka_Condensed-Bold.ttf in Resources */,
+				18205F8AEDC54E4B8C351718 /* Fredoka_Condensed-Light.ttf in Resources */,
+				C50EEC43C6094311896B0D24 /* Fredoka_Condensed-Medium.ttf in Resources */,
+				1093C0D0B2534532BE722B47 /* Fredoka_Condensed-Regular.ttf in Resources */,
+				49EC877752BD4B63AE4EA75C /* Fredoka_Condensed-SemiBold.ttf in Resources */,
+				A640BE566F2A410297DC3B6F /* Fredoka_Expanded-Bold.ttf in Resources */,
+				307D51024A2E40E596BA1FE0 /* Fredoka_Expanded-Light.ttf in Resources */,
+				8ECC1B8EAA0243DDAE67930D /* Fredoka_Expanded-Medium.ttf in Resources */,
+				B050B5E2F6C04C8F82207EB7 /* Fredoka_Expanded-Regular.ttf in Resources */,
+				C9A87B400E1A4808BCB63DA7 /* Fredoka_Expanded-SemiBold.ttf in Resources */,
+				A9A79410A33A402EB0B9A7B7 /* Fredoka_SemiCondensed-Bold.ttf in Resources */,
+				8549C58C66D14AA88AB3ED5B /* Fredoka_SemiCondensed-Light.ttf in Resources */,
+				3310959D41574D7CA8FA446A /* Fredoka_SemiCondensed-Medium.ttf in Resources */,
+				8AF2A5F1EED64ADD85BAF0B8 /* Fredoka_SemiCondensed-Regular.ttf in Resources */,
+				5BEE4BD195214338B0B59BFD /* Fredoka_SemiCondensed-SemiBold.ttf in Resources */,
+				8D80B051299C4BAA856C2EDC /* Fredoka_SemiExpanded-Bold.ttf in Resources */,
+				BF46C53865EA4771BFEBC260 /* Fredoka_SemiExpanded-Light.ttf in Resources */,
+				4134216FBF6849398E3AB93E /* Fredoka_SemiExpanded-Medium.ttf in Resources */,
+				91FEE91581BD409694F7F099 /* Fredoka_SemiExpanded-Regular.ttf in Resources */,
+				C62C9A17DA7843ADA3EFAB0C /* Fredoka_SemiExpanded-SemiBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kidsLearningApp-kidsLearningAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kidsLearningApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp/Pods-kidsLearningApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kidsLearningApp-kidsLearningAppTests/Pods-kidsLearningApp-kidsLearningAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E356F31AD99517003FC87E /* kidsLearningAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				13B07FC11A68108700A75B9A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* kidsLearningApp */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00E356F61AD99517003FC87E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-kidsLearningApp-kidsLearningAppTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = kidsLearningAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kidsLearningApp.app/kidsLearningApp";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-kidsLearningApp-kidsLearningAppTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = kidsLearningAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kidsLearningApp.app/kidsLearningApp";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-kidsLearningApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = kidsLearningApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = kidsLearningApp;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-kidsLearningApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = kidsLearningApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = kidsLearningApp;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				USE_HERMES = true;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "kidsLearningAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "kidsLearningApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "kidsLearningApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}
