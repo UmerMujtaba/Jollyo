@@ -8,7 +8,7 @@ export const images = {
   bearBooks: require('./bearBooks.png'),
   bearPainting: require('./bearPainting.png'),
   elephantBook: require('./elephantBook.png'),
-  // bearCompletion: require('./bearCompletion.png'),r
+  bearCompletion: require('./bearCompletion.png'),
 
   icons: {
     homeIcon: require('./icons/homeicon.png'),

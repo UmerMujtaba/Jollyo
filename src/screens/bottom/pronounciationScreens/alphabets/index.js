@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, ImageBackground} from 'react-native';
+import {FlatList, ImageBackground, View} from 'react-native';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
@@ -8,6 +8,7 @@ import {alphabetData} from '../../../../utils/alphabetsScreenData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {useNetworkImageHandler} from '../../../../hooks';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const AlphabetsScreen = ({route}) => {
   const [playingSound, setPlayingSound] = useState(null);
@@ -36,11 +37,17 @@ const AlphabetsScreen = ({route}) => {
   };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Alphabets'}
-        back
-        onBackPress={() => navigation.goBack()}
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Alphabets'}
+          back
+          onBackPress={() => navigation.goBack()}
+        />
+      </View>
       <FlatList
         data={alphabetData}
         renderItem={renderItem}

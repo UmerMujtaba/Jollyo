@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {hp, rhp, rwp, wp} from '../../constants/dimensions';
+import {hp, isTablet, rhp, rwp, wp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 
 const ProfileRoundedAvatar = ({
@@ -15,14 +15,26 @@ const ProfileRoundedAvatar = ({
       <View
         style={[
           styles.container,
-          styles.insideContainer,
+          {
+            height: isTablet ? rhp(130) : rhp(97),
+            backgroundColor: colors.lightPink,
+            borderTopColor: 'orange',
+            borderLeftColor: 'orange',
+            borderRightColor: 'orange',
+            borderBottomColor: 'white',
+            justifyContent: 'center',
+          },
           innerContainer,
           {
             borderColor: isSelected ? colors.darkOrange : 'transparent',
             borderWidth: isSelected ? 3 : 0,
           },
         ]}>
-        <FastImage source={imageSource} style={styles.img} />
+        <FastImage
+          source={imageSource}
+          style={styles.img}
+          resizeMode={FastImage.resizeMode.contain}
+        />
         {isSelected && (
           <View style={styles.tickContainer}>
             <View style={styles.tick}>
@@ -52,9 +64,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   img: {
-    resizeMode: 'contain',
-    height: hp(8),
-    width: wp(15),
+    height: hp(10),
+    width: wp(18),
     alignSelf: 'center',
   },
   tickContainer: {

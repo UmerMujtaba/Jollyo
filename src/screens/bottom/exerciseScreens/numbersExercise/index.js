@@ -31,6 +31,7 @@ import {addNumberSticker} from '../../../../redux/slices/rewardsSlice';
 import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const QuestionImages = {
   image1: images.cubImage,
@@ -167,6 +168,7 @@ const NumbersExercise = () => {
           key={i}
           source={QuestionImages.image1}
           style={styles.image}
+          resizeMode={FastImage.resizeMode.contain}
         />,
       );
     }
@@ -174,11 +176,17 @@ const NumbersExercise = () => {
   };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Numbers'}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Numbers'}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           {!showRestartPrompt ? (
@@ -187,7 +195,7 @@ const NumbersExercise = () => {
 
               <View style={styles.exerciseContainer}>
                 <View>
-                  <Text style={styles.exerciseText}>Exercise</Text>
+                  <Text style={styles.exerciseText}>{Strings.exercise}</Text>
                 </View>
                 <View>
                   <Text style={styles.exerciseCountText}>

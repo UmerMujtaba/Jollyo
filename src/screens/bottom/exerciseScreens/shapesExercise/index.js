@@ -36,6 +36,7 @@ import {styles} from './styles';
 import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const ShapesExercise = () => {
   const navigation = useNavigation();
@@ -181,14 +182,20 @@ const ShapesExercise = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Shapes'}
-        questionMark
-        speaker
-        onSpeakerPress={''}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Shapes'}
+          questionMark
+          speaker
+          onSpeakerPress={''}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           {!showRestartPrompt ? (
@@ -215,6 +222,7 @@ const ShapesExercise = () => {
                     }
                     style={styles.imgStyle}
                     onError={() => setImageError(true)}
+                    resizeMode={FastImage.resizeMode.cover}
                   />
                 </View>
               </View>
@@ -254,6 +262,7 @@ const ShapesExercise = () => {
                         }
                         style={styles.optImage}
                         onError={() => setImageError(true)}
+                        resizeMode={FastImage.resizeMode.contain}
                       />
                     </View>
                   </TouchableOpacity>

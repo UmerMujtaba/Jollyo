@@ -5,7 +5,7 @@ import FastImage from 'react-native-fast-image';
 import {useSelector} from 'react-redux';
 import {images} from '../../assets/images';
 import {colors} from '../../constants/colors';
-import {rfs, rhp, rwp} from '../../constants/dimensions';
+import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
 import ProfileRoundedAvatar from './profileAvatar';
 const CustomAppBar = ({
@@ -36,6 +36,7 @@ const CustomAppBar = ({
               <FastImage
                 source={images.icons.backIcon}
                 style={styles.backIconStyle}
+                resizeMode={FastImage.resizeMode.contain}
               />
             </TouchableOpacity>
           </View>
@@ -67,6 +68,7 @@ const CustomAppBar = ({
                 }
                 // source={images.icons.questionIcon}
                 style={styles.backIconStyle}
+                resizeMode={FastImage.resizeMode.contain}
               />
             </View>
           </TouchableOpacity>
@@ -80,6 +82,7 @@ const CustomAppBar = ({
               <FastImage
                 source={images.icons.notificationsIcon}
                 style={styles.backIconStyle}
+                resizeMode={FastImage.resizeMode.contain}
               />
             </View>
           </TouchableOpacity>
@@ -93,22 +96,22 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     paddingHorizontal: rwp(10),
-    paddingVertical: rhp(10),
-    marginTop: rhp(20),
+    // paddingVertical: isTablet ? rhp(10) : rhp(10),
+    marginTop: isTablet ? rhp(10) : rhp(15),
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
     // backgroundColor: 'red',
   },
   btnStyle: {
-    width: rwp(45),
+    width: isTablet ? rwp(35) : rwp(45),
     backgroundColor: colors.blackishOrange,
-    height: rhp(50),
+    height: isTablet ? rhp(45) : rhp(50),
     // alignSelf: 'center',
     borderRadius: 16,
   },
   insideBtnStyle: {
-    height: rhp(44),
+    height: isTablet ? rhp(39) : rhp(44),
     backgroundColor: colors.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
@@ -117,14 +120,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   questionBtnStyle: {
-    width: rwp(45),
+    width: isTablet ? rwp(35) : rwp(45),
     backgroundColor: colors.darkPink,
-    height: rhp(50),
+    height: isTablet ? rhp(45) : rhp(50),
     alignSelf: 'flex-end',
     borderRadius: 16,
   },
   insideQuestionBtnStyle: {
-    height: rhp(44),
+    height: isTablet ? rhp(39) : rhp(44),
     backgroundColor: colors.lightPink,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backIconStyle: {
-    resizeMode: 'contain',
+    // resizeMode: 'contain',
     height: rhp(20),
     width: rwp(20),
     alignSelf: 'center',

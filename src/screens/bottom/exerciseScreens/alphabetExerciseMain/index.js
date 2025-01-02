@@ -12,6 +12,7 @@ import {styles} from './styles';
 import {useSelector, useDispatch} from 'react-redux';
 import {setAlphabetProgress} from '../../../../redux/slices/alphabetsExerciseSlice';
 import {useNetworkImageHandler} from '../../../../hooks';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const AlphabetsExerciseMain = ({route}) => {
   const {letterData, index} = route.params;
@@ -103,14 +104,20 @@ const AlphabetsExerciseMain = ({route}) => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Alphabets'}
-        questionMark
-        speaker
-        onSpeakerPress={handleSpeakerPress}
-        onBackPress={goBack}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Alphabets'}
+          questionMark
+          speaker
+          onSpeakerPress={handleSpeakerPress}
+          onBackPress={goBack}
+          back
+        />
+      </View>
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           <ExerciseHeader
@@ -134,6 +141,7 @@ const AlphabetsExerciseMain = ({route}) => {
               }
               style={styles.imgStyle}
               onError={() => setImageError(true)}
+              resizeMode={FastImage.resizeMode.cover}
             />
           </View>
           <Text style={styles.letterText}>{letterData.letter}</Text>

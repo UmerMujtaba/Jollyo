@@ -10,7 +10,7 @@ import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
-import {rhp} from '../../../../constants/dimensions';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {AnimalsData} from '../../../../utils/animalsData';
 import {styles} from './styles';
@@ -63,11 +63,17 @@ const AnimalsScreen = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Animals'}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Animals'}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <FlatList
         data={AnimalsData}
         renderItem={renderItem}

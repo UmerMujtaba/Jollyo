@@ -1,5 +1,5 @@
-import {Dimensions, StyleSheet} from 'react-native';
-import {rfs, rhp, rwp, width} from '../../../constants/dimensions'; // Make sure these constants are correct
+import {Dimensions, Platform, StyleSheet} from 'react-native';
+import {isTablet, rfs, rhp, rwp, width} from '../../../constants/dimensions'; // Make sure these constants are correct
 import {colors} from '../../../constants/colors'; // Make sure the color constants are defined
 import fonts from '../../../constants/fonts'; // Make sure your fonts are defined if needed
 
@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
   },
   topCircle: {
     backgroundColor: 'white',
+    // backgroundColor: isTablet ? colors.backgroundClr : colors.red,
     height: rwp(500),
     width: rwp(500),
     borderRadius: rwp(250),
@@ -17,7 +18,8 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     zIndex: 0,
-    top: -100,
+    top: isTablet ? rhp(-270) : rhp(-100),
+    // top: rwp(-100),
   },
   carouselImg: {
     width: Dimensions.get('window').width * 0.7,
@@ -56,12 +58,12 @@ export const styles = StyleSheet.create({
     marginBottom: rhp(40),
   },
   dotColor: (index, currentIndex) => ({
-    height: rhp(10),
-    width: rwp(10),
+    height: isTablet ? rwp(8) : rwp(10),
+    width: isTablet ? rwp(8) : rwp(10),
     backgroundColor: currentIndex == index ? colors.darkOrange : 'white',
     marginHorizontal: rwp(5),
     alignSelf: 'center',
-    borderRadius: 10,
+    borderRadius: isTablet ? rwp(4) : rwp(5),
     elevation: 5,
   }),
 });

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, ImageBackground} from 'react-native';
+import {FlatList, ImageBackground, View} from 'react-native';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
@@ -7,6 +7,7 @@ import {useLoaderProvider} from '../../../../contextAPI';
 import {numbersData} from '../../../../utils/numbersScreenData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const NumbersScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);
@@ -36,11 +37,17 @@ const NumbersScreen = () => {
   };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Numbers'}
-        back
-        onBackPress={() => navigation.goBack()}
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Numbers'}
+          back
+          onBackPress={() => navigation.goBack()}
+        />
+      </View>
       <FlatList
         data={numbersData}
         renderItem={renderItem}

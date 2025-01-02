@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {rfs, rhp, rwp, wp} from '../../constants/dimensions';
+import {isTablet, rfs, rhp, rwp, wp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import FastImage from 'react-native-fast-image';
 import fonts from '../../constants/fonts';
@@ -23,7 +23,7 @@ const MenuItemTile = ({imageSource, title, subHeading, onPress}) => {
         </View>
         <View style={styles.iconContainer}>
           <FastImage
-            style={styles.iconStyle}
+            style={styles.iconNewStyle}
             resizeMode={FastImage.resizeMode.contain}
             source={images.icons.rightArrowIcon}
           />
@@ -60,6 +60,11 @@ const styles = StyleSheet.create({
     height: rhp(20),
     alignSelf: 'center',
   },
+  iconNewStyle: {
+    width: rwp(20),
+    height: rhp(20),
+    alignSelf: 'flex-end',
+  },
   textContainer: {
     width: wp(60),
     paddingHorizontal: rwp(20),
@@ -75,9 +80,10 @@ const styles = StyleSheet.create({
     fontSize: rfs(17),
   },
   iconContainer: {
-    width: wp(10),
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
+    // backgroundColor: 'red',
+    width: isTablet ? wp(14) : wp(10),
+    // alignItems: 'flex-end',
+    // justifyContent: 'flex-end',
   },
 });
 export default MenuItemTile;

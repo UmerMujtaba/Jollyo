@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   },
   emptySection: {
     // backgroundColor: 'red',
-    width: 120,
+    width: rwp(100),
     alignItems: 'center',
   },
   sectionContainer: {

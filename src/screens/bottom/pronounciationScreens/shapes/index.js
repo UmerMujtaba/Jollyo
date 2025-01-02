@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, ImageBackground} from 'react-native';
+import {FlatList, ImageBackground, View} from 'react-native';
 import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
@@ -7,6 +7,7 @@ import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {shapesData} from '../../../../utils/shapesScreenData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const ShapesScreen = () => {
   const navigation = useNavigation();
@@ -36,11 +37,17 @@ const ShapesScreen = () => {
   };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Shapes'}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Shapes'}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <FlatList
         data={shapesData}
         renderItem={renderItem}

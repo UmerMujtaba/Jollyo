@@ -6,6 +6,7 @@ import {TouchableButton} from '../../../components/atoms/button';
 import {navigate} from '../../../navigationHandler/navigationRef';
 import {ScreenNames} from '../../../constants/strings';
 import FastImage from 'react-native-fast-image';
+import {rhp} from '../../../constants/dimensions';
 
 const renderItem = ({item}) => {
   return (
@@ -51,7 +52,7 @@ const OnBoardingScreen = () => {
       </View>
       <TouchableButton
         title={'Continue'}
-        btnPropStyle={{marginTop: 30}}
+        btnPropStyle={{marginTop: rhp(30)}}
         onPress={() => navigate(ScreenNames.loginScreen)}
       />
     </View>

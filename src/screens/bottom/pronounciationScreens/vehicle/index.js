@@ -10,7 +10,7 @@ import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
-import {rhp} from '../../../../constants/dimensions';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {VehiclesData} from '../../../../utils/vehiclesData';
 import {styles} from './styles';
@@ -63,11 +63,17 @@ const Vehicle = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Vehicles'}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Vehicles'}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <FlatList
         data={VehiclesData}
         renderItem={renderItem}

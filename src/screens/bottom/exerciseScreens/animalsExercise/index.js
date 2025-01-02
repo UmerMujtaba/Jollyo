@@ -36,6 +36,7 @@ import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TouchableButton} from '../../../../components/atoms/button';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const AnimalsExercise = () => {
   const {
@@ -55,8 +56,8 @@ const AnimalsExercise = () => {
   const [showRestartPrompt, setShowRestartPrompt] = useState(false);
 
   const shuffledAnimals = [...AnimalsData];
-  const totalExercises = 2;
-  // const totalExercises = shuffledAnimals.length;
+  // const totalExercises = 2;
+  const totalExercises = shuffledAnimals.length;
   const {getStickerForExercise} = useStickerManager();
   const progressAnim = useState(new Animated.Value(0))[0];
   const {imageError, setImageError, isConnected} = useNetworkImageHandler();
@@ -174,11 +175,17 @@ const AnimalsExercise = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Animals'}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Animals'}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           {!showRestartPrompt ? (
@@ -239,6 +246,7 @@ const AnimalsExercise = () => {
                         }
                         style={styles.animalImage}
                         onError={() => setImageError(true)}
+                        resizeMode={FastImage.resizeMode.contain}
                       />
 
                       <TouchableOpacity

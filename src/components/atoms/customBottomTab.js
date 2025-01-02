@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../../constants/colors';
-import {rfs, rhp, rwp} from '../../constants/dimensions'; // Assuming these are already defined
+import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions'; // Assuming these are already defined
 import {images} from '../../assets/images';
 import FastImage from 'react-native-fast-image';
 const CustomBottomTab = ({onNext, onBack, onSpeak}) => {
@@ -66,14 +66,15 @@ const styles = StyleSheet.create({
   },
   tabButton: {
     alignItems: 'center',
-    width: rwp(45),
+    height: isTablet ? rhp(45) : rhp(50),
+    width: isTablet ? rwp(35) : rwp(45),
     backgroundColor: colors.blackishOrange,
-    height: rhp(50),
+    // height: rhp(50),
     alignSelf: 'center',
     borderRadius: 12,
   },
   tabButtonInside: {
-    height: rhp(44),
+    height: isTablet ? rhp(39) : rhp(44),
     backgroundColor: colors.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',

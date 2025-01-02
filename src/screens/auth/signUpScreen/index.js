@@ -104,7 +104,7 @@ const SignUpScreen = () => {
         inputPasswordText={[styles.passwordInputField]}
       />
 
-      <View style={{paddingHorizontal: 20}}>
+      <View style={styles.inputView}>
         <InputField
           heading={Strings.confirmPassword}
           keyboardType="default"
@@ -133,7 +133,7 @@ const SignUpScreen = () => {
           <FastImage
             source={images.cubImage}
             style={styles.imgStyle}
-            resizeMode={FastImage.resizeMode.cover}
+            resizeMode={FastImage.resizeMode.contain}
           />
         </View>
       )}

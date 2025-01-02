@@ -1,5 +1,13 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import {hp, rfs, rhp, rwp, width, wp} from '../../../../constants/dimensions';
+import {
+  hp,
+  isTablet,
+  rfs,
+  rhp,
+  rwp,
+  width,
+  wp,
+} from '../../../../constants/dimensions';
 import fonts from '../../../../constants/fonts';
 import {colors} from '../../../../constants/colors';
 
@@ -29,7 +37,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
   },
   bottomBody: {
-    paddingHorizontal: 5,
+    paddingHorizontal: rwp(10),
   },
   question: {
     fontSize: rfs(24),
@@ -40,7 +48,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: rwp(5),
+    paddingHorizontal: rwp(8),
   },
   exerciseText: {
     fontSize: rfs(20),
@@ -61,13 +69,13 @@ export const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: colors.blackishOrange,
-    height: rhp(50),
-    width: wp(12),
+    height: isTablet ? rhp(45) : rhp(50),
+    width: isTablet ? rwp(35) : rwp(45),
     borderRadius: 16,
   },
 
   btnInside: {
-    height: rhp(44),
+    height: isTablet ? rhp(39) : rhp(44),
     backgroundColor: colors.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
@@ -76,7 +84,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backIconStyle: {
-    resizeMode: 'contain',
+    // resizeMode: 'contain',
     height: rhp(20),
     width: rwp(20),
     alignSelf: 'center',
@@ -118,16 +126,15 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   gameImage: {
-    width: rwp(140),
-    height: rhp(140),
+    width: isTablet ? rwp(120) : rwp(140),
+    height: isTablet ? rhp(120) : rhp(140),
     margin: 16,
-    resizeMode: 'cover',
-    borderRadius: rwp(12),
+    borderRadius: isTablet ? rhp(40) : rwp(20),
   },
   checkbox: pressed => ({
     borderRadius: rwp(8),
-    width: rwp(170),
-    height: rhp(170),
+    width: isTablet ? rwp(135) : rwp(170),
+    height: isTablet ? rhp(135) : rhp(170),
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -149,18 +156,18 @@ export const styles = StyleSheet.create({
 
   btnStyle: {
     width: wp(45),
-    backgroundColor: colors.blackishOrange,
     height: rhp(50),
-    alignSelf: 'center',
+    backgroundColor: colors.blackishOrange,
+    // alignSelf: 'center',
     borderRadius: 16,
     flexDirection: 'row',
   },
   btnText: {
+    width: '60%',
     textAlign: 'center',
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     fontSize: rfs(20),
     color: colors.white,
-    width: '60%',
     alignSelf: 'center',
   },
   insideBtnStyle: {

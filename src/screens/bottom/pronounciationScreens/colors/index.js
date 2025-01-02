@@ -13,6 +13,7 @@ import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {ColorsData} from '../../../../utils/colorsData';
 import {styles} from './styles';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const ColorsScreen = () => {
   const {setLoader} = useLoaderProvider();
@@ -51,11 +52,17 @@ const ColorsScreen = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Colors'}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Colors'}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <FlatList
         data={ColorsData}
         renderItem={renderItem}

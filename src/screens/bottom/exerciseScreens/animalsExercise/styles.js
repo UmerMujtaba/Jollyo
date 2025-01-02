@@ -1,5 +1,12 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import {hp, rfs, rhp, rwp, wp} from '../../../../constants/dimensions';
+import {
+  hp,
+  isTablet,
+  rfs,
+  rhp,
+  rwp,
+  wp,
+} from '../../../../constants/dimensions';
 import fonts from '../../../../constants/fonts';
 import {colors} from '../../../../constants/colors';
 
@@ -29,7 +36,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
   },
   bottomBody: {
-    paddingHorizontal: 10,
+    paddingHorizontal: rwp(10),
   },
   question: {
     fontSize: rfs(24),
@@ -69,7 +76,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    marginTop: 20,
+    marginTop: rhp(20),
   },
   animalCard: {
     alignItems: 'center',
@@ -82,12 +89,12 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
   },
   checkbox: pressed => ({
-    width: rwp(30),
-    height: rwp(30),
-    borderRadius: rwp(15),
+    width: isTablet ? rwp(20) : rwp(30),
+    height: isTablet ? rwp(20) : rwp(30),
+    borderRadius: isTablet ? rwp(10) : rwp(15),
     borderWidth: 2,
     borderColor: 'transparent',
-    marginBottom: 10,
+    marginBottom: isTablet ? rhp(20) : rhp(10),
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',

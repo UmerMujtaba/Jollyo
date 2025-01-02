@@ -35,6 +35,8 @@ export const Strings = {
   dntHaveAnAccount: " Don't have an account? ",
   confirmPassword: 'Confirm Password',
   alreadyHaveAnAccount: 'Already have an account? ',
+  exercise: 'Exercise',
+  chooseTheCorrectWord: 'Choose the correct word:',
   // confirmPassword: 'Confirm Password',
   // signUp: 'Sign Up',
   // name: 'Name',

@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {hp, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
+import {hp, isTablet, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
 import {colors} from '../../../constants/colors';
 import fonts from '../../../constants/fonts';
 
@@ -29,4 +29,5 @@ export const styles = StyleSheet.create({
     marginBottom: rhp(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
+  inputView: {paddingHorizontal: rwp(20)},
 });

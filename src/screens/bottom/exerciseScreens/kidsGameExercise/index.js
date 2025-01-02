@@ -33,6 +33,8 @@ import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TouchableButton} from '../../../../components/atoms/button';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
+import {isTablet, rhp} from '../../../../constants/dimensions';
+import {Strings} from '../../../../constants/strings';
 
 const getRandomQuestions = () => {
   let selected = [];
@@ -182,11 +184,17 @@ const KidsGameExercise = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Quiz'}
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View
+        style={{
+          marginTop: isTablet ? rhp(20) : rhp(10),
+          // marginBottom: rhp(15),
+        }}>
+        <CustomAppBar
+          title={'Quiz'}
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           {!showRestartPrompt ? (
@@ -197,10 +205,13 @@ const KidsGameExercise = () => {
                     <FastImage
                       source={images.icons.loudSpeaker}
                       style={styles.backIconStyle}
+                      resizeMode={FastImage.resizeMode.contain}
                     />
                   </View>
                 </TouchableOpacity>
-                <Text style={styles.question}>Choose the correct word:</Text>
+                <Text style={styles.question}>
+                  {Strings.chooseTheCorrectWord}
+                </Text>
               </View>
 
               <View style={styles.exerciseContainer}>
@@ -266,17 +277,24 @@ const KidsGameExercise = () => {
                         }
                         style={styles.gameImage}
                         onError={() => setImageError(true)}
+                        resizeMode={FastImage.resizeMode.contain}
                       />
                     </TouchableOpacity>
                   </View>
                 ))}
               </View>
 
-              <TouchableOpacity style={[styles.btnStyle]}>
-                <View style={[styles.btnStyle, styles.insideBtnStyle]}>
-                  <Text style={styles.btnText}>{correctGame}</Text>
-                </View>
-              </TouchableOpacity>
+              <View
+                style={{
+                  marginTop: isTablet ? rhp(80) : rhp(0),
+                  alignItems: 'center',
+                }}>
+                <TouchableOpacity style={[styles.btnStyle]}>
+                  <View style={[styles.btnStyle, styles.insideBtnStyle]}>
+                    <Text style={styles.btnText}>{correctGame}</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
           ) : (
             <RestartPrompt onRestart={handleRestart} />

@@ -5,7 +5,7 @@ import {View, Image, Text, StyleSheet} from 'react-native';
 import HomeScreen from '../../screens/bottom/home';
 import GamesScreen from '../../screens/bottom/games';
 import ListsScreen from '../../screens/bottom/list';
-import {rfs, rhp, rwp} from '../../constants/dimensions';
+import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
 import {images} from '../../assets/images';
 import fonts from '../../constants/fonts';
 import {colors} from '../../constants/colors';
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: rhp(15),
+    marginTop: isTablet ? rhp(0) : rhp(15),
   },
   icon: {
     width: rwp(25),

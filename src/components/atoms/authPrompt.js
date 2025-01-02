@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
-import {rfs} from '../../constants/dimensions';
+import {isTablet, rfs, rhp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import fonts from '../../constants/fonts';
 
@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
   mainText: {
     color: colors.blackishOrange,
     fontSize: rfs(18),
-    lineHeight: 21.56,
+    lineHeight: isTablet ? rhp(21.56) : rhp(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Regular,
   },
   btnText: {
     color: colors.darkOrange,
     fontSize: rfs(18),
-    lineHeight: 21.56,
+    lineHeight: isTablet ? rhp(21.56) : rhp(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
 });

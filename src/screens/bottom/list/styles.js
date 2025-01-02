@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
-import {hp, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
-import fonts from '../../../constants/fonts';
 import {colors} from '../../../constants/colors';
+import {hp, isTablet, rfs, rhp, wp} from '../../../constants/dimensions';
+import fonts from '../../../constants/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,8 +13,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: rfs(28),
-    marginBottom: rhp(10),
-
+    marginVertical: rhp(10),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
   // svg: {
@@ -25,8 +24,8 @@ export const styles = StyleSheet.create({
   // },
   canvas: {
     width: wp(95),
-    height: hp(70),
-    backgroundColor: '#fff',
+    height: isTablet ? hp(65) : hp(70),
+    backgroundColor: colors.white,
   },
 
   slider: {

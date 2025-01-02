@@ -17,8 +17,8 @@ const NavigationStack = createNativeStackNavigator();
 export const NavigationHandler = () => {
   return (
     <NavigationContainer ref={navigationRef}>
-      <NavigationStack.Navigator initialRouteName={ScreenNames.AuthStack}>
-        {/* <NavigationStack.Navigator initialRouteName={ScreenNames.BottomStack}> */}
+      {/* <NavigationStack.Navigator initialRouteName={ScreenNames.AuthStack}> */}
+      <NavigationStack.Navigator initialRouteName={ScreenNames.BottomStack}>
         <NavigationStack.Screen
           name={ScreenNames.AuthStack}
           component={Auth}

@@ -13,6 +13,7 @@ import {navigate} from '../../../../navigationHandler/navigationRef';
 import ExerciseLessonComponent from '../../../../components/atoms/exerciseLessonComponent';
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const AlphabetsExercise = () => {
   const navigation = useNavigation();
@@ -25,15 +26,18 @@ const AlphabetsExercise = () => {
   // }
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
-      <CustomAppBar
-        title={'Alphabets'}
-        questionMark
-        onBackPress={() => navigation.goBack()}
-        back
-      />
+      <View style={{marginTop: isTablet ? rhp(20) : rhp(10)}}>
+        <CustomAppBar
+          title={'Alphabets'}
+          questionMark
+          onBackPress={() => navigation.goBack()}
+          back
+        />
+      </View>
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           <ScrollView
+            showsVerticalScrollIndicator={false}
             contentContainerStyle={{
               paddingBottom: 100,
             }}>

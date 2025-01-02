@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: colors.disabled,
     alignSelf: 'flex-end',
-    marginTop: 20,
+    marginTop: rhp(20),
     borderTopRightRadius: 16,
     borderTopLeftRadius: 16,
   },
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
   },
   bottomBody: {
-    paddingHorizontal: 10,
+    paddingHorizontal: rwp(10),
   },
   imagesContainer: {
     flexDirection: 'row',
@@ -38,8 +38,8 @@ export const styles = StyleSheet.create({
     marginBottom: rhp(10),
   },
   image: {
-    width: rwp(100),
-    height: rhp(100),
+    width: rwp(120),
+    height: rhp(120),
     margin: 5,
   },
   optionsContainer: {
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
     marginTop: rhp(10),
   },
   optionButton: {
-    marginHorizontal: 10,
+    marginHorizontal: rwp(10),
     alignItems: 'center',
     justifyContent: 'center',
     width: wp(12),
@@ -87,7 +87,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.disabled,
     borderRadius: 5,
     overflow: 'hidden',
-    marginBottom: 20,
+    marginBottom: rhp(20),
   },
   progressBar: {
     height: '100%',
@@ -126,18 +126,18 @@ export const styles = StyleSheet.create({
     fontSize: rfs(22),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     color: colors.grey,
-    marginBottom: 20,
+    marginBottom: rhp(20),
     textAlign: 'center',
   },
   modalButton: {
     backgroundColor: colors.parrot,
-    paddingVertical: 10,
-    paddingHorizontal: 30,
+    paddingVertical: rhp(10),
+    paddingHorizontal: rwp(30),
     borderRadius: 5,
   },
   modalButtonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: rfs(16),
   },
   modalImg: {
     resizeMode: 'cover',
