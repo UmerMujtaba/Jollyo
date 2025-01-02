@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {navigationRef} from './navigationRef';
@@ -11,14 +11,34 @@ import AnimalsExercise from '../screens/bottom/exerciseScreens/animalsExercise';
 import AlphabetsExercise from '../screens/bottom/exerciseScreens/alphabetExercise';
 import AlphabetsExerciseMain from '../screens/bottom/exerciseScreens/alphabetExerciseMain';
 import KidsGameExercise from '../screens/bottom/exerciseScreens/kidsGameExercise';
+import {firebase} from '@react-native-firebase/auth';
 
 const NavigationStack = createNativeStackNavigator();
 
 export const NavigationHandler = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(currentUser => {
+      setUser(currentUser);
+      setIsLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <NavigationContainer ref={navigationRef}>
       {/* <NavigationStack.Navigator initialRouteName={ScreenNames.AuthStack}> */}
-      <NavigationStack.Navigator initialRouteName={ScreenNames.BottomStack}>
+      <NavigationStack.Navigator
+        initialRouteName={
+          user ? ScreenNames.BottomStack : ScreenNames.AuthStack
+        }>
         <NavigationStack.Screen
           name={ScreenNames.AuthStack}
           component={Auth}

@@ -11,4 +11,5 @@ export const shapesExerciseData = [
   {name: 'kite', image: images.shapes.kite},
   {name: 'kite', image: images.shapes.kite},
   {name: 'kite', image: images.shapes.kite},
+  {name: 'kite', image: images.shapes.kite},
 ];

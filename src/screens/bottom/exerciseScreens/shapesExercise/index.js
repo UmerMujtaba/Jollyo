@@ -162,7 +162,6 @@ const ShapesExercise = () => {
     setShowRestartPrompt(false);
 
     console.log('Reset complete, hiding restart prompt');
-
     AsyncStorage.removeItem('ShapesExerciseCompleted');
   };
 
@@ -175,9 +174,9 @@ const ShapesExercise = () => {
       setIsFireworksPlaying(false);
     }
   };
-
-  const closeModal = () => {
-    dispatch(setShowModal(false));
+  // Helper function to shuffle an array (used for randomizing positions)
+  const shuffleArray = array => {
+    return array.sort(() => Math.random() - 0.5);
   };
 
   return (
@@ -185,7 +184,6 @@ const ShapesExercise = () => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
           title={'Shapes'}
@@ -208,11 +206,6 @@ const ShapesExercise = () => {
               />
               <View style={styles.imgContainerBorder}>
                 <View style={styles.imgContainer}>
-                  {/* <FastImage
-                    source={{uri: randomShapes[0]?.image}}
-                    style={styles.imgStyle}
-                  /> */}
-
                   <FastImage
                     defaultSource={images.defaultImg}
                     source={
@@ -248,11 +241,6 @@ const ShapesExercise = () => {
                     onPress={() => handleOptionSelect(shape)}>
                     <View
                       style={[styles.optContainer, styles.optContainerInside]}>
-                      {/* <FastImage
-                        source={{uri: shape.image}}
-                        style={styles.optImage}
-                      /> */}
-
                       <FastImage
                         defaultSource={images.defaultImg}
                         source={
@@ -286,7 +274,6 @@ const ShapesExercise = () => {
               }}
             />
           )}
-
           {isCorrect === 'correct' && (
             <StickerModal
               isVisible={showStickerModal}
@@ -296,7 +283,6 @@ const ShapesExercise = () => {
               }}
             />
           )}
-
           <CustomBottomTab onNext={handleNext} onBack={handleBack} />
         </View>
       </View>

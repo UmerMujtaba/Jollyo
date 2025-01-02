@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: rwp(30),
+    paddingHorizontal: rwp(20),
     backgroundColor: 'orange',
     height: rhp(65),
     borderTopLeftRadius: 30,

@@ -12,10 +12,12 @@ export const styles = StyleSheet.create({
     // padding: 30,
   },
   title: {
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
+    color: colors.white,
     fontSize: rfs(28),
     marginVertical: rhp(10),
-    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
+
   // svg: {
   //   position: 'absolute',
   //   top: 20,

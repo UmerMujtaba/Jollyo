@@ -27,6 +27,7 @@ const SelectionContainer = ({
             <FastImage
               source={{uri: imageSource}}
               style={[styles.imgStyle, imageStyle]}
+              resizeMode={FastImage.resizeMode.cover}
             />
           </View>
           <View style={styles.textWrapper}>

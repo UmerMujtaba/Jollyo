@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React, {useCallback, useState} from 'react';
-import {hp, rfs, rhp, rwp, wp} from '../../constants/dimensions';
+import {hp, isTablet, rfs, rhp, rwp, wp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import {Strings} from '../../constants/strings';
 import fonts from '../../constants/fonts';
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
   slider: {
     width: wp(80),
     height: hp(5),
+    // backgroundColor: 'red',
   },
   timeText: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,

@@ -37,6 +37,7 @@ export const Strings = {
   alreadyHaveAnAccount: 'Already have an account? ',
   exercise: 'Exercise',
   chooseTheCorrectWord: 'Choose the correct word:',
+  welcomeAgain: 'Welcome again !',
   // confirmPassword: 'Confirm Password',
   // signUp: 'Sign Up',
   // name: 'Name',

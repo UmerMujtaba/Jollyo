@@ -8,6 +8,8 @@ import {styles} from './styles';
 import firestore from '@react-native-firebase/firestore';
 import {setUserData} from '../../../redux/slices/userDataSlice';
 import auth from '@react-native-firebase/auth'; // For accessing user ID
+import {Strings} from '../../../constants/strings';
+import {colors} from '../../../constants/colors';
 
 const GamesScreen = ({navigation}) => {
   const dispatch = useDispatch();
@@ -69,7 +71,10 @@ const GamesScreen = ({navigation}) => {
           resizeMode={FastImage.resizeMode.contain}
           style={styles.avatarImg}
         />
-        <Text style={styles.nameHeading}> {`Hi, ${username}`}</Text>
+        <View style={{flexDirection: 'column'}}>
+          <Text style={styles.nameHeading}>{`Hi, ${username}`}</Text>
+          <Text style={styles.welcome}>{Strings.welcomeAgain}</Text>
+        </View>
       </View>
       <ScrollableSelectionList />
     </ImageBackground>

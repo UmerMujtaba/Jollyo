@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {colors} from '../../constants/colors';
-import {rfs, rhp, wp} from '../../constants/dimensions';
+import {isTablet, rfs, rhp, wp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
 
 const SoundItemComponent = ({title, onPress}) => {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     width: wp(95),
     backgroundColor: colors.blackishOrange,
     height: rhp(94),
-    borderRadius: 16,
+    borderRadius: isTablet ? 30 : 20,
     marginBottom: rhp(20),
   },
   bgCon: {

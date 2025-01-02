@@ -2,7 +2,7 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {images} from '../../assets/images';
 import {Strings} from '../../constants/strings';
-import {rfs, rhp, rwp, wp} from '../../constants/dimensions';
+import {isTablet, rfs, rhp, rwp, wp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import fonts from '../../constants/fonts';
 import Tts from 'react-native-tts';
@@ -23,6 +23,7 @@ const NumbersQuestionBar = ({title, name}) => {
           <FastImage
             source={images.icons.loudSpeaker}
             style={styles.backIconStyle}
+            resizeMode={FastImage.resizeMode.contain}
           />
         </View>
       </TouchableOpacity>
@@ -39,12 +40,12 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: colors.blackishOrange,
-    height: rhp(50),
-    width: wp(12),
+    height: isTablet ? rhp(45) : rhp(50),
+    width: isTablet ? rwp(35) : rwp(45),
     borderRadius: 16,
   },
   btnInside: {
-    height: rhp(44),
+    height: isTablet ? rhp(39) : rhp(44),
     backgroundColor: colors.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
@@ -53,7 +54,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backIconStyle: {
-    resizeMode: 'contain',
     height: rhp(20),
     width: rwp(20),
     alignSelf: 'center',

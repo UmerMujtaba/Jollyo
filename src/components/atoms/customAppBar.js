@@ -18,6 +18,7 @@ const CustomAppBar = ({
   onBackPress,
   notification,
   onNotificationPress,
+  cont,
 }) => {
   // const navigation = useNavigation();
   const {username, imagePath} = useSelector(state => state.userReducer);
@@ -26,7 +27,7 @@ const CustomAppBar = ({
   );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, cont]}>
       <View style={{width: '20%'}}>
         {back && (
           <View style={styles.btnStyle}>

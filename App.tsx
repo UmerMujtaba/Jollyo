@@ -8,33 +8,33 @@ import {LoaderProvider} from './src/contextAPI';
 import {SoundProvider} from './src/contextAPI/soundsContext';
 import {NavigationHandler} from './src/navigationHandler';
 import {persistor, store} from './src/redux/store';
-// import {FirebaseApp, initializeApp} from '@react-native-firebase/app';
-// import firestore from '@react-native-firebase/firestore';
+
+import {persistStore} from 'redux-persist';
 
 const App = () => {
-  // const [initializing, setInitializing] = useState(true);
-  // const [user, setUser] = useState();
-
-  // function onAuthStateChanged(currentUser: any) {
-  //   setUser(currentUser);
-  //   if (initializing) {
-  //     setInitializing(false);
-  //   }
-  // }
+  const [isPurged, setIsPurged] = useState(false);
   useEffect(() => {
     if (Platform.OS !== 'web') {
       SplashScreen.hide();
     }
   }, []);
-  // if (initializing) {
-  //   return null;
-  // }
 
-  // if (!FirebaseApp.apps.length) {
-  //   initializeApp(); // This initializes Firebase with default configuration
-  // } else {
-  //   FirebaseApp.app(); // If Firebase has already been initialized, use the default app
-  // }
+  // useEffect(() => {
+  //   if (Platform.OS !== 'web') {
+  //     SplashScreen.hide();
+  //   }
+
+  //   const persistorClear = persistStore(store);
+
+  //   if (!isPurged) {
+  //     persistorClear.purge();
+  //     setIsPurged(true);
+  //   }
+
+  //   return () => {
+  //     persistorClear.flush();
+  //   };
+  // }, [isPurged]);
 
   return (
     <GestureHandlerRootView style={{flex: 1}}>

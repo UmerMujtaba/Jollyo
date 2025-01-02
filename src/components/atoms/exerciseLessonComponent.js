@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {rfs, rhp, rwp} from '../../constants/dimensions';
+import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
 import {colors} from '../../constants/colors';
 import fonts from '../../constants/fonts';
 import FastImage from 'react-native-fast-image';
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   imgStyle: {
     resizeMode: 'cover',
     height: rhp(140),
-    width: rwp(150),
+    width: isTablet ? rwp(130) : rwp(150),
     borderRadius: 25,
   },
 });

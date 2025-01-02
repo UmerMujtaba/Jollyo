@@ -40,13 +40,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  // imgContainer: {
-  //   width: wp(70),
-  //   height: wp(70),
-  //   borderRadius: hp(35),
-  //   alignSelf: 'center',
-  //   justifyContent: 'center',
-  // },
+  imgContainer: {
+    width: wp(70),
+    height: wp(70),
+    borderRadius: hp(35),
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
   imgStyle: {
     position: 'relative',
     width: isTablet ? wp(50) : wp(70),
@@ -55,9 +55,9 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   imgContainerBorder: {
-    width: isTablet ? wp(55) : wp(75),
-    height: isTablet ? wp(55) : wp(75),
-    borderRadius: isTablet ? wp(27) : wp(40),
+    width: isTablet ? wp(52) : wp(75),
+    height: isTablet ? wp(52) : wp(75),
+    borderRadius: isTablet ? wp(25) : wp(40),
     borderColor: colors.grey,
     borderWidth: 2,
     alignItems: 'center',

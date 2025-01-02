@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {hp, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
 import {colors} from '../../../constants/colors';
+import {rfs, rhp, rwp} from '../../../constants/dimensions';
 import fonts from '../../../constants/fonts';
 
 export const styles = StyleSheet.create({
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     marginTop: rhp(20),
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: rhp(20),
+    // marginBottom: rhp(20),
   },
   avatarImg: {
     width: rwp(70),
@@ -24,5 +24,12 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     fontSize: rfs(24),
     color: colors.white,
+  },
+  welcome: {
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
+    // fontSize: rfs(20),
+    // lineHeight: 32,
+    fontSize: rfs(24),
+    color: colors.darkOrange,
   },
 });

@@ -416,7 +416,7 @@ export const alphabetData = [
   },
   {
     image: images.alphabets.yak,
-    letter: 'y',
+    letter: 'Y',
     name: 'Lesson 25 Y',
     soundFile:
       'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732253767/alphabets/y_v065lo.wav',

@@ -71,6 +71,7 @@ const SettingsScreen = () => {
         notification
         onNotificationPress={() => {}}
         back
+        cont={styles.appBarCont}
       />
       <Text style={styles.nameStyle}>{username}</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
