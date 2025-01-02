@@ -13,6 +13,8 @@ import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
 import {useKeyboard} from '../../../hooks';
 import {navigate} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
+import auth from '@react-native-firebase/auth'; // For accessing user ID
+import firestore from '@react-native-firebase/firestore';
 
 const SignUpScreen = () => {
   const keyboardStatus = useKeyboard();
@@ -23,10 +25,25 @@ const SignUpScreen = () => {
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
   const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] =
     useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const goToLogin = () => {
     navigate(ScreenNames.loginScreen);
+  };
+
+  const saveEmailToFirebase = async user => {
+    try {
+      if (user?.uid) {
+        await firestore().collection('users').doc(user.uid).set({
+          email: email,
+        });
+
+        console.log('User email saved to Firebase successfully!');
+      } else {
+        console.error('User is not authenticated');
+      }
+    } catch (error) {
+      console.error('Error saving email to Firebase:', error);
+    }
   };
 
   const handleRegister = async () => {
@@ -57,8 +74,15 @@ const SignUpScreen = () => {
 
     try {
       await firebaseHelperFunctions.signUpWithEmail(email, password);
-      Alert.alert('Success', 'Account created successfully!');
-      navigate(ScreenNames.profile);
+      const user = auth().currentUser;
+
+      if (user) {
+        console.log('User account created!');
+        await saveEmailToFirebase(user);
+        navigate(ScreenNames.profile);
+      } else {
+        Alert.alert('Error', 'User is not authenticated.');
+      }
     } catch (error) {
       console.error(error);
       Alert.alert('Error', 'Failed to create account. Please try again.');

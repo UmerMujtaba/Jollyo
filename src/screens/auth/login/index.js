@@ -12,6 +12,8 @@ import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
 import {useKeyboard} from '../../../hooks';
 import {navigate} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
+import auth from '@react-native-firebase/auth'; // For accessing user ID
+import firestore from '@react-native-firebase/firestore';
 
 const LoginScreen = () => {
   const keyboardStatus = useKeyboard();
@@ -42,10 +44,34 @@ const LoginScreen = () => {
     try {
       await firebaseHelperFunctions.signInWithEmail(email, password);
       console.log('User logged in successfully!');
-      navigate('BottomStack', {screen: ScreenNames.homeScreen});
+
+      const user = auth().currentUser;
+      if (user) {
+        const userEmail = user.email;
+        console.log('🚀 ~ handleLogin ~ userEmail:', userEmail);
+
+        const userDoc = await firestore()
+          .collection('users')
+          .where('email', '==', userEmail)
+          .get();
+
+        if (!userDoc.empty) {
+          const userData = userDoc.docs[0].data();
+          console.log('User data fetched:', userData);
+
+          // Optionally, you can store this data in a global state or Redux store
+          // dispatch(setUserData(userData));
+
+          navigate('BottomStack', {screen: ScreenNames.homeScreen});
+        } else {
+          console.log('User data not found in Firestore');
+          Alert.alert('Error', 'User data not found.');
+        }
+      } else {
+        Alert.alert('Error', 'User is not authenticated.');
+      }
     } catch (error) {
-      console.error(error);
-      console.log(error);
+      console.error('Login failed', error);
       Alert.alert(
         'Error',
         'Login failed. Please check your credentials and try again.',

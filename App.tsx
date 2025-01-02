@@ -8,6 +8,8 @@ import {LoaderProvider} from './src/contextAPI';
 import {SoundProvider} from './src/contextAPI/soundsContext';
 import {NavigationHandler} from './src/navigationHandler';
 import {persistor, store} from './src/redux/store';
+// import {FirebaseApp, initializeApp} from '@react-native-firebase/app';
+// import firestore from '@react-native-firebase/firestore';
 
 const App = () => {
   // const [initializing, setInitializing] = useState(true);
@@ -27,6 +29,13 @@ const App = () => {
   // if (initializing) {
   //   return null;
   // }
+
+  // if (!FirebaseApp.apps.length) {
+  //   initializeApp(); // This initializes Firebase with default configuration
+  // } else {
+  //   FirebaseApp.app(); // If Firebase has already been initialized, use the default app
+  // }
+
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <Provider store={store}>

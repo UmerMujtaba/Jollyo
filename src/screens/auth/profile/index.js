@@ -15,6 +15,8 @@ import {
   setUsername,
 } from '../../../redux/slices/userDataSlice';
 import {styles} from './styles';
+import auth from '@react-native-firebase/auth'; // For accessing user ID
+import firestore from '@react-native-firebase/firestore';
 
 const ProfileScreen = () => {
   const [usernameErrorMessage, setUsernameErrorMessage] = useState('');
@@ -22,15 +24,44 @@ const ProfileScreen = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
-  const {username, gender, age} = useSelector(state => state.userReducer);
+  const userId = auth().currentUser?.uid; // Firebase user ID
+  // const [userData, setUserData] = useState(null);
+
+  const {username, gender, age, imagePath} = useSelector(
+    state => state.userReducer,
+  );
   console.log(
     '🚀 ~ ProfileScreen ~ username, gender, age:',
     username,
     gender,
     age,
+    imagePath,
   );
 
   const secondInputRef = useRef();
+
+  const saveUserDataToFirebase = async () => {
+    try {
+      if (userId) {
+        await firestore()
+          .collection('users') // Create or access 'users' collection
+          .doc(userId) // Use the userId as the document ID
+          .update({
+            username: username,
+            gender: gender,
+            age: age,
+            imagePath: imagePath,
+            createdAt: firestore.FieldValue.serverTimestamp(),
+          });
+
+        console.log('User data saved to Firebase successfully!');
+      } else {
+        console.error('User is not authenticated');
+      }
+    } catch (error) {
+      console.error('Error saving user data to Firebase: ', error);
+    }
+  };
 
   const handleUsernameChange = text => {
     dispatch(setUsername(text));
@@ -48,6 +79,7 @@ const ProfileScreen = () => {
 
   const handleNextPress = () => {
     if (validateUsername() && gender && age) {
+      saveUserDataToFirebase();
       navigation.navigate(ScreenNames.interestScreen);
       const item = {username: username, gender: gender, age: age};
       console.log('🚀 ~ ProfileScreen ~ item:', item);

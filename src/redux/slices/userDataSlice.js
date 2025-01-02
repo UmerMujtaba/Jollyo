@@ -1,10 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {act} from 'react';
 
 const initialState = {
   username: '',
   gender: null,
   age: 1,
   imagePath: '',
+  userId: null,
 };
 
 const UserSlice = createSlice({
@@ -21,7 +23,17 @@ const UserSlice = createSlice({
     setAge: (state, action) => {
       state.age = action.payload;
     },
+    setUserId: (state, action) => {
+      state.userId = action.payload;
+    },
+    setUserData: (state, action) => {
+      const {username, gender, age, imagePath} = action.payload;
 
+      state.username = username;
+      state.gender = gender;
+      state.age = age;
+      state.imagePath = imagePath || '';
+    },
     resetUserData: state => {
       state.username = '';
       state.gender = null;
@@ -31,7 +43,13 @@ const UserSlice = createSlice({
   },
 });
 
-export const {setUsername, setGender, setAge, resetUserData} =
-  UserSlice.actions;
+export const {
+  setUsername,
+  setGender,
+  setAge,
+  setUserId,
+  resetUserData,
+  setUserData,
+} = UserSlice.actions;
 
 export default UserSlice.reducer;
