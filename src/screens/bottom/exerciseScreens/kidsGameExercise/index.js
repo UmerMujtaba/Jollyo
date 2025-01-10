@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {
+  ActivityIndicator,
   Alert,
   Animated,
   ImageBackground,
@@ -31,10 +32,13 @@ import {addQuizSticker} from '../../../../redux/slices/rewardsSlice';
 import StickerModal from '../../../../components/atoms/stickerModal';
 import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {TouchableButton} from '../../../../components/atoms/button';
-import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import {Strings} from '../../../../constants/strings';
+import auth from '@react-native-firebase/auth';
+import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
+import useRewardManager from '../../../../hooks/useRewardManager';
+import firestore from '@react-native-firebase/firestore';
+import {colors} from '../../../../constants/colors';
 
 const getRandomQuestions = () => {
   let selected = [];
@@ -50,12 +54,13 @@ const getRandomQuestions = () => {
 const KidsGameExercise = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-
+  const [user, setUser] = useState(null);
   const [earnedSticker, setEarnedSticker] = useState(null);
   const [showStickerModal, setShowStickerModal] = useState(false);
   const [showRestartPrompt, setShowRestartPrompt] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {getStickerForExercise} = useStickerManager();
-
+  const {awardRewardToUser} = useRewardManager();
   const {
     exerciseIndex,
     randomGame,
@@ -65,23 +70,65 @@ const KidsGameExercise = () => {
     showLottie,
     isCorrect,
   } = useSelector(state => state.gamesExerciseReducer);
-
-  // const totalExercises = 2;
-  const totalExercises = GameExerciseData.length;
-
-  // Initialize progress as an Animated.Value
   const progressAnim = useState(new Animated.Value(0))[0];
   const {imageError, setImageError, isConnected} = useNetworkImageHandler();
 
-  const setNewRandomGame = () => {
+  const totalExercises = 2;
+  // const totalExercises = GameExerciseData.length;
+
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(setUser);
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      loadProgressFromFirestore();
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (exerciseIndex <= totalExercises) {
+      setNewRandomGame();
+    } else {
+      const checkIfCompleted = async () => {
+        const completed = await firestore()
+          .collection('users')
+          .doc(user.uid)
+          .collection('progress')
+          .doc('QuizGame')
+          .set({
+            completed: true,
+          });
+        if (completed === 'true') {
+          setShowRestartPrompt(true);
+        }
+        // const checkIfCompleted = async () => {
+        //   const completed = await AsyncStorage.getItem('KidsGameExerciseCompleted');
+        //   if (completed === 'true') {
+        //     setShowRestartPrompt(true);
+        //   }
+      };
+
+      checkIfCompleted();
+    }
+  }, [exerciseIndex]);
+
+  //!!new random game
+  const setNewRandomGame = async () => {
     const selectedGame = getRandomQuestions();
-    dispatch(setRandomGame(selectedGame));
 
-    const correctIndex = Math.floor(Math.random() * selectedGame.length);
-    dispatch(setCorrectGame(selectedGame[correctIndex].name));
+    //first storing it in firestore
+    if (user) {
+      const correctIndex = Math.floor(Math.random() * selectedGame.length);
+      await saveRandomGameToFirestore(selectedGame, correctIndex);
 
-    dispatch(setSelectionStatus([null, null, null, null]));
-    dispatch(setSelectedGame([false, false, false, false]));
+      //now storing it in redux toolkit store
+      dispatch(setRandomGame(selectedGame));
+      dispatch(setCorrectGame(selectedGame[correctIndex].name));
+      dispatch(setSelectionStatus([null, null, null, null]));
+      dispatch(setSelectedGame([false, false, false, false]));
+    }
 
     Animated.timing(progressAnim, {
       toValue: (exerciseIndex / totalExercises) * 100,
@@ -90,7 +137,11 @@ const KidsGameExercise = () => {
     }).start();
   };
 
-  const handleSelection = index => {
+  const handleSelection = async index => {
+    if (!user) {
+      Alert.alert('You need to be logged in to earn rewards');
+      return;
+    }
     if (!isConnected || imageError) {
       console.log(
         'Cannot select option. No internet connection or image loading error.',
@@ -128,12 +179,29 @@ const KidsGameExercise = () => {
     dispatch(setSelectionStatus(updatedStatus));
 
     if (exerciseIndex === totalExercises && isCorrect === 'correct') {
-      const sticker = getStickerForExercise();
-      setEarnedSticker(sticker);
+      console.log(
+        'Quiz Exercise completed and correct, showing sticker modal.',
+      );
+      const rewardData = getStickerForExercise();
+      console.log('🚀 ~ KidsGameExercise ~ rewardData:', rewardData);
       setShowStickerModal(true);
-      dispatch(addQuizSticker(sticker));
-      AsyncStorage.setItem('KidsGameExerciseCompleted', 'true');
+      setEarnedSticker(rewardData);
+      console.log('🚀 ~ KidsGameExercise ~ setEarnedSticker:', earnedSticker);
+      awardRewardToUser('quizzesReward', [rewardData]);
+      dispatch(addQuizSticker(rewardData));
+      setShowStickerModal(true);
+      saveProgressToFirestore();
+
+      await firestore()
+        .collection('users')
+        .doc(user.uid)
+        .collection('progress')
+        .doc('QuizGame')
+        .set({
+          completed: true,
+        });
     }
+    AsyncStorage.setItem('KidsGameExerciseCompleted', 'true');
   };
 
   const handleNext = value => {
@@ -151,11 +219,22 @@ const KidsGameExercise = () => {
     }
   };
 
-  const handleRestart = () => {
+  const handleRestart = async () => {
     dispatch(setExerciseIndex(1));
     setNewRandomGame();
     setShowRestartPrompt(false);
 
+    await firestore()
+      .collection('users')
+      .doc(user.uid)
+      .collection('progress')
+      .doc('QuizGame')
+      .set({
+        completed: false,
+        exerciseIndex: 1,
+      });
+
+    saveProgressToFirestore();
     AsyncStorage.removeItem('KidsGameExerciseCompleted');
   };
 
@@ -165,32 +244,105 @@ const KidsGameExercise = () => {
       setNewRandomGame();
     }
   };
+  const saveRandomGameToFirestore = async (selectedGame, correctIndex) => {
+    if (user) {
+      console.log('🚀 ~ saveRandomGameToFirestore ~ user:', user);
+      const userProgressRef = firestore()
+        .collection('users')
+        .doc(user.uid)
+        .collection('progress')
+        .doc('QuizGame');
 
-  useEffect(() => {
-    if (exerciseIndex <= totalExercises) {
+      await userProgressRef.set({
+        randomGame: selectedGame,
+        correctGame: selectedGame[correctIndex].name,
+        exerciseIndex,
+        selectionStatus: [null, null, null, null],
+        selectedGame: [false, false, false, false],
+        isCorrect: null,
+        showLottie: false,
+        earnedSticker: null,
+        progress: (exerciseIndex / totalExercises) * 100,
+        completed: false,
+      });
+    }
+  };
+
+  const loadProgressFromFirestore = async () => {
+    setLoading(true);
+    if (user) {
+      setLoading(false);
+      const userProgressRef = firestore()
+        .collection('users')
+        .doc(user.uid)
+        .collection('progress')
+        .doc('QuizGame');
+
+      const progressSnapshot = await userProgressRef.get();
+
+      if (progressSnapshot.exists) {
+        const progressData = progressSnapshot.data();
+
+        if (progressData.completed) {
+          setShowRestartPrompt(true);
+        }
+
+        dispatch(setExerciseIndex(progressData.exerciseIndex));
+        dispatch(setRandomGame(progressData.randomGame));
+        dispatch(setCorrectGame(progressData.correctGame));
+        dispatch(setSelectedGame(progressData.selectedGame));
+        dispatch(setSelectionStatus(progressData.selectionStatus));
+        dispatch(setIsCorrect(progressData.isCorrect));
+        dispatch(setShowLottie(progressData.showLottie));
+        setEarnedSticker(progressData.earnedSticker);
+        dispatch(setProgress(progressData.progress));
+      } else {
+        console.log('No progress data found for this user.');
+      }
+      setLoading(false);
       setNewRandomGame();
     }
-  }, [exerciseIndex]);
+  };
 
-  useEffect(() => {
-    const checkIfCompleted = async () => {
-      const completed = await AsyncStorage.getItem('exerciseCompleted');
-      if (completed === 'true') {
-        setShowRestartPrompt(true);
-      }
-    };
-    checkIfCompleted();
-  }, []);
+  const saveProgressToFirestore = async () => {
+    if (user) {
+      const userProgressRef = firestore()
+        .collection('users')
+        .doc(user.uid)
+        .collection('progress')
+        .doc('QuizGame');
+
+      await userProgressRef.set({
+        exerciseIndex,
+        randomGame,
+        correctGame,
+        selectedGame,
+        selectionStatus,
+        isCorrect,
+        showLottie,
+        earnedSticker,
+        progress: (exerciseIndex / totalExercises) * 100,
+        completed: true,
+      });
+    }
+  };
+
+  if (loading) {
+    return (
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <ActivityIndicator size="large" color={colors.darkOrange} />
+      </View>
+    );
+  }
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Quiz'}
+          title={'Q u i z'}
           onBackPress={() => navigation.goBack()}
           back
         />
@@ -249,7 +401,7 @@ const KidsGameExercise = () => {
               )}
 
               <View style={styles.gameContainer}>
-                {randomGame.map((game, index) => (
+                {randomGame?.map((game, index) => (
                   <View key={index} style={styles.gameCard}>
                     <TouchableOpacity
                       hitSlop={{top: 5, bottom: 5, left: 5, right: 5}}
@@ -262,12 +414,6 @@ const KidsGameExercise = () => {
                           : styles.unchecked,
                       ]}
                       onPress={() => handleSelection(index)}>
-                      {/* <FastImage
-                        defaultSource={images.defaultImg}
-                        source={{uri: game.image}}
-                        style={styles.gameImage}
-                      /> */}
-
                       <FastImage
                         defaultSource={images.defaultImg}
                         source={

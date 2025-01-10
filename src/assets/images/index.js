@@ -9,6 +9,8 @@ export const images = {
   bearPainting: require('./bearPainting.png'),
   elephantBook: require('./elephantBook.png'),
   bearCompletion: require('./bearCompletion.png'),
+  // twinkle: require('./twinkle.jpg'),
+  // premiumImage: require('./premium.png'),
 
   icons: {
     homeIcon: require('./icons/homeicon.png'),
@@ -28,6 +30,7 @@ export const images = {
     logoutIcon: require('./icons/logoutIcon.png'),
     statsIcon: require('./icons/statsIcon.png'),
     drawIcon: require('./icons/drawIcon.png'),
+    guideIcon: require('./icons/guideIcon.png'),
   },
   rewards: {
     rewardHat: require('./hat.jpeg'),

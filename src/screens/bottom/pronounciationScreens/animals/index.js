@@ -69,7 +69,7 @@ const AnimalsScreen = () => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Animals'}
+          title={'A n i m a l s'}
           onBackPress={() => navigation.goBack()}
           back
         />

@@ -102,6 +102,8 @@ const SignUpScreen = () => {
         secureTextEntry
         inputEmailText={[styles.emailInputField]}
         inputPasswordText={[styles.passwordInputField]}
+        emailAutCapitalize={'none'}
+        passwordAutoCapitalize={'none'}
       />
 
       <View style={styles.inputView}>
@@ -112,6 +114,7 @@ const SignUpScreen = () => {
           onChangeText={setConfirmPassword}
           secureTextEntry
           inputText={[{fontSize: rfs(24)}]}
+          autoCapitalize={'none'}
         />
       </View>
 

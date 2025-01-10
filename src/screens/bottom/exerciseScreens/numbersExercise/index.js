@@ -32,6 +32,8 @@ import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
 import {isTablet, rhp} from '../../../../constants/dimensions';
+import useRewardManager from '../../../../hooks/useRewardManager';
+import auth from '@react-native-firebase/auth';
 
 const QuestionImages = {
   image1: images.cubImage,
@@ -43,6 +45,7 @@ const NumbersExercise = () => {
   const [earnedSticker, setEarnedSticker] = useState(null);
   const [showStickerModal, setShowStickerModal] = useState(false);
   const [showRestartPrompt, setShowRestartPrompt] = useState(false);
+  const [user, setUser] = useState(null);
   const {getStickerForExercise} = useStickerManager();
   const {
     exerciseIndex,
@@ -54,12 +57,19 @@ const NumbersExercise = () => {
     showLottie,
   } = useSelector(state => state.numbersExerciseReducer);
 
+  // const totalExercises = 2;
   const totalExercises = 12;
   console.log('🚀 ~ NumbersExercise ~ totalExercises:', totalExercises);
   const animatedProgress = useState(
     new Animated.Value(exerciseIndex / totalExercises),
   )[0];
   // const {imageError, setImageError, isConnected} = useNetworkImageHandler();
+  const {awardRewardToUser} = useRewardManager();
+
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(setUser); // Listen to auth state changes
+    return unsubscribe;
+  }, []);
 
   const generateOptions = () => {
     const correctAnswer = randomCount;
@@ -79,17 +89,6 @@ const NumbersExercise = () => {
     const newOptions = generateOptions();
     dispatch(setOptions(newOptions));
   }, [randomCount]);
-
-  useEffect(() => {
-    dispatch(setFeedbackColor('transparent'));
-    const checkIfCompleted = async () => {
-      const completed = await AsyncStorage.getItem('NumbersExerciseCompleted');
-      if (completed === 'true') {
-        setShowRestartPrompt(true);
-      }
-    };
-    checkIfCompleted();
-  }, []);
 
   useEffect(() => {
     Animated.timing(animatedProgress, {
@@ -122,10 +121,20 @@ const NumbersExercise = () => {
     }
 
     if (exerciseIndex === totalExercises && isCorrect === 'correct') {
-      const sticker = getStickerForExercise();
-      setEarnedSticker(sticker);
+      console.log(
+        'Numbers Exercise completed and correct, showing sticker modal.',
+      );
+      const rewardData = getStickerForExercise();
+      console.log('🚀 ~ KidsGameExercise ~ rewardData:', rewardData);
       setShowStickerModal(true);
-      dispatch(addNumberSticker(sticker));
+      setEarnedSticker(rewardData);
+      console.log(
+        '🚀 ~ NumbersExerciseScreen ~ setEarnedSticker:',
+        earnedSticker,
+      );
+      awardRewardToUser('numbersReward', [rewardData]);
+      dispatch(addNumberSticker(rewardData));
+      setShowStickerModal(true);
       AsyncStorage.setItem('NumbersExerciseCompleted', 'true');
     }
   };
@@ -174,6 +183,17 @@ const NumbersExercise = () => {
     }
     return imagesArray;
   };
+
+  useEffect(() => {
+    dispatch(setFeedbackColor('transparent'));
+    const checkIfCompleted = async () => {
+      const completed = await AsyncStorage.getItem('NumbersExerciseCompleted');
+      if (completed === 'true') {
+        setShowRestartPrompt(true);
+      }
+    };
+    checkIfCompleted();
+  }, []);
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View
@@ -182,7 +202,7 @@ const NumbersExercise = () => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Numbers'}
+          title={'N u m b e r s'}
           onBackPress={() => navigation.goBack()}
           back
         />

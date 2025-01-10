@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import {InterestsData} from '../../constants/strings';
 import InterestsTouchableComponent from '../atoms/interestsTouchableContainer';
+import {InterestsData} from '../../utils/interestsData';
 
 const InterestsSelection = ({onSelectionChange}) => {
   const [selectedItems, setSelectedItems] = useState([]);

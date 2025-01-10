@@ -1,14 +1,40 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {colors} from '../../constants/colors';
 import {rfs, rhp, wp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
+import Sound from 'react-native-sound';
+import useSound from '../../hooks/buttonClickHook';
 
-export const TouchableButton = ({onPress, title, btnPropStyle, btnInside}) => {
+Sound.setCategory('Playback');
+
+export const TouchableButton = ({
+  onPress,
+  title,
+  btnPropStyle,
+  btnInside,
+  btnTextProp,
+}) => {
+  const playSound = useSound(
+    'https://res.cloudinary.com/dtpvy8gil/video/upload/v1736403972/click_sound_ifctk3.mp3',
+  );
+
+  const handlePress = () => {
+    playSound();
+
+    if (onPress) {
+      setTimeout(() => {
+        onPress();
+      }, 600);
+    }
+  };
+
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.btnStyle, btnPropStyle]}>
+    <TouchableOpacity
+      onPress={handlePress}
+      style={[styles.btnStyle, btnPropStyle]}>
       <View style={[styles.btnStyle, styles.insideBtnStyle, btnInside]}>
-        <Text style={styles.btnText}>{title}</Text>
+        <Text style={[styles.btnText, btnTextProp]}>{title}</Text>
       </View>
     </TouchableOpacity>
   );

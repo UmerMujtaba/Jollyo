@@ -40,13 +40,6 @@ const SettingsScreen = () => {
                 imagePath: userData.imagePath,
               }),
             );
-
-            console.log('User data fetched and dispatched:', {
-              username,
-              gender,
-              age,
-              imagePath,
-            });
           } else {
             console.log('No user data found');
           }
@@ -63,6 +56,12 @@ const SettingsScreen = () => {
   console.log(
     `🚀 ~ SettingsScreen ~ username: ${username},  age: ${age}, gender: ${gender}`,
   );
+  console.log('User data fetched and dispatched:', {
+    username,
+    gender,
+    age,
+    // imagePath,
+  });
 
   return (
     <ImageBackground style={styles.container} source={images.backgroundImage}>
@@ -76,7 +75,7 @@ const SettingsScreen = () => {
       <Text style={styles.nameStyle}>{username}</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
         <CalendarComponent />
-        <Text style={styles.logoutText}>Time spent in app:</Text>
+        {/* <Text style={styles.logoutText}>Time spent in app:</Text> */}
         <MenuContainer />
         <ManageScreenTimer />
       </ScrollView>

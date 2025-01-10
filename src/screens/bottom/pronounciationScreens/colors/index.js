@@ -58,7 +58,7 @@ const ColorsScreen = () => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Colors'}
+          title={'C o l o r s'}
           onBackPress={() => navigation.goBack()}
           back
         />

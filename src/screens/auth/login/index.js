@@ -92,6 +92,8 @@ const LoginScreen = () => {
         secureTextEntry
         inputEmailText={{fontSize: rfs(24)}}
         inputPasswordText={{fontSize: rfs(24)}}
+        emailAutCapitalize={'none'}
+        passwordAutoCapitalize={'none'}
       />
 
       <AuthPrompt

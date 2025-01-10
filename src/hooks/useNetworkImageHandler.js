@@ -10,7 +10,7 @@ const useNetworkImageHandler = () => {
       setIsConnected(state.isConnected);
     });
 
-    console.log('🚀 ~ useEffect ~ unsubscribe:', isConnected);
+    // console.log('🚀 ~ useEffect ~ unsubscribe:', isConnected);
 
     return () => {
       unsubscribe();

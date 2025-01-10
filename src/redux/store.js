@@ -39,8 +39,10 @@ const persistedReducers = persistReducer(persistConfig, reducers);
 const store = configureStore({
   reducer: persistedReducers,
   devTools: false,
+
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
+      immutableCheck: false,
       serializableCheck: false,
     }),
 });

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
-import {rfs, rhp, rwp} from '../../constants/dimensions';
-import {images} from '../../assets/images';
-import fonts from '../../constants/fonts';
-import {colors} from '../../constants/colors';
+import React from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {images} from '../../assets/images';
+import {colors} from '../../constants/colors';
+import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
+import fonts from '../../constants/fonts';
 
 const InterestsTouchableComponent = ({
   imageSource,
@@ -36,8 +36,8 @@ const InterestsTouchableComponent = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: rwp(140),
-    height: rhp(140),
+    width: isTablet ? rwp(120) : rwp(140),
+    height: isTablet ? rhp(130) : rhp(140),
     borderRadius: 16,
     backgroundColor: colors.lightGrey,
     alignItems: 'center',
@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     marginVertical: rhp(15),
   },
   insideContainer: {
-    height: rhp(135),
+    // height: rhp(135),
+    height: isTablet ? rhp(125) : rhp(135),
     backgroundColor: colors.white,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',

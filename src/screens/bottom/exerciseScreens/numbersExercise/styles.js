@@ -35,12 +35,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginBottom: rhp(10),
   },
   image: {
     width: rwp(120),
     height: rhp(120),
-    margin: 5,
+    marginBottom: rhp(5),
   },
   optionsContainer: {
     flexDirection: 'row',

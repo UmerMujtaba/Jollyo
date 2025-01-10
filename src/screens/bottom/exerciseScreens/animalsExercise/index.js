@@ -34,11 +34,25 @@ import {AnimalsData} from '../../../../utils/animalsData';
 import {styles} from './styles';
 import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {TouchableButton} from '../../../../components/atoms/button';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
 import {isTablet, rhp} from '../../../../constants/dimensions';
+import useRewardManager from '../../../../hooks/useRewardManager';
+import auth from '@react-native-firebase/auth';
 
 const AnimalsExercise = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const [user, setUser] = useState(null);
+  const [earnedSticker, setEarnedSticker] = useState(null);
+  const [showStickerModal, setShowStickerModal] = useState(false);
+  const [showRestartPrompt, setShowRestartPrompt] = useState(false);
+  const shuffledAnimals = [...AnimalsData];
+  // const totalExercises = 2;
+  const totalExercises = shuffledAnimals.length;
+  const {getStickerForExercise} = useStickerManager();
+  const progressAnim = useState(new Animated.Value(0))[0];
+  const {imageError, setImageError, isConnected} = useNetworkImageHandler();
+  const {awardRewardToUser} = useRewardManager();
   const {
     exerciseIndex,
     progress,
@@ -49,32 +63,37 @@ const AnimalsExercise = () => {
     showLottie,
     isCorrect,
   } = useSelector(state => state.animalExerciseReducer);
-  const dispatch = useDispatch();
-  const navigation = useNavigation();
-  const [earnedSticker, setEarnedSticker] = useState(null);
-  const [showStickerModal, setShowStickerModal] = useState(false);
-  const [showRestartPrompt, setShowRestartPrompt] = useState(false);
 
-  const shuffledAnimals = [...AnimalsData];
-  // const totalExercises = 2;
-  const totalExercises = shuffledAnimals.length;
-  const {getStickerForExercise} = useStickerManager();
-  const progressAnim = useState(new Animated.Value(0))[0];
-  const {imageError, setImageError, isConnected} = useNetworkImageHandler();
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(setUser);
+    return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    if (exerciseIndex <= totalExercises) {
+      setNewRandomAnimals();
+    }
+  }, [exerciseIndex]);
+
+  useEffect(() => {
+    const checkIfCompleted = async () => {
+      const completed = await AsyncStorage.getItem('AnimalsExerciseCompleted');
+      if (completed === 'true') {
+        setShowRestartPrompt(true);
+      }
+    };
+    checkIfCompleted();
+  }, []);
 
   const setNewRandomAnimals = () => {
     shuffledAnimals.sort(() => Math.random() - 0.5);
-
     const randomizedAnimals = shuffledAnimals.slice(0, 4);
     dispatch(setRandomAnimals(randomizedAnimals));
-
     const randomIndex = Math.floor(Math.random() * randomizedAnimals.length);
     dispatch(setCorrectAnimal(randomizedAnimals[randomIndex].letter));
-
     dispatch(setSelectionStatus([null, null, null, null]));
     dispatch(setSelectedAnimals([false, false, false, false]));
 
-    // Update the progress using Animated.timing
     Animated.timing(progressAnim, {
       toValue: (exerciseIndex / totalExercises) * 100,
       duration: 500,
@@ -119,11 +138,21 @@ const AnimalsExercise = () => {
     dispatch(setSelectionStatus(updatedStatus));
 
     if (exerciseIndex === totalExercises && isCorrect === 'correct') {
-      const sticker = getStickerForExercise();
-
-      setEarnedSticker(sticker);
+      console.log(
+        'Animal Quiz Exercise completed and correct, showing sticker modal.',
+      );
+      const rewardData = getStickerForExercise();
+      console.log('🚀 ~ AnimalsQuizExercise ~ rewardData:', rewardData);
       setShowStickerModal(true);
-      dispatch(addAnimalSticker(sticker));
+      setEarnedSticker(rewardData);
+      console.log(
+        '🚀 ~ AnimalsQuizExercise ~ setEarnedSticker:',
+        earnedSticker,
+      );
+      awardRewardToUser('animalsReward', [rewardData]);
+      dispatch(addAnimalSticker(rewardData));
+      setShowStickerModal(true);
+
       AsyncStorage.setItem('AnimalsExerciseCompleted', 'true');
     }
   };
@@ -157,31 +186,14 @@ const AnimalsExercise = () => {
     }
   };
 
-  useEffect(() => {
-    if (exerciseIndex <= totalExercises) {
-      setNewRandomAnimals();
-    }
-  }, [exerciseIndex]);
-
-  useEffect(() => {
-    const checkIfCompleted = async () => {
-      const completed = await AsyncStorage.getItem('exerciseCompleted');
-      if (completed === 'true') {
-        setShowRestartPrompt(true);
-      }
-    };
-    checkIfCompleted();
-  }, []);
-
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Animals'}
+          title={'A n i m a l s'}
           onBackPress={() => navigation.goBack()}
           back
         />
@@ -231,12 +243,6 @@ const AnimalsExercise = () => {
                 {Array.isArray(randomAnimals) && randomAnimals.length > 0 ? (
                   randomAnimals.map((animal, index) => (
                     <View key={index} style={styles.animalCard}>
-                      {/* <FastImage
-                        defaultSource={images.defaultImg}
-                        source={{uri: animal.image}}
-                        style={styles.animalImage}
-                      /> */}
-
                       <FastImage
                         defaultSource={images.defaultImg}
                         source={
@@ -280,7 +286,7 @@ const AnimalsExercise = () => {
                     </View>
                   ))
                 ) : (
-                  <Text>No animals available.</Text>
+                  <Text>{Strings.noAnimalAvailable}</Text>
                 )}
               </View>
 

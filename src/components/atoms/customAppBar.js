@@ -8,6 +8,11 @@ import {colors} from '../../constants/colors';
 import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
 import ProfileRoundedAvatar from './profileAvatar';
+import Sound from 'react-native-sound';
+import useSound from '../../hooks/buttonClickHook';
+
+Sound.setCategory('Playback');
+
 const CustomAppBar = ({
   title,
   back,
@@ -19,12 +24,49 @@ const CustomAppBar = ({
   notification,
   onNotificationPress,
   cont,
+  textProp,
 }) => {
   // const navigation = useNavigation();
   const {username, imagePath} = useSelector(state => state.userReducer);
-  console.log(
-    `🚀 ~ GamesScreen ~ username: ${username}, imagePath: ${imagePath}`,
+  // console.log(
+  //   `🚀 ~ GamesScreen ~ username: ${username}, imagePath: ${imagePath}`,
+  // );
+  const playSound = useSound(
+    'https://res.cloudinary.com/dtpvy8gil/video/upload/v1736403972/click_sound_ifctk3.mp3',
   );
+
+  const handleBackPress = () => {
+    if (onBackPress) {
+      onBackPress();
+    }
+  };
+
+  const handleQuestionPress = () => {
+    if (playSound) {
+      playSound();
+    }
+    if (onQuestionPress) {
+      onQuestionPress();
+    }
+  };
+
+  const handleSpeakerPress = () => {
+    // if (playSound) {
+    //   playSound(); // Play the sound
+    // }
+    if (onSpeakerPress) {
+      onSpeakerPress();
+    }
+  };
+
+  const handleNotificationPress = () => {
+    if (playSound) {
+      playSound();
+    }
+    if (onNotificationPress) {
+      onNotificationPress();
+    }
+  };
 
   return (
     <View style={[styles.container, cont]}>
@@ -33,7 +75,7 @@ const CustomAppBar = ({
           <View style={styles.btnStyle}>
             <TouchableOpacity
               style={[styles.btnStyle, styles.insideBtnStyle]}
-              onPress={onBackPress}>
+              onPress={handleBackPress}>
               <FastImage
                 source={images.icons.backIcon}
                 style={styles.backIconStyle}
@@ -45,7 +87,7 @@ const CustomAppBar = ({
       </View>
 
       <View style={styles.textWrapper}>
-        <Text style={styles.textHeading}>{title}</Text>
+        <Text style={[styles.textHeading, textProp]}>{title}</Text>
         {notification && (
           <ProfileRoundedAvatar
             imageSource={imagePath}
@@ -60,7 +102,7 @@ const CustomAppBar = ({
         {questionMark && (
           <TouchableOpacity
             style={styles.questionBtnStyle}
-            onPress={speaker ? onSpeakerPress : onQuestionPress}>
+            onPress={speaker ? handleSpeakerPress : handleQuestionPress}>
             <View
               style={[styles.questionBtnStyle, styles.insideQuestionBtnStyle]}>
               <FastImage
@@ -77,7 +119,7 @@ const CustomAppBar = ({
         {notification && (
           <TouchableOpacity
             style={styles.questionBtnStyle}
-            onPress={onNotificationPress}>
+            onPress={handleNotificationPress}>
             <View
               style={[styles.questionBtnStyle, styles.insideQuestionBtnStyle]}>
               <FastImage
@@ -151,7 +193,7 @@ const styles = StyleSheet.create({
   textHeading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     color: colors.white,
-    fontSize: rfs(28),
+    fontSize: isTablet ? rfs(24) : rfs(22),
   },
 });
 

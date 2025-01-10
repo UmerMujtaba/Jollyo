@@ -16,7 +16,7 @@ export const GameExerciseData = [
   {name: 'Nurse', image: images.letterN.nurse},
   {name: 'Orange', image: images.letterO.orange},
   {name: 'Pencil', image: images.letterP.pencil},
-  {name: 'FLower', image: images.letterR.rose},
+  {name: 'Flower', image: images.letterR.rose},
   {name: 'Sea', image: images.letterS.sea},
   {name: 'circle', image: images.shapes.circular},
   {name: 'Mango', image: images.letterM.mango},

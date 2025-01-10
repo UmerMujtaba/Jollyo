@@ -44,9 +44,9 @@ const shapesExerciseSlice = createSlice({
 
       state.randomShapes = options.sort(() => Math.random() - 0.5);
     },
-    setPlayFireworks: (state, action) => {
-      state.playFireworks = action.payload;
-    },
+    // setPlayFireworks: (state, action) => {
+    //   state.playFireworks = action.payload;
+    // },
     setShowModal: (state, action) => {
       state.showModal = action.payload;
     },
@@ -66,7 +66,7 @@ export const {
   setSelectedOption,
   setIsCorrect,
   setRandomShapes,
-  setPlayFireworks,
+  // setPlayFireworks,
   setShowModal,
   resetState,
 } = shapesExerciseSlice.actions;

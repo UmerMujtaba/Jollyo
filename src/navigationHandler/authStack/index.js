@@ -20,6 +20,7 @@ const navigationOptions = () => ({
 const Auth = () => {
   return (
     <AuthStack.Navigator initialRouteName={ScreenNames.BoardingScreen}>
+      {/* <AuthStack.Navigator initialRouteName={ScreenNames.profile}> */}
       <AuthStack.Screen
         name={ScreenNames.BoardingScreen}
         component={onBoardingScreen}

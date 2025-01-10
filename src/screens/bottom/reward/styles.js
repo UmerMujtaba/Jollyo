@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   sectionContainer: {
     marginBottom: rhp(10),
-    paddingHorizontal: rwp(20),
+    paddingHorizontal: rwp(10),
   },
   sectionTitle: {
     marginTop: rhp(10),
@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
   },
   rewardItem: {
     alignItems: 'center',
-
     marginHorizontal: rwp(8),
     padding: 10,
   },
@@ -41,7 +40,6 @@ export const styles = StyleSheet.create({
   },
   rewardName: {
     textAlign: 'center',
-
     marginTop: rhp(10),
     fontSize: rfs(18),
     marginBottom: rhp(10),

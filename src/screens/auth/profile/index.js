@@ -17,6 +17,7 @@ import {
 import {styles} from './styles';
 import auth from '@react-native-firebase/auth'; // For accessing user ID
 import firestore from '@react-native-firebase/firestore';
+import {rhp} from '../../../constants/dimensions';
 
 const ProfileScreen = () => {
   const [usernameErrorMessage, setUsernameErrorMessage] = useState('');
@@ -120,7 +121,7 @@ const ProfileScreen = () => {
       {/* {errorMessage && ToastAndroid.show(errorMessage, ToastAndroid.LONG)} */}
       <TouchableButton
         title="Next"
-        btnPropStyle={{marginTop: 50}}
+        btnPropStyle={{marginTop: rhp(50)}}
         onPress={handleNextPress}
       />
     </ImageBackground>

@@ -1,0 +1,20 @@
+TO DO:
+1. At shapes, Animals, Quiz in bottom bar, first it should move to next exercise then play sound
+2. setting -> activity stats -> show progress of each exercise
+3. in shapes exercise, correct option is always on first index
+4. animal on tap sound , one is playing, on tap of other, start the sound of other that is tapped
+5. on vehicle -> add sounds of vehicle
+6. resposiveness , fun check on IOS
+7. multi lingual
+
+
+
+
+
+
+
+
+To check:
+1. Created a new user, on quiz game, no exercise fetched from firebase, as they were empty so called set random fun there, 
+
+

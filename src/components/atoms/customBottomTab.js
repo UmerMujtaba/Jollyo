@@ -1,32 +1,47 @@
-import React, {useState} from 'react';
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {colors} from '../../constants/colors';
-import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions'; // Assuming these are already defined
-import {images} from '../../assets/images';
+import React from 'react';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
+import Sound from 'react-native-sound';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {images} from '../../assets/images';
+import {colors} from '../../constants/colors';
+import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
+import useSound from '../../hooks/buttonClickHook';
+
+Sound.setCategory('Playback');
+
 const CustomBottomTab = ({onNext, onBack, onSpeak}) => {
-  // const [isPlaying, setIsPlaying] = useState(false);
+  const playSound = useSound(
+    'https://res.cloudinary.com/dtpvy8gil/video/upload/v1736403972/click_sound_ifctk3.mp3',
+  );
+  const handleNext = () => {
+    playSound();
+    onNext();
+  };
 
-  // const handlePlayPause = () => {
-  //   setIsPlaying(prevState => !prevState);
-  // };
-
+  const handleBack = () => {
+    playSound();
+    onBack();
+  };
+  const handleOnSpeak = () => {
+    playSound();
+    onSpeak();
+  };
   return (
     <View style={styles.tabContainer}>
-      <TouchableOpacity onPress={onBack} style={styles.tabButton}>
+      <TouchableOpacity onPress={handleBack} style={styles.tabButton}>
         <TouchableOpacity
           style={[styles.tabButton, styles.tabButtonInside]}
-          onPress={onBack}>
+          onPress={handleBack}>
           <Ionicons name={'arrow-back'} color={'white'} size={rfs(24)} />
         </TouchableOpacity>
       </TouchableOpacity>
 
       {onSpeak && (
-        <TouchableOpacity onPress={onSpeak} style={styles.tabButton}>
+        <TouchableOpacity onPress={handleOnSpeak} style={styles.tabButton}>
           <TouchableOpacity
             style={[styles.tabButton, styles.tabButtonInside]}
-            onPress={onSpeak}>
+            onPress={handleOnSpeak}>
             <FastImage
               source={images.icons.speakIcon}
               style={{resizeMode: 'contain', height: rhp(20), width: rwp(20)}}
@@ -39,10 +54,10 @@ const CustomBottomTab = ({onNext, onBack, onSpeak}) => {
           </TouchableOpacity>
         </TouchableOpacity>
       )}
-      <TouchableOpacity onPress={onNext} style={styles.tabButton}>
+      <TouchableOpacity onPress={handleNext} style={styles.tabButton}>
         <TouchableOpacity
           style={[styles.tabButton, styles.tabButtonInside]}
-          onPress={onNext}>
+          onPress={handleNext}>
           <Ionicons name={'arrow-forward'} color={'white'} size={rfs(24)} />
         </TouchableOpacity>
       </TouchableOpacity>

@@ -43,7 +43,7 @@ const ShapesScreen = () => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Shapes'}
+          title={'S h a p e s'}
           onBackPress={() => navigation.goBack()}
           back
         />

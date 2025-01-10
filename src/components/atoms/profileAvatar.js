@@ -15,19 +15,11 @@ const ProfileRoundedAvatar = ({
       <View
         style={[
           styles.container,
-          {
-            height: isTablet ? rhp(130) : rhp(97),
-            backgroundColor: colors.lightPink,
-            borderTopColor: 'orange',
-            borderLeftColor: 'orange',
-            borderRightColor: 'orange',
-            borderBottomColor: 'white',
-            justifyContent: 'center',
-          },
+          styles.insideContainer,
           innerContainer,
           {
-            borderColor: isSelected ? colors.darkOrange : 'transparent',
-            borderWidth: isSelected ? 3 : 0,
+            borderColor: isSelected ? colors.darkPink : 'transparent',
+            borderWidth: isSelected ? 2 : 0,
           },
         ]}>
         <FastImage
@@ -49,13 +41,14 @@ const ProfileRoundedAvatar = ({
 
 const styles = StyleSheet.create({
   container: {
-    height: rwp(100),
-    width: rwp(100),
-    borderRadius: rwp(50),
-    backgroundColor: colors.blackishOrange,
+    width: isTablet ? rhp(130) : rhp(120),
+    backgroundColor: colors.darkPink,
+    height: isTablet ? rhp(130) : rhp(120),
+    alignSelf: 'center',
+    borderRadius: isTablet ? rhp(65) : rhp(60),
   },
   insideContainer: {
-    height: rhp(97),
+    height: isTablet ? rhp(124) : rhp(114),
     backgroundColor: colors.lightPink,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
@@ -63,6 +56,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'white',
     justifyContent: 'center',
   },
+
   img: {
     height: hp(10),
     width: wp(18),
@@ -70,7 +64,8 @@ const styles = StyleSheet.create({
   },
   tickContainer: {
     position: 'absolute',
-    bottom: -20,
+    bottom: isTablet ? rhp(-30) : rhp(-24),
+
     alignSelf: 'center',
   },
   tick: {
@@ -83,15 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // padding: 8,
   },
-  insideContainer: {
-    height: rhp(97),
-    backgroundColor: colors.darkOrange,
-    borderTopColor: 'orange',
-    borderLeftColor: 'orange',
-    borderRightColor: 'orange',
-    borderBottomColor: 'white',
-    justifyContent: 'center',
-  },
+
   tickText: {
     fontSize: rwp(16),
     textAlign: 'center',

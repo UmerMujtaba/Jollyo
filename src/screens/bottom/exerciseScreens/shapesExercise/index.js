@@ -37,57 +37,68 @@ import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
 import {isTablet, rhp} from '../../../../constants/dimensions';
+import useRewardManager from '../../../../hooks/useRewardManager';
+import auth from '@react-native-firebase/auth';
 
 const ShapesExercise = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const progressAnim = useState(new Animated.Value(0))[0];
-  const fireworksSoundRef = useRef(null);
+  // const fireworksSoundRef = useRef(null);
+  const [user, setUser] = useState(null);
   const [earnedSticker, setEarnedSticker] = useState(null);
   const [showStickerModal, setShowStickerModal] = useState(false);
+  const [rewardGiven, setRewardGiven] = useState(false);
   const [showRestartPrompt, setShowRestartPrompt] = useState(false);
   const {getStickerForExercise} = useStickerManager();
+  const {awardRewardToUser} = useRewardManager();
 
   const {
     currentExerciseIndex,
     selectedOption,
     isCorrect,
     randomShapes,
-    playFireworks,
+    // playFireworks,
   } = useSelector(state => state.shapesExerciseReducer);
 
-  const [isFireworksPlaying, setIsFireworksPlaying] = useState(false);
+  // const [isFireworksPlaying, setIsFireworksPlaying] = useState(false);
 
+  // const totalExercises = 2;
   const totalExercises = shapesExerciseData.length;
+  // console.log('🚀 ~ ShapesExercise ~ totalExercises:', totalExercises);
   const progress = ((currentExerciseIndex + 1) / totalExercises) * 100;
   const {imageError, setImageError, isConnected} = useNetworkImageHandler();
 
-  useEffect(() => {
-    fireworksSoundRef.current = new Sound(
-      'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732912980/samples/fireworks_kyowvx.wav',
-      null,
-      error => {
-        if (error) {
-          console.log('Error loading sound', error);
-        }
-      },
-    );
+  // useEffect(() => {
+  //   fireworksSoundRef.current = new Sound(
+  //     'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732912980/samples/fireworks_kyowvx.wav',
+  //     null,
+  //     error => {
+  //       if (error) {
+  //         console.log('Error loading sound', error);
+  //       }
+  //     },
+  //   );
 
-    return () => {
-      if (fireworksSoundRef.current) {
-        fireworksSoundRef.current.release();
-      }
-    };
+  //   return () => {
+  //     if (fireworksSoundRef.current) {
+  //       fireworksSoundRef.current.release();
+  //     }
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(setUser);
+    return unsubscribe;
   }, []);
 
   useEffect(() => {
-    if (currentExerciseIndex === 9) {
+    if (currentExerciseIndex === totalExercises) {
       setShowRestartPrompt(true);
     } else {
       dispatch(setRandomShapes());
     }
   }, [currentExerciseIndex, dispatch]);
-  // const progress = ((currentExerciseIndex + 1) / 10) * 100;
 
   // Update progress animation if needed
   useEffect(() => {
@@ -96,15 +107,31 @@ const ShapesExercise = () => {
       duration: 500,
       useNativeDriver: false,
     }).start();
+  }, [currentExerciseIndex, progress]);
 
-    if (currentExerciseIndex === 9 && isCorrect === 'correct') {
-      const sticker = getStickerForExercise();
-      setEarnedSticker(sticker);
+  useEffect(() => {
+    if (
+      currentExerciseIndex === totalExercises - 1 &&
+      isCorrect === 'correct' &&
+      !rewardGiven
+    ) {
+      const rewardData = getStickerForExercise();
+      setEarnedSticker(rewardData);
       setShowStickerModal(true);
-      dispatch(addShapeSticker(sticker));
+      dispatch(addShapeSticker(rewardData));
       AsyncStorage.setItem('ShapesExerciseCompleted', 'true');
+      awardRewardToUser('shapesReward', [rewardData]);
+      setRewardGiven(true);
     }
-  }, [currentExerciseIndex, isCorrect, dispatch]);
+  }, [
+    currentExerciseIndex,
+    isCorrect,
+    totalExercises,
+    dispatch,
+    getStickerForExercise,
+    awardRewardToUser,
+    rewardGiven,
+  ]);
 
   const handleOptionSelect = option => {
     if (!isConnected || imageError) {
@@ -120,49 +147,34 @@ const ShapesExercise = () => {
     const correctShape = randomShapes[0];
     if (option.name === correctShape.name) {
       dispatch(setIsCorrect('correct'));
-      dispatch(setPlayFireworks(true));
-      setIsFireworksPlaying(true);
-
-      if (fireworksSoundRef.current) {
-        fireworksSoundRef.current.play(success => {
-          if (success) {
-            console.log('Fireworks sound played successfully');
-          } else {
-            console.log('Error playing sound');
-          }
-        });
-      }
     } else {
       dispatch(setIsCorrect('incorrect'));
-      dispatch(setPlayFireworks(false));
-      setIsFireworksPlaying(false);
     }
   };
 
   // Handle the next button click
   const handleNext = () => {
-    if (isCorrect === 'correct' && currentExerciseIndex < 9) {
+    if (isCorrect === 'correct' && currentExerciseIndex < totalExercises) {
       dispatch(setCurrentExerciseIndex(currentExerciseIndex + 1));
       dispatch(setIsCorrect(null));
       dispatch(setSelectedOption(null));
-      dispatch(setPlayFireworks(false));
-      setIsFireworksPlaying(false);
+      // dispatch(setPlayFireworks(false));
+      // setIsFireworksPlaying(false);
     }
 
-    if (currentExerciseIndex === 9) {
+    if (currentExerciseIndex === totalExercises) {
       setShowRestartPrompt(true);
     }
   };
 
   const handleRestart = () => {
     console.log('Handle Restart triggered');
-
     dispatch(setCurrentExerciseIndex(1));
     dispatch(setRandomShapes());
     setShowRestartPrompt(false);
-
     console.log('Reset complete, hiding restart prompt');
     AsyncStorage.removeItem('ShapesExerciseCompleted');
+    setRewardGiven(false);
   };
 
   const handleBack = () => {
@@ -170,13 +182,9 @@ const ShapesExercise = () => {
       dispatch(setCurrentExerciseIndex(currentExerciseIndex - 1));
       dispatch(setIsCorrect(null));
       dispatch(setSelectedOption(null));
-      dispatch(setPlayFireworks(false));
-      setIsFireworksPlaying(false);
+      // dispatch(setPlayFireworks(false));
+      // setIsFireworksPlaying(false);
     }
-  };
-  // Helper function to shuffle an array (used for randomizing positions)
-  const shuffleArray = array => {
-    return array.sort(() => Math.random() - 0.5);
   };
 
   return (
@@ -186,10 +194,10 @@ const ShapesExercise = () => {
           marginTop: isTablet ? rhp(20) : rhp(10),
         }}>
         <CustomAppBar
-          title={'Shapes'}
+          title={'S h a p e s'}
           questionMark
           speaker
-          onSpeakerPress={''}
+          onSpeakerPress={() => Alert.alert('Under Process')}
           onBackPress={() => navigation.goBack()}
           back
         />
@@ -261,20 +269,21 @@ const ShapesExercise = () => {
             <RestartPrompt onRestart={handleRestart} />
           )}
 
-          {isCorrect === 'correct' && playFireworks && (
+          {isCorrect === 'correct' && (
+            // {isCorrect === 'correct' && playFireworks && (
             <LottieView
               source={require('../../../../assets/lottie/fireworks.json')}
               autoPlay
               loop={false}
               style={styles.fireworksAnimation}
               onAnimationFinish={() => {
-                if (isFireworksPlaying) {
-                  handleNext();
-                }
+                // if (isFireworksPlaying) {
+                handleNext();
+                // }
               }}
             />
           )}
-          {isCorrect === 'correct' && (
+          {showStickerModal && (
             <StickerModal
               isVisible={showStickerModal}
               earnedSticker={earnedSticker}

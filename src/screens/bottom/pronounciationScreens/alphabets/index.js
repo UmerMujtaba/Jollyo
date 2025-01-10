@@ -1,14 +1,13 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {FlatList, ImageBackground, View} from 'react-native';
 import {images} from '../../../../assets/images';
 import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
+import {isTablet, rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {alphabetData} from '../../../../utils/alphabetsScreenData';
 import {styles} from './styles';
-import {useNavigation} from '@react-navigation/native';
-import {useNetworkImageHandler} from '../../../../hooks';
-import {isTablet, rhp} from '../../../../constants/dimensions';
 
 const AlphabetsScreen = ({route}) => {
   const [playingSound, setPlayingSound] = useState(null);
@@ -43,7 +42,7 @@ const AlphabetsScreen = ({route}) => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Alphabets'}
+          title={'A l p h a b e t s'}
           back
           onBackPress={() => navigation.goBack()}
         />

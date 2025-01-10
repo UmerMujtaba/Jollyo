@@ -43,7 +43,7 @@ const NumbersScreen = () => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Numbers'}
+          title={'N u m b e r s'}
           back
           onBackPress={() => navigation.goBack()}
         />

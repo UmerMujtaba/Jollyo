@@ -7,6 +7,7 @@ import InterestsSelection from '../../../components/molecules/selectedInterests'
 import {ScreenNames, Strings} from '../../../constants/strings';
 import {navigate} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
+import {rhp, rwp, width, wp} from '../../../constants/dimensions';
 
 const KidsInterestSelectionScreen = () => {
   const [selectedItems, setSelectedItems] = useState([]);
@@ -35,8 +36,9 @@ const KidsInterestSelectionScreen = () => {
       <InterestsSelection onSelectionChange={handleSelectionChange} />
       <TouchableButton
         title={'Complete'}
-        btnPropStyle={{marginTop: 20}}
+        btnPropStyle={{marginTop: rhp(20), width: wp(80)}}
         onPress={handleCompletePress}
+        btnInside={{width: wp(80)}}
       />
     </ImageBackground>
   );

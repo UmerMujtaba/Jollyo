@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   FlatList,
   Image,
@@ -8,17 +8,26 @@ import {
   Text,
   View,
 } from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
 import CustomAppBar from '../../../components/atoms/customAppBar';
 import {rhp} from '../../../constants/dimensions';
 import {styles} from './styles';
 import {Strings} from '../../../constants/strings';
-
+import auth from '@react-native-firebase/auth';
+import {fetchRewards} from '../../../helper/firebase';
 const RewardsScreen = () => {
   const {animalsReward, numbersReward, shapesReward, quizzesReward} =
     useSelector(state => state.rewardsReducer);
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const currentUser = auth().currentUser;
+
+  useEffect(() => {
+    if (currentUser) {
+      dispatch(fetchRewards(currentUser.uid));
+    }
+  }, [currentUser]);
 
   const rewardSections = [
     {title: 'Animal Rewards', data: animalsReward},
@@ -26,6 +35,7 @@ const RewardsScreen = () => {
     {title: 'Shape Rewards', data: shapesReward},
     {title: 'Quiz Rewards', data: quizzesReward},
   ];
+  // console.log('🚀 ~ RewardsScreen ~ rewardSections:', rewardSections);
 
   const renderRewardItem = ({item}) => {
     const imageSource = item.image || images.defaultImg;
@@ -72,11 +82,13 @@ const RewardsScreen = () => {
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <CustomAppBar
-        title={'Your Rewards'}
+        title={Strings.yourRewards}
         onBackPress={() => navigation.goBack()}
       />
 
-      <ScrollView style={{marginBottom: rhp(50)}}>
+      <ScrollView
+        style={{marginBottom: rhp(50)}}
+        showsVerticalScrollIndicator={false}>
         {rewardSections.map((section, index) => renderSection(section))}
       </ScrollView>
     </ImageBackground>

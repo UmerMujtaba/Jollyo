@@ -1,5 +1,3 @@
-import {images} from '../assets/images';
-
 export const Strings = {
   logout: 'Logout',
   login: 'Login',
@@ -21,7 +19,7 @@ export const Strings = {
   setALimitOnTheScreenTime:
     'Set a limit on the screen time at a stretch to make sure your child watches in moderation',
   manageScreenTime: 'Manage Screen Time',
-  drawInside: 'Draw Inside',
+  drawInside: 'D r a w  I n s i d e',
   childName: 'Child Name',
   yourAge: 'Your age?',
   creatingProfileFor: 'Creating profile for?',
@@ -38,10 +36,14 @@ export const Strings = {
   exercise: 'Exercise',
   chooseTheCorrectWord: 'Choose the correct word:',
   welcomeAgain: 'Welcome again !',
-  // confirmPassword: 'Confirm Password',
-  // signUp: 'Sign Up',
-  // name: 'Name',
-  // phoneNumber: 'Phone Number',
+  noAnimalAvailable: 'No Animal Available',
+  aLotInteresting: 'A lot interesting features on your\nfavorite topics',
+  unlockAll: 'Unlock All',
+  premium: 'P r e m i u m',
+  yourRewards: 'Y o u r  R e w a r d s',
+  pronunciation: 'P r o n u n c i a t i o n s',
+  searchMusic: 'Search Music',
+  listenTheLatestPoems: 'Listen The Latest Poems',
 };
 
 export const ScreenNames = {
@@ -59,7 +61,7 @@ export const ScreenNames = {
   settingScreen: 'SettingsScreen',
   rewardScreen: 'RewardsScreen',
   gameScreen: 'GamesScreen',
-  listScreen: 'ListsScreen',
+  canvasScreen: 'canvasScreen',
   alphabetsScreen: 'AlphabetsScreen',
   numbersScreen: 'NumericScreen',
   shapesScreen: 'ShapesScreen',
@@ -68,22 +70,14 @@ export const ScreenNames = {
   kidsGamesScreen: 'KidsGamesScreen',
   colorsScreen: 'ColorsScreen',
   alphabetExerciseMainScreen: 'AlphabetExerciseMainScreen',
-
   alphabetExerciseScreen: 'AlphabetExerciseScreen',
   numbersExerciseScreen: 'NumbersExerciseScreen',
   shapesExerciseScreen: 'ShapesExerciseScreen',
   animalsExerciseScreen: 'AnimalsExerciseScreen',
   kidsGameExerciseScreen: 'KidsGameExerciseScreen',
-  //   alphabetExerciseScreen:'AlphabetExerciseScreen'
-  //   alphabetExerciseScreen:'AlphabetExerciseScreen'
-  //   alphabetExerciseScreen:'AlphabetExerciseScreen'
+  premiumScreen: 'PremiumScreen',
+  pronunciationNavigator: 'PronunciationNavigator',
+  pronunciation: 'Pronunciation',
+  userGuide: 'UserGuide',
+  poemsScreen: 'PoemsScreen',
 };
-
-export const InterestsData = [
-  {title: 'Alphabets', imageSource: images.alphabets.a},
-  {title: 'Numbers', imageSource: images.numbers.one},
-  {title: 'Maths', imageSource: images.operations.multiply},
-  {title: 'Shapes', imageSource: images.shapes.circle},
-  {title: 'Animals', imageSource: images.animals.cat},
-  {title: 'Games', imageSource: images.games.captainAmerica},
-];

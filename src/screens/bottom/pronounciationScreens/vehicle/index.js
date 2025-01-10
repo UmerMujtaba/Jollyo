@@ -69,7 +69,7 @@ const Vehicle = () => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'Vehicles'}
+          title={'V e h i c l e s'}
           onBackPress={() => navigation.goBack()}
           back
         />

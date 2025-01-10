@@ -20,6 +20,7 @@ const CustomTextInput = forwardRef(
       onSubmitEditing,
       maxLength,
       inputText,
+      autoCapitalize,
     },
     ref,
   ) => {
@@ -27,6 +28,7 @@ const CustomTextInput = forwardRef(
       <View style={[styles.container, style]}>
         <TextInput
           ref={ref}
+          autoCapitalize={autoCapitalize}
           placeholder={placeholder}
           placeholderTextColor={colors.grey}
           onChangeText={onChangeText}

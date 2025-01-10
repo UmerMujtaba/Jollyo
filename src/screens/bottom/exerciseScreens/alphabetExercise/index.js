@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   ImageBackground,
@@ -5,15 +6,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import Sound from 'react-native-sound';
+import {useSelector} from 'react-redux';
 import {images} from '../../../../assets/images';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
-import {styles} from './styles';
-import ExerciseSetHeader from '../../../../components/atoms/exerciseSetHeader';
-import {navigate} from '../../../../navigationHandler/navigationRef';
 import ExerciseLessonComponent from '../../../../components/atoms/exerciseLessonComponent';
-import {useSelector} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
+import ExerciseSetHeader from '../../../../components/atoms/exerciseSetHeader';
 import {isTablet, rhp} from '../../../../constants/dimensions';
+import useSound from '../../../../hooks/buttonClickHook';
+import {styles} from './styles';
+import {ScreenNames} from '../../../../constants/strings';
+
+Sound.setCategory('Playback');
 
 const AlphabetsExercise = () => {
   const navigation = useNavigation();
@@ -24,12 +28,33 @@ const AlphabetsExercise = () => {
   // if (!alphabetsExerciseList || alphabetsExerciseList.length === 0) {
   //   return <Text>Loading...</Text>; // or some other loading state
   // }
+
+  const playSound = useSound(
+    'https://res.cloudinary.com/dtpvy8gil/video/upload/v1736403972/click_sound_ifctk3.mp3',
+  );
+
+  const handlePress = (item, index) => {
+    playSound();
+
+    console.log(item);
+
+    setTimeout(() => {
+      navigation.navigate(item.screen, {
+        letterData: item,
+        index: index,
+      });
+    }, 600);
+  };
+  const handleQuestionPress = () => {
+    navigation.navigate(ScreenNames.userGuide);
+  };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View style={{marginTop: isTablet ? rhp(20) : rhp(10)}}>
         <CustomAppBar
-          title={'Alphabets'}
+          title={'A l p h a b e t s'}
           questionMark
+          onQuestionPress={handleQuestionPress}
           onBackPress={() => navigation.goBack()}
           back
         />
@@ -56,12 +81,7 @@ const AlphabetsExercise = () => {
                     heading={lesson.name}
                     totalExercises={lesson.exercises.length}
                     imageSource={lesson.image}
-                    onPress={() =>
-                      navigate(lesson.screen, {
-                        letterData: lesson,
-                        index: index,
-                      })
-                    }
+                    onPress={() => handlePress(lesson, index)}
                     progress={lesson.progress}
                   />
                 </TouchableOpacity>

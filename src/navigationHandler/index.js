@@ -12,6 +12,9 @@ import AlphabetsExercise from '../screens/bottom/exerciseScreens/alphabetExercis
 import AlphabetsExerciseMain from '../screens/bottom/exerciseScreens/alphabetExerciseMain';
 import KidsGameExercise from '../screens/bottom/exerciseScreens/kidsGameExercise';
 import {firebase} from '@react-native-firebase/auth';
+import PremiumScreen from '../screens/bottom/premium';
+import UserGuide from '../screens/bottom/userGuide';
+import PoemsScreen from '../screens/bottom/pronounciationScreens/poems';
 
 const NavigationStack = createNativeStackNavigator();
 
@@ -77,6 +80,16 @@ export const NavigationHandler = () => {
         <NavigationStack.Screen
           name={ScreenNames.kidsGameExerciseScreen}
           component={KidsGameExercise}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.premiumScreen}
+          component={PremiumScreen}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.userGuide}
+          component={UserGuide}
           options={{headerShown: false}}
         />
       </NavigationStack.Navigator>

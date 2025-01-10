@@ -2,22 +2,37 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {rhp} from '../../constants/dimensions';
-import {soundData} from '../../utils/soundsListData';
+import {PronunciationsDataList, soundData} from '../../utils/soundsListData';
 import SoundItemComponent from '../atoms/soundItemComponent';
 import {navigate} from '../../navigationHandler/navigationRef';
+import {useNavigation} from '@react-navigation/native';
+import useSound from '../../hooks/buttonClickHook';
+import Sound from 'react-native-sound';
 
-const handlePress = screenName => {
-  console.log('🚀 ~ handlePress ~ screenName:', screenName);
-  navigate(screenName);
-};
+Sound.setCategory('Playback');
 
 const SoundItemListContainer = () => {
+  const navigation = useNavigation();
+  const playSound = useSound(
+    'https://res.cloudinary.com/dtpvy8gil/video/upload/v1736403972/click_sound_ifctk3.mp3',
+  );
+
+  const handlePress = screenName => {
+    if (playSound) {
+      playSound();
+    }
+
+    setTimeout(() => {
+      console.log('Navigating to:', screenName);
+      navigation.navigate(screenName);
+    }, 600);
+  };
   return (
     <View style={styles.container}>
       <FlatList
+        data={PronunciationsDataList}
         scrollEnabled={true}
         showsVerticalScrollIndicator={false}
-        data={soundData}
         renderItem={({item}) => (
           <SoundItemComponent
             title={item.title}

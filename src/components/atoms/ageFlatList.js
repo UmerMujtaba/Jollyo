@@ -9,10 +9,10 @@ import {
 } from 'react-native';
 import fonts from '../../constants/fonts';
 import {colors} from '../../constants/colors';
-import {rfs, rhp} from '../../constants/dimensions';
+import {rfs, rhp, rwp} from '../../constants/dimensions';
 
 const {width} = Dimensions.get('window');
-const ITEM_WIDTH = 60;
+const ITEM_WIDTH = rwp(60);
 const SPACER_WIDTH = (width - ITEM_WIDTH) / 2;
 
 const HorizontalNumberList = ({selectedNumber, setSelectedNumber}) => {
@@ -51,7 +51,7 @@ const HorizontalNumberList = ({selectedNumber, setSelectedNumber}) => {
   };
 
   return (
-    <View style={{height: 120, marginTop: 20, alignItems: 'center'}}>
+    <View style={{height: rhp(120), marginTop: rhp(20), alignItems: 'center'}}>
       <FlatList
         ref={flatListRef}
         data={data}

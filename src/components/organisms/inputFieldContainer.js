@@ -25,12 +25,15 @@ const InputFieldContainer = ({
   onEmailSubmitEditing,
   onPasswordSubmitEditing,
   // maxLength,
+  emailAutCapitalize,
+  passwordAutoCapitalize,
   inputEmailText,
   inputPasswordText,
 }) => {
   return (
     <View style={styles.container}>
       <InputField
+        autoCapitalize={emailAutCapitalize}
         heading={headingOne}
         keyboardType={Strings.emailType}
         value={EmailValue}
@@ -45,6 +48,7 @@ const InputFieldContainer = ({
         inputText={inputEmailText}
       />
       <InputField
+        autoCapitalize={passwordAutoCapitalize}
         heading={headingTwo}
         keyboardType={Strings.default}
         value={PasswordValue}

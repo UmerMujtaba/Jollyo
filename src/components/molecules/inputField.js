@@ -20,6 +20,7 @@ const InputField = ({
   maxLength,
   inputText,
   returnKeyType,
+  autoCapitalize,
 }) => {
   return (
     <View style={styles.container}>
@@ -28,6 +29,7 @@ const InputField = ({
         keyboardType={keyboardType}
         placeholder={placeholder}
         value={value}
+        autoCapitalize={autoCapitalize}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         showSoftInputOnFocus={showSoftInputOnFocus}
