@@ -1,12 +1,11 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
-import {isTablet, rfs, rhp, rwp, wp} from '../../constants/dimensions';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {images} from '../../assets/images';
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import {colors} from '../../constants/colors';
-import fonts from '../../constants/fonts';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {images} from '../../assets/images';
+import {colors} from '../../constants/colors';
+import {isTablet, rfs, rhp, rwp, wp} from '../../constants/dimensions';
+import fonts from '../../constants/fonts';
 import {useNetworkImageHandler} from '../../hooks';
 const PoemTileComponent = ({imageSource, name, duration, onPress}) => {
   const [isFavorited, setIsFavorited] = useState(false);
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
   container: {
     height: rhp(88),
     width: wp(90),
-    // backgroundColor: 'green',
     marginBottom: rhp(10),
     marginVertical: rhp(2),
   },
@@ -57,7 +55,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    // justifyContent:'space-around'
   },
   imgStyle: {
     height: isTablet ? rhp(88) : rhp(90),
@@ -66,7 +63,6 @@ const styles = StyleSheet.create({
   },
   detailContainer: {
     width: isTablet ? wp(60) : wp(55),
-    // backgroundColor: 'purple',
     flexDirection: 'column',
     paddingVertical: rhp(5),
     paddingHorizontal: rwp(10),
@@ -74,16 +70,12 @@ const styles = StyleSheet.create({
   poemName: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     color: colors.WHITE.white,
-    // color: colors.darkOrange,
     fontSize: rfs(20),
     letterSpacing: 2,
   },
   poemDuration: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    // color: colors.white,
     color: colors.ORANGE.mildOrange,
-    // color: colors.greyish,
-    // color: colors.darkGrey,
     fontSize: rfs(14),
     letterSpacing: 1,
     marginVertical: rhp(10),

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert, ImageBackground, View} from 'react-native';
+import {Alert, ImageBackground, StatusBar, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {images} from '../../../assets/images';
 import AuthPrompt from '../../../components/atoms/authPrompt';
@@ -10,10 +10,14 @@ import {rfs, rhp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
 import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
 import {useKeyboard} from '../../../hooks';
-import {navigate} from '../../../navigationHandler/navigationRef';
+import {
+  navigate,
+  navigateReset,
+} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
-import auth from '@react-native-firebase/auth'; // For accessing user ID
+import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import {colors} from '../../../constants/colors';
 
 const LoginScreen = () => {
   const keyboardStatus = useKeyboard();
@@ -62,7 +66,7 @@ const LoginScreen = () => {
           // Optionally, you can store this data in a global state or Redux store
           // dispatch(setUserData(userData));
 
-          navigate('BottomStack', {screen: ScreenNames.homeScreen});
+          navigateReset('BottomStack', {screen: ScreenNames.homeScreen});
         } else {
           console.log('User data not found in Firestore');
           Alert.alert('Error', 'User data not found.');
@@ -81,6 +85,10 @@ const LoginScreen = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
+      <StatusBar
+        backgroundColor={colors.PURPLE.backgroundClr}
+        translucent={true}
+      />
       <HeadingText />
       <InputFieldContainer
         headingOne={Strings.email}

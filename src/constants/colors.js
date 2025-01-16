@@ -18,6 +18,7 @@ export const colors = {
     white: '#FFF',
     ashWhite: '#EFEFEF',
     simpleWhite: '#f2f2f2',
+    withWithOpacity: 'rgba(255,255,255,0.5)',
     whiteGrey: '#DFDFDF',
   },
 

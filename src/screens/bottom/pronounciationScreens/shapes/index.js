@@ -8,6 +8,7 @@ import {shapesData} from '../../../../utils/shapesScreenData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {isTablet, rhp} from '../../../../constants/dimensions';
+import {Strings} from '../../../../constants/strings';
 
 const ShapesScreen = () => {
   const navigation = useNavigation();
@@ -40,10 +41,9 @@ const ShapesScreen = () => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'S h a p e s'}
+          title={Strings.shapes}
           onBackPress={() => navigation.goBack()}
           back
         />

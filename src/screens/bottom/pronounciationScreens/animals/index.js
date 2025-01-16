@@ -15,6 +15,7 @@ import {useLoaderProvider} from '../../../../contextAPI';
 import {AnimalsData} from '../../../../utils/animalsData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {Strings} from '../../../../constants/strings';
 const AnimalsScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);
   const {setLoader} = useLoaderProvider();
@@ -66,10 +67,9 @@ const AnimalsScreen = () => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'A n i m a l s'}
+          title={Strings.animals}
           onBackPress={() => navigation.goBack()}
           back
         />

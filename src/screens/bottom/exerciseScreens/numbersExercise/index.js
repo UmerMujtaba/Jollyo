@@ -28,7 +28,7 @@ import {
 } from '../../../../redux/slices/numbersExerciseSlice';
 import StickerModal from '../../../../components/atoms/stickerModal';
 import {addNumberSticker} from '../../../../redux/slices/rewardsSlice';
-import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
+import {useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
 import {isTablet, rhp} from '../../../../constants/dimensions';
@@ -63,11 +63,10 @@ const NumbersExercise = () => {
   const animatedProgress = useState(
     new Animated.Value(exerciseIndex / totalExercises),
   )[0];
-  // const {imageError, setImageError, isConnected} = useNetworkImageHandler();
   const {awardRewardToUser} = useRewardManager();
 
   useEffect(() => {
-    const unsubscribe = auth().onAuthStateChanged(setUser); // Listen to auth state changes
+    const unsubscribe = auth().onAuthStateChanged(setUser);
     return unsubscribe;
   }, []);
 
@@ -202,7 +201,7 @@ const NumbersExercise = () => {
           // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'N u m b e r s'}
+          title={Strings.numbers}
           onBackPress={() => navigation.goBack()}
           back
         />

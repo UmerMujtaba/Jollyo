@@ -57,20 +57,18 @@ export const styles = StyleSheet.create({
     // elevation: 20,
   },
   roundedContainer2: {
-    marginVertical: rhp(20),
+    marginVertical: rhp(10),
     height: rhp(48),
     width: wp(90),
     // borderWidth: 1,
     borderRadius: 30,
     backgroundColor: colors.ORANGE.darkOrangeWithOpacity,
-    // borderColor: colors.darkGrey,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: rwp(10),
   },
   iconStyle: {
     fontSize: rfs(20),
-    // marginTop: rhp(2),
     marginHorizontal: rwp(5),
   },
   textInput: {
@@ -83,8 +81,6 @@ export const styles = StyleSheet.create({
   },
   absoluteView: {
     backgroundColor: 'red',
-    // borderWidth: 1,
-    // borderColor: 'red',
     alignItems: 'center',
     height: rhp(60),
     width: rhp(60),

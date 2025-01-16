@@ -1,5 +1,3 @@
-import {images} from '../assets/images';
-
 export const VehiclesData = [
   {
     image:

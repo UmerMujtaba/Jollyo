@@ -80,19 +80,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: colors.YELLOW.lightYellow,
-    width: wp(90),
+    width: wp(95),
     height: rhp(100),
-    borderRadius: 16,
+    borderRadius: 20,
   },
   insideContainer: {
     backgroundColor: colors.YELLOW.darkYellow,
-    height: rhp(95),
+    height: rhp(93),
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: rhp(20),
+    marginBottom: rhp(10),
   },
   monthText: {
     color: colors.WHITE.white,

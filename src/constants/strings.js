@@ -59,6 +59,18 @@ export const Strings = {
   unknownSticker: 'Unknown Sticker',
   totalExercises: 'Total Exercises:',
   age: 'Age: ',
+  colors: 'C o l o r s',
+  shapes: 'S h a p e s',
+  shapesSet: 'Shapes Set',
+  numbers: 'N u m b e r s',
+  quiz: 'Q u i z',
+  animals: 'A n i m a l s',
+  alphabets: 'A l p h a b e t s',
+  alphabetsSet: 'Alphabets Set',
+  twentySixLetter: '26 sets and letters',
+  poems: 'P o e m s',
+  vehicles: 'V e h i c l e s',
+  userGuideHeading: 'U s e r  G u i d e',
 };
 
 export const ScreenNames = {

@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
-import {Alert, ImageBackground, Text} from 'react-native';
+import {Alert, ImageBackground, StatusBar, Text} from 'react-native';
 import {images} from '../../../assets/images';
 import {TouchableButton} from '../../../components/atoms/button';
 import {HeadingText} from '../../../components/atoms/heading';
 import InterestsSelection from '../../../components/molecules/selectedInterests';
+import {colors} from '../../../constants/colors';
+import {rhp, wp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
-import {navigate} from '../../../navigationHandler/navigationRef';
+import {navigateReset} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
-import {rhp, rwp, width, wp} from '../../../constants/dimensions';
 
 const KidsInterestSelectionScreen = () => {
   const [selectedItems, setSelectedItems] = useState([]);
 
-  // Function to handle selected items change
   const handleSelectionChange = newSelectedItems => {
     setSelectedItems(newSelectedItems);
   };
@@ -25,12 +25,16 @@ const KidsInterestSelectionScreen = () => {
         [{text: 'OK'}],
       );
     } else {
-      navigate('BottomStack', {screen: ScreenNames.homeScreen});
+      navigateReset('BottomStack', {screen: ScreenNames.homeScreen});
     }
   };
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
+      <StatusBar
+        translucent={true}
+        backgroundColor={colors.PURPLE.backgroundClr}
+      />
       <HeadingText />
       <Text style={styles.nameHeading}>{Strings.chooseKidsInterests}</Text>
       <InterestsSelection onSelectionChange={handleSelectionChange} />

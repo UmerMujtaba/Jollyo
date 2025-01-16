@@ -6,7 +6,6 @@ import fonts from '../../../../constants/fonts';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     paddingTop: 20,
   },
 
@@ -59,9 +58,7 @@ export const styles = StyleSheet.create({
   letterText: color => ({
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     fontSize: rfs(30),
-    color:
-      color === colors.BLACK.pureBlack
-        ? colors.WHITE.white
-        : colors.BLACK.pureBlack,
+    letterSpacing: 2,
+    color: color === '#000000' ? '#fff' : '#000000',
   }),
 });

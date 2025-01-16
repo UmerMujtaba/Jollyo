@@ -36,7 +36,7 @@ const MenuItemTile = ({imageSource, title, subHeading, onPress}) => {
 const styles = StyleSheet.create({
   container: {
     height: rhp(90),
-    width: wp(90),
+    width: wp(95),
     backgroundColor: colors.WHITE.disabled,
     flexDirection: 'row',
     borderRadius: 20,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     width: wp(60),
-    paddingHorizontal: rwp(20),
+    paddingHorizontal: rwp(10),
   },
   titleStyle: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     // backgroundColor: 'red',
-    width: isTablet ? wp(14) : wp(10),
+    width: isTablet ? wp(18) : wp(14),
     // alignItems: 'flex-end',
     // justifyContent: 'flex-end',
   },

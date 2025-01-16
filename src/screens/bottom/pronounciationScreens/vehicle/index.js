@@ -15,6 +15,7 @@ import {useLoaderProvider} from '../../../../contextAPI';
 import {VehiclesData} from '../../../../utils/vehiclesData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {Strings} from '../../../../constants/strings';
 
 const Vehicle = () => {
   const {setLoader} = useLoaderProvider();
@@ -66,10 +67,9 @@ const Vehicle = () => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'V e h i c l e s'}
+          title={Strings.vehicles}
           onBackPress={() => navigation.goBack()}
           back
         />

@@ -8,6 +8,7 @@ import {isTablet, rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {alphabetData} from '../../../../utils/alphabetsScreenData';
 import {styles} from './styles';
+import {Strings} from '../../../../constants/strings';
 
 const AlphabetsScreen = ({route}) => {
   const [playingSound, setPlayingSound] = useState(null);
@@ -39,10 +40,9 @@ const AlphabetsScreen = ({route}) => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'A l p h a b e t s'}
+          title={Strings.alphabets}
           back
           onBackPress={() => navigation.goBack()}
         />

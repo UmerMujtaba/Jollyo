@@ -193,7 +193,7 @@ const AnimalsExercise = () => {
           marginTop: isTablet ? rhp(20) : rhp(10),
         }}>
         <CustomAppBar
-          title={'A n i m a l s'}
+          title={Strings.animals}
           onBackPress={() => navigation.goBack()}
           back
         />

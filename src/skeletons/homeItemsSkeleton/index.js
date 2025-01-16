@@ -46,7 +46,6 @@ export const SkeletonItem = ({isEven}) => {
                 borderRadius={8}
                 marginLeft={rhp(10)}
                 marginBottom={rhp(10)}
-                r
               />
             </>
           )}

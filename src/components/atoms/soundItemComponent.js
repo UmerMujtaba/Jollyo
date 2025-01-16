@@ -18,12 +18,14 @@ const styles = StyleSheet.create({
   container: {
     width: wp(95),
     backgroundColor: colors.ORANGE.blackishOrange,
-    height: rhp(94),
-    borderRadius: isTablet ? 30 : 20,
+    height: isTablet ? rhp(94) : rhp(84),
+    // height:  rhp(94),
+    borderRadius: isTablet ? 30 : 14,
     marginBottom: rhp(20),
   },
   bgCon: {
-    height: rhp(84),
+    // height: rhp(84),
+    height: isTablet ? rhp(94) : rhp(78),
     backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',

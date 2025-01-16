@@ -95,7 +95,7 @@ const PoemsScreen = ({route}) => {
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View style={styles.appBarView}>
         <CustomAppBar
-          title={'P o e m s'}
+          title={Strings.poems}
           back
           onBackPress={() => navigation.goBack()}
           textProp={styles.appBarTitle}
@@ -103,20 +103,6 @@ const PoemsScreen = ({route}) => {
       </View>
       <View style={styles.body}>
         <Text style={styles.headerText}>{Strings.listenTheLatestPoems}</Text>
-        {/* <View style={styles.roundedContainer}>
-          <FontAwesome
-            name="search"
-            color={colors.ORANGE.darkOrange}
-            style={styles.iconStyle}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholderTextColor={colors.ORANGE.darkOrange}
-            placeholder={Strings.searchMusic}
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-          />
-        </View> */}
         <View style={styles.roundedContainer2}>
           <FontAwesome
             name="search"

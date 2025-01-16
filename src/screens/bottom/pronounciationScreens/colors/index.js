@@ -14,6 +14,7 @@ import {useLoaderProvider} from '../../../../contextAPI';
 import {ColorsData} from '../../../../utils/colorsData';
 import {styles} from './styles';
 import {isTablet, rhp} from '../../../../constants/dimensions';
+import {Strings} from '../../../../constants/strings';
 
 const ColorsScreen = () => {
   const {setLoader} = useLoaderProvider();
@@ -55,10 +56,9 @@ const ColorsScreen = () => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'C o l o r s'}
+          title={Strings.colors}
           onBackPress={() => navigation.goBack()}
           back
         />

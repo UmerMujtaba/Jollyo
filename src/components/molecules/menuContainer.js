@@ -15,6 +15,7 @@ import {resetAnimals} from '../../redux/slices/animalExerciseSlice';
 import {resetGame} from '../../redux/slices/gameExerciseSlice';
 import {resetState} from '../../redux/slices/shapesExerciseSlice';
 import {resetExercise} from '../../redux/slices/numbersExerciseSlice';
+import {navigateReset} from '../../navigationHandler/navigationRef';
 
 Sound.setCategory('Playback');
 
@@ -41,7 +42,7 @@ const MenuContainer = () => {
 
     setTimeout(() => {
       firebaseHelperFunctions.signOut();
-      navigation.navigate('AuthStack', {screen: 'registerationScreen'});
+      navigateReset(ScreenNames.AuthStack, {screen: ScreenNames.loginScreen});
     }, 400);
   };
 

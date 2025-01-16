@@ -343,7 +343,7 @@ const KidsGameExercise = () => {
           marginTop: isTablet ? rhp(20) : rhp(10),
         }}>
         <CustomAppBar
-          title={'Q u i z'}
+          title={Strings.quiz}
           onBackPress={() => navigation.goBack()}
           back
         />

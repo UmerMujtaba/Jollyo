@@ -15,7 +15,7 @@ import ExerciseSetHeader from '../../../../components/atoms/exerciseSetHeader';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import useSound from '../../../../hooks/buttonClickHook';
 import {styles} from './styles';
-import {ScreenNames} from '../../../../constants/strings';
+import {ScreenNames, Strings} from '../../../../constants/strings';
 
 Sound.setCategory('Playback');
 
@@ -52,7 +52,7 @@ const AlphabetsExercise = () => {
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View style={{marginTop: isTablet ? rhp(20) : rhp(10)}}>
         <CustomAppBar
-          title={'A l p h a b e t s'}
+          title={Strings.alphabets}
           questionMark
           onQuestionPress={handleQuestionPress}
           onBackPress={() => navigation.goBack()}
@@ -67,9 +67,9 @@ const AlphabetsExercise = () => {
               paddingBottom: 100,
             }}>
             <ExerciseSetHeader
-              title={'Alphabets Set'}
+              title={Strings.alphabetsSet}
               count={'1/26'}
-              description={'26 sets and letters'}
+              description={Strings.twentySixLetter}
             />
             {alphabetsExerciseList.map((lesson, index) => (
               <View style={{alignSelf: 'center'}} key={index}>

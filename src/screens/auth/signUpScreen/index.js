@@ -11,9 +11,12 @@ import {rfs, rhp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
 import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
 import {useKeyboard} from '../../../hooks';
-import {navigate} from '../../../navigationHandler/navigationRef';
+import {
+  navigate,
+  navigateReset,
+} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
-import auth from '@react-native-firebase/auth'; // For accessing user ID
+import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 const SignUpScreen = () => {
@@ -79,7 +82,7 @@ const SignUpScreen = () => {
       if (user) {
         console.log('User account created!');
         await saveEmailToFirebase(user);
-        navigate(ScreenNames.profile);
+        navigateReset(ScreenNames.profile);
       } else {
         Alert.alert('Error', 'User is not authenticated.');
       }

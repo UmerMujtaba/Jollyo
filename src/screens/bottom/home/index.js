@@ -62,7 +62,6 @@ const HomeScreen = ({navigation}) => {
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <StatusBar translucent={true} backgroundColor={'transparent'} />
-      {/* <ScrollView showsVerticalScrollIndicator={false}> */}
       <View style={styles.appBarContainer}>
         <FastImage
           source={imagePath}
@@ -76,7 +75,6 @@ const HomeScreen = ({navigation}) => {
         </View>
       </View>
       <ScrollableSelectionList />
-      {/* </ScrollView> */}
     </ImageBackground>
   );
 };

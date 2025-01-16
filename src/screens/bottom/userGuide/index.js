@@ -5,6 +5,7 @@ import CustomAppBar from '../../../components/atoms/customAppBar';
 import UserGuideComponentList from '../../../components/molecules/userGuideComponentList';
 import {rhp} from '../../../constants/dimensions';
 import {styles} from './styles';
+import {Strings} from '../../../constants/strings';
 
 const UserGuide = ({navigation}) => {
   return (
@@ -12,7 +13,7 @@ const UserGuide = ({navigation}) => {
       <StatusBar translucent={true} backgroundColor={'transparent'} />
       <View style={{marginTop: rhp(25)}}>
         <CustomAppBar
-          title={'U s e r  G u i d e'}
+          title={Strings.userGuideHeading}
           // questionMark
           // onQuestionPress={handleQuestionPress}
           onBackPress={() => navigation.goBack()}

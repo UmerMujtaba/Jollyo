@@ -171,7 +171,7 @@ const ManageScreenTimer = () => {
 const styles = StyleSheet.create({
   container: {
     height: rhp(300),
-    width: wp(90),
+    width: wp(95),
     backgroundColor: colors.WHITE.disabled,
     borderRadius: 20,
     marginBottom: rhp(100),

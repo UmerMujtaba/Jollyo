@@ -8,6 +8,7 @@ import {numbersData} from '../../../../utils/numbersScreenData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {isTablet, rhp} from '../../../../constants/dimensions';
+import {Strings} from '../../../../constants/strings';
 
 const NumbersScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);
@@ -40,10 +41,9 @@ const NumbersScreen = () => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'N u m b e r s'}
+          title={Strings.numbers}
           back
           onBackPress={() => navigation.goBack()}
         />

@@ -110,7 +110,7 @@ const AlphabetsExerciseMain = ({route}) => {
           marginBottom: rhp(15),
         }}>
         <CustomAppBar
-          title={'A l p h a b e t s'}
+          title={Strings.alphabets}
           questionMark
           speaker
           onSpeakerPress={handleSpeakerPress}

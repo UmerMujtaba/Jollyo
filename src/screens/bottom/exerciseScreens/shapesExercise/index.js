@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   Animated,
@@ -10,7 +10,6 @@ import {
   View,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import Sound from 'react-native-sound';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../../assets/images';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
@@ -45,7 +44,6 @@ const ShapesExercise = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const progressAnim = useState(new Animated.Value(0))[0];
-  // const fireworksSoundRef = useRef(null);
   const [user, setUser] = useState(null);
   const [earnedSticker, setEarnedSticker] = useState(null);
   const [showStickerModal, setShowStickerModal] = useState(false);
@@ -60,34 +58,12 @@ const ShapesExercise = () => {
     isCorrect,
     randomShapes,
     showLottie,
-    // playFireworks,
   } = useSelector(state => state.shapesExerciseReducer);
-
-  // const [isFireworksPlaying, setIsFireworksPlaying] = useState(false);
 
   // const totalExercises = 2;
   const totalExercises = shapesExerciseData.length;
-  // console.log('🚀 ~ ShapesExercise ~ totalExercises:', totalExercises);
   const progress = ((currentExerciseIndex + 1) / totalExercises) * 100;
   const {imageError, setImageError, isConnected} = useNetworkImageHandler();
-
-  // useEffect(() => {
-  //   fireworksSoundRef.current = new Sound(
-  //     'https://res.cloudinary.com/dtpvy8gil/video/upload/v1732912980/samples/fireworks_kyowvx.wav',
-  //     null,
-  //     error => {
-  //       if (error) {
-  //         console.log('Error loading sound', error);
-  //       }
-  //     },
-  //   );
-
-  //   return () => {
-  //     if (fireworksSoundRef.current) {
-  //       fireworksSoundRef.current.release();
-  //     }
-  //   };
-  // }, []);
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(setUser);
@@ -102,7 +78,6 @@ const ShapesExercise = () => {
     }
   }, [currentExerciseIndex, dispatch]);
 
-  // Update progress animation if needed
   useEffect(() => {
     Animated.timing(progressAnim, {
       toValue: progress,
@@ -201,7 +176,7 @@ const ShapesExercise = () => {
           marginTop: isTablet ? rhp(20) : rhp(10),
         }}>
         <CustomAppBar
-          title={'S h a p e s'}
+          title={Strings.shapes}
           questionMark
           speaker
           onSpeakerPress={() => Alert.alert('Under Process')}
@@ -214,7 +189,7 @@ const ShapesExercise = () => {
           {!showRestartPrompt ? (
             <View style={styles.bottomBody}>
               <ExerciseHeader
-                letter={'Shapes Set'}
+                letter={Strings.shapesSet}
                 currentExerciseIndex={currentExerciseIndex + 1}
                 totalExercises={shapesExerciseData.length}
                 progress={progress}
@@ -288,7 +263,6 @@ const ShapesExercise = () => {
           )}
 
           {isCorrect === 'correct' && (
-            // {isCorrect === 'correct' && playFireworks && (
             <LottieView
               source={require('../../../../assets/lottie/fireworks.json')}
               autoPlay

@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   title: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     color: colors.WHITE.white,
-    fontSize: rfs(28),
+    fontSize: rfs(24),
     marginVertical: rhp(10),
   },
   canvas: {

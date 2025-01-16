@@ -1,13 +1,12 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import {rhp} from '../../constants/dimensions';
-import {PronunciationsDataList, soundData} from '../../utils/soundsListData';
-import SoundItemComponent from '../atoms/soundItemComponent';
-import {navigate} from '../../navigationHandler/navigationRef';
-import {useNavigation} from '@react-navigation/native';
-import useSound from '../../hooks/buttonClickHook';
 import Sound from 'react-native-sound';
+import {rhp} from '../../constants/dimensions';
+import useSound from '../../hooks/buttonClickHook';
+import {PronunciationsDataList} from '../../utils/soundsListData';
+import SoundItemComponent from '../atoms/soundItemComponent';
 
 Sound.setCategory('Playback');
 

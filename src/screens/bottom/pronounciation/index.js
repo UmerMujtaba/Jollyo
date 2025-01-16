@@ -15,7 +15,6 @@ const Pronunciation = () => {
       <View
         style={{
           marginTop: isTablet ? rhp(20) : rhp(10),
-          // marginBottom: rhp(15),
         }}>
         <CustomAppBar
           title={Strings.pronunciation}

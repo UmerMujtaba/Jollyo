@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useRef, useState} from 'react';
-import {ImageBackground, Text} from 'react-native';
+import {ImageBackground, StatusBar, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
 import HorizontalNumberList from '../../../components/atoms/ageFlatList';
@@ -15,9 +15,11 @@ import {
   setUsername,
 } from '../../../redux/slices/userDataSlice';
 import {styles} from './styles';
-import auth from '@react-native-firebase/auth'; // For accessing user ID
+import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import {rhp} from '../../../constants/dimensions';
+import {navigateReset} from '../../../navigationHandler/navigationRef';
+import {colors} from '../../../constants/colors';
 
 const ProfileScreen = () => {
   const [usernameErrorMessage, setUsernameErrorMessage] = useState('');
@@ -25,7 +27,7 @@ const ProfileScreen = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
-  const userId = auth().currentUser?.uid; // Firebase user ID
+  const userId = auth().currentUser?.uid;
   // const [userData, setUserData] = useState(null);
 
   const {username, gender, age, imagePath} = useSelector(
@@ -81,7 +83,7 @@ const ProfileScreen = () => {
   const handleNextPress = () => {
     if (validateUsername() && gender && age) {
       saveUserDataToFirebase();
-      navigation.navigate(ScreenNames.interestScreen);
+      navigateReset(ScreenNames.interestScreen);
       const item = {username: username, gender: gender, age: age};
       console.log('🚀 ~ ProfileScreen ~ item:', item);
     } else {
@@ -91,6 +93,10 @@ const ProfileScreen = () => {
 
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
+      <StatusBar
+        translucent={true}
+        backgroundColor={colors.PURPLE.backgroundClr}
+      />
       <HeadingText />
       <ProfilesAvatarContainer
         onGenderSelect={selectedGender => dispatch(setGender(selectedGender))}

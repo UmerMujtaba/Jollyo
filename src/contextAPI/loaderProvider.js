@@ -27,7 +27,7 @@ export const LoaderProvider = ({children}) => {
             <View
               style={{
                 borderRadius: 15,
-                backgroundColor: colors.WHITE.ashWhite,
+                backgroundColor: colors.WHITE.withWithOpacity,
                 padding: 25,
               }}>
               <ActivityIndicator
