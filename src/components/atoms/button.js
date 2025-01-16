@@ -43,7 +43,7 @@ export const TouchableButton = ({
 const styles = StyleSheet.create({
   btnStyle: {
     width: wp(90),
-    backgroundColor: colors.blackishOrange,
+    backgroundColor: colors.ORANGE.blackishOrange,
     height: rhp(50),
     alignSelf: 'center',
     borderRadius: 16,
@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     fontSize: rfs(20),
-    color: colors.white,
+    color: colors.WHITE.white,
   },
   insideBtnStyle: {
     height: rhp(44),
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',

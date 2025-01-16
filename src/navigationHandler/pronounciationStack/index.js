@@ -9,6 +9,7 @@ import Vehicle from '../../screens/bottom/pronounciationScreens/vehicle';
 import ColorsScreen from '../../screens/bottom/pronounciationScreens/colors';
 import Pronunciation from '../../screens/bottom/pronounciation';
 import PoemsScreen from '../../screens/bottom/pronounciationScreens/poems';
+import PoemMusicScreen from '../../screens/bottom/pronounciationScreens/poemMusic';
 
 const PronunciationStack = createNativeStackNavigator();
 
@@ -60,6 +61,11 @@ const PronunciationNavigator = () => {
       <PronunciationStack.Screen
         name={ScreenNames.poemsScreen}
         component={PoemsScreen}
+        options={{headerShown: false}}
+      />
+      <PronunciationStack.Screen
+        name={ScreenNames.poemMusicScreen}
+        component={PoemMusicScreen}
         options={{headerShown: false}}
       />
     </PronunciationStack.Navigator>

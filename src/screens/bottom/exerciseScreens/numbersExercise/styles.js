@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
   body: {
     flex: 1,
     width: '100%',
-    backgroundColor: colors.disabled,
+    backgroundColor: colors.WHITE.disabled,
     alignSelf: 'flex-end',
     marginTop: rhp(20),
     borderTopRightRadius: 16,
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   bodyInside: {
     flex: 1,
     marginTop: rhp(8),
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
     borderRightColor: 'pink',
@@ -56,7 +56,7 @@ export const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: rfs(34),
-    color: 'black',
+    color: colors.BLACK.pureBlack,
     textAlign: 'center',
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
   },
@@ -71,26 +71,26 @@ export const styles = StyleSheet.create({
   exerciseText: {
     fontSize: rfs(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
   },
 
   exerciseCountText: {
     fontSize: rfs(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
   },
   progressBarContainer: {
     width: wp(90),
     alignSelf: 'center',
     height: rhp(8),
-    backgroundColor: colors.disabled,
+    backgroundColor: colors.WHITE.disabled,
     borderRadius: 5,
     overflow: 'hidden',
     marginBottom: rhp(20),
   },
   progressBar: {
     height: '100%',
-    backgroundColor: colors.backgroundClr,
+    backgroundColor: colors.PURPLE.backgroundClr,
   },
   fireworksAnimation: {
     height: Dimensions.get('screen').height,
@@ -109,7 +109,7 @@ export const styles = StyleSheet.create({
     width: '90%',
     padding: 20,
     height: '60%',
-    backgroundColor: 'white',
+    backgroundColor: colors.WHITE.white,
     borderRadius: 20,
     alignItems: 'center',
   },
@@ -117,25 +117,25 @@ export const styles = StyleSheet.create({
   modalMessage: {
     fontSize: rfs(30),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     margin: 20,
     textAlign: 'center',
   },
   modalSubMsg: {
     fontSize: rfs(22),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.grey,
+    color: colors.GREY.grey,
     marginBottom: rhp(20),
     textAlign: 'center',
   },
   modalButton: {
-    backgroundColor: colors.parrot,
+    backgroundColor: colors.GREEN.parrot,
     paddingVertical: rhp(10),
     paddingHorizontal: rwp(30),
     borderRadius: 5,
   },
   modalButtonText: {
-    color: 'white',
+    color: colors.WHITE.white,
     fontSize: rfs(16),
   },
   modalImg: {

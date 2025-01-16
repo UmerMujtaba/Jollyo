@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     height: rhp(90),
     width: wp(90),
-    backgroundColor: colors.disabled,
+    backgroundColor: colors.WHITE.disabled,
     flexDirection: 'row',
     borderRadius: 20,
     marginBottom: rhp(20),
@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
   insideContainer: {
     height: rhp(83),
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     paddingHorizontal: rwp(10),
   },
   avatarContainer: {
     width: rhp(60),
     height: rhp(60),
     borderRadius: rhp(30),
-    backgroundColor: colors.pink,
+    backgroundColor: colors.PINK.pink,
     justifyContent: 'center',
   },
   iconStyle: {
@@ -71,12 +71,12 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     fontSize: rfs(20),
   },
   subHeadingStyle: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    color: colors.darkGrey,
+    color: colors.GREY.darkGrey,
     fontSize: rfs(17),
   },
   iconContainer: {

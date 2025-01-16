@@ -36,7 +36,7 @@ const PoemTileComponent = ({imageSource, name, duration, onPress}) => {
         </View>
         <MaterialIcons
           name={isFavorited ? 'favorite' : 'favorite-border'}
-          color={isFavorited ? colors.red : colors.darkGrey}
+          color={isFavorited ? colors.RED.red : colors.GREY.darkGrey}
           style={styles.iconStyle2}
           onPress={handleFavoritePress}
         />
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   poemName: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.white,
+    color: colors.WHITE.white,
     // color: colors.darkOrange,
     fontSize: rfs(20),
     letterSpacing: 2,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   poemDuration: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     // color: colors.white,
-    color: colors.mildOrange,
+    color: colors.ORANGE.mildOrange,
     // color: colors.greyish,
     // color: colors.darkGrey,
     fontSize: rfs(14),

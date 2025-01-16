@@ -11,14 +11,14 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: rfs(28),
     marginVertical: rhp(10),
   },
   canvas: {
     width: wp(95),
     height: isTablet ? hp(63) : hp(65),
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     alignSelf: 'center',
   },
 
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   },
   strokeHeading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    color: colors.darkOrange,
+    color: colors.ORANGE.darkOrange,
     fontSize: rfs(20),
     marginTop: rhp(10),
   },
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
   btnStyle: {
     marginHorizontal: isTablet ? rwp(0) : rwp(10),
     width: wp(20),
-    backgroundColor: colors.blackishOrange,
+    backgroundColor: colors.ORANGE.blackishOrange,
     height: rhp(50),
     alignSelf: 'center',
     borderRadius: 16,
@@ -73,11 +73,11 @@ export const styles = StyleSheet.create({
   btnText: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     fontSize: isTablet ? rfs(20) : rfs(16),
-    color: colors.white,
+    color: colors.WHITE.white,
   },
   insideBtnStyle: {
     height: rhp(44),
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',

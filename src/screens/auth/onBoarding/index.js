@@ -7,11 +7,16 @@ import {navigate} from '../../../navigationHandler/navigationRef';
 import {ScreenNames} from '../../../constants/strings';
 import FastImage from 'react-native-fast-image';
 import {rhp} from '../../../constants/dimensions';
+import {images} from '../../../assets/images';
 
 const renderItem = ({item}) => {
   return (
     <View style={styles.renderItem_parentView1}>
-      <FastImage source={item.imgUrl} style={styles.carouselImg} />
+      <FastImage
+        source={item.imgUrl}
+        style={styles.carouselImg}
+        defaultSource={images.defaultImg}
+      />
       <Text style={styles.carouserTitle}>{item.heading}</Text>
       <Text style={styles.carouserSubTitle}>{item.title}</Text>
     </View>

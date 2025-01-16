@@ -43,7 +43,9 @@ export const images = {
   alphabets: {
     a: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738566/alphabetsImages/ki7tk1bwo9nb5ibmfuv2.png',
     alphabetsGroup:
-      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738565/alphabetsImages/q7ltbr08eeicetnde2ty.jpg',
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1736851435/alphabetsss_psieiz.png',
+    // alphabetsGroup:
+    //   'https://res.cloudinary.com/dtpvy8gil/image/upload/v1736841265/output_slu1o3.jpg',
 
     aligator:
       'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738566/alphabetsImages/bd7hjf5y1aur2uyuk7yi.png',
@@ -96,7 +98,9 @@ export const images = {
   numbers: {
     one: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737733/numbersImages/mvmn1dpcy2yvoweilcmb.png',
     numbersGroup:
-      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737727/numbersImages/c8wlwwhvqsds7m7kh2vd.jpg',
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1736851427/numss_xmo1jp.png',
+    // numbersGroup:
+    //   'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737727/numbersImages/c8wlwwhvqsds7m7kh2vd.jpg',
     numOne:
       'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733737729/numbersImages/knzunscf25gzvdbvb3b1.png',
     numTwo:
@@ -128,7 +132,9 @@ export const images = {
     circular:
       'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742815/shapesImages/m108twrdh0zbfpi4zwfh.png',
     shapesGroup:
-      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742817/shapesImages/rkg30xptyc7xmhmzcrar.png',
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1736851427/shapesss_m0uisl.png',
+    // shapesGroup:
+    //   'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742817/shapesImages/rkg30xptyc7xmhmzcrar.png',
     circle:
       'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733742816/shapesImages/n2davsespdjgpqxxjkck.png',
     hexagon:
@@ -147,14 +153,18 @@ export const images = {
   animals: {
     cat: 'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733738558/alphabetsImages/c/tplnwi5q6yntd8xwssev.jpg',
     animalsGroup:
-      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733743056/animalsImages/ww3gt90kpfddqjwy9axn.jpg',
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1736851427/animalsss_hqvuua.png',
+    // animalsGroup:
+    //   'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733743056/animalsImages/ww3gt90kpfddqjwy9axn.jpg',
   },
 
   games: {
     captainAmerica:
       'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733743097/gamesImages/fex9yw8qmuxbhzs94ccp.webp',
     gamingKidsGroup:
-      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733749845/gamesImages/xgts4kih3porhdf8c3fr.jpg',
+      'https://res.cloudinary.com/dtpvy8gil/image/upload/v1736851428/kid_s7eprx.png',
+    // gamingKidsGroup:
+    //   'https://res.cloudinary.com/dtpvy8gil/image/upload/v1733749845/gamesImages/xgts4kih3porhdf8c3fr.jpg',
   },
 
   letterA: {

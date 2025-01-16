@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     fontSize: rfs(24),
   },
   count: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     fontSize: rfs(18),
   },
 });

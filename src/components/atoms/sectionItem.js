@@ -14,7 +14,11 @@ const SectionItem = ({title, leftTitle, onPress}) => {
       <View style={styles.downloadContainer}>
         <Text style={styles.downloadText}>{leftTitle}</Text>
         <TouchableOpacity onPress={onPress}>
-          <FastImage source={images.alphabets.a} style={styles.downloadIcon} />
+          <FastImage
+            source={images.alphabets.a}
+            style={styles.downloadIcon}
+            defaultSource={images.defaultImg}
+          />
         </TouchableOpacity>
       </View>
     </View>

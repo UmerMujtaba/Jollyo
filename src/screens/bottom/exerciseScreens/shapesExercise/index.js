@@ -29,6 +29,7 @@ import {
   setPlayFireworks,
   setRandomShapes,
   setSelectedOption,
+  setShowLottie,
   setShowModal,
 } from '../../../../redux/slices/shapesExerciseSlice';
 import {shapesExerciseData} from '../../../../utils/shapesExerciseData';
@@ -58,6 +59,7 @@ const ShapesExercise = () => {
     selectedOption,
     isCorrect,
     randomShapes,
+    showLottie,
     // playFireworks,
   } = useSelector(state => state.shapesExerciseReducer);
 
@@ -149,6 +151,11 @@ const ShapesExercise = () => {
       dispatch(setIsCorrect('correct'));
     } else {
       dispatch(setIsCorrect('incorrect'));
+      dispatch(setShowLottie(true));
+      setTimeout(() => {
+        dispatch(setShowLottie(false));
+        // handleNext('correct');
+      }, 3000);
     }
   };
 
@@ -240,15 +247,26 @@ const ShapesExercise = () => {
                       selectedOption?.name === shape.name && {
                         backgroundColor:
                           isCorrect === 'correct'
-                            ? colors.correct
+                            ? colors.GREEN.correct
                             : isCorrect === 'incorrect'
-                            ? colors.wrong
+                            ? colors.RED.wrong
                             : colors.transparent,
                       },
                     ]}
                     onPress={() => handleOptionSelect(shape)}>
                     <View
-                      style={[styles.optContainer, styles.optContainerInside]}>
+                      style={[
+                        styles.optContainer,
+                        styles.optContainerInside,
+                        selectedOption?.name === shape.name && {
+                          backgroundColor:
+                            isCorrect === 'correct'
+                              ? colors.GREEN.parrot
+                              : isCorrect === 'incorrect'
+                              ? colors.RED.red
+                              : colors.transparent,
+                        },
+                      ]}>
                       <FastImage
                         defaultSource={images.defaultImg}
                         source={
@@ -277,10 +295,20 @@ const ShapesExercise = () => {
               loop={false}
               style={styles.fireworksAnimation}
               onAnimationFinish={() => {
-                // if (isFireworksPlaying) {
                 handleNext();
-                // }
               }}
+            />
+          )}
+          {showLottie && (
+            <LottieView
+              source={
+                isCorrect === 'correct'
+                  ? require('../../../../assets/lottie/fireworks.json')
+                  : require('../../../../assets/lottie/error.json')
+              }
+              autoPlay
+              loop={false}
+              style={styles.fireworksAnimation}
             />
           )}
           {showStickerModal && (
@@ -292,6 +320,7 @@ const ShapesExercise = () => {
               }}
             />
           )}
+
           <CustomBottomTab onNext={handleNext} onBack={handleBack} />
         </View>
       </View>

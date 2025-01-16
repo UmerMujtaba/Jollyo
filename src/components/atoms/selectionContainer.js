@@ -1,11 +1,12 @@
 import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {colors} from '../../constants/colors';
-import {rfs, rhp, wp} from '../../constants/dimensions';
-import fonts from '../../constants/fonts';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {colors} from '../../constants/colors';
+import {rfs, rhp} from '../../constants/dimensions';
+import fonts from '../../constants/fonts';
 import {images} from '../../assets/images';
-
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import SkeletonItem from '../../skeletons/homeItemsSkeleton';
 const SelectionContainer = ({
   imageSource,
   heading,
@@ -13,9 +14,13 @@ const SelectionContainer = ({
   imageStyle,
   textStyle,
   onPress,
+  // isLoading,
 }) => {
   const isEven = index % 2 === 0;
 
+  // if (isLoading) {
+  //   return <SkeletonItem isEven={isEven} />;
+  // }
   return (
     <TouchableOpacity
       style={styles.container}
@@ -28,6 +33,7 @@ const SelectionContainer = ({
               source={{uri: imageSource}}
               style={[styles.imgStyle, imageStyle]}
               resizeMode={FastImage.resizeMode.cover}
+              defaultSource={images.defaultImg}
             />
           </View>
           <View style={styles.textWrapper}>
@@ -43,6 +49,8 @@ const SelectionContainer = ({
             <FastImage
               source={{uri: imageSource}}
               style={[styles.imgStyle, imageStyle]}
+              resizeMode={FastImage.resizeMode.cover}
+              defaultSource={images.defaultImg}
             />
           </View>
         </>
@@ -54,13 +62,13 @@ const SelectionContainer = ({
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderRadius: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginBottom: rhp(20),
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: colors.BLACK.pureBlack,
     shadowOffset: {
       width: 0,
       height: 10,
@@ -68,43 +76,28 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 10,
     elevation: 10,
-    // height: 180,
   },
   imageWrapper: {
-    width: '75%',
+    width: '73.5%',
     alignItems: 'flex-end',
-    // backgroundColor: 'pink',
   },
   imgStyle: {
-    // resizeMode: 'cover',
     height: rhp(180),
     width: '100%',
     borderRadius: 40,
-    // shadowOffset: {
-    //   width: 3,
-    //   height: 6,
-    // },
-    // shadowOpacity: 0.3,
-    // shadowRadius: 5,
-    // elevation: 6,
   },
   textWrapper: {
-    // backgroundColor: 'purple',
-
-    width: '25%',
-    // height: 170,
+    width: '27.5%',
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   txtStyle: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    fontSize: rfs(18),
-    color: colors.white,
+    letterSpacing: 2,
+    fontSize: rfs(16),
+    color: colors.WHITE.white,
     transform: [{rotate: '90deg'}],
-    // textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    // textShadowOffset: { width: -1, height: 1 },
-    // textShadowRadius: 4,
   },
 });
 

@@ -1,8 +1,8 @@
-import {View, Text, FlatList} from 'react-native';
 import React from 'react';
-import UserGuideComponent from '../atoms/userGuideComponent';
-import {UserGuideData} from '../../utils/userGuideData';
+import {FlatList} from 'react-native';
 import {rhp} from '../../constants/dimensions';
+import {UserGuideData} from '../../utils/userGuideData';
+import UserGuideComponent from '../atoms/userGuideComponent';
 
 const UserGuideComponentList = () => {
   const renderItem = ({item}) => {
@@ -21,7 +21,7 @@ const UserGuideComponentList = () => {
       data={UserGuideData}
       keyExtractor={item => item.id}
       renderItem={renderItem}
-      contentContainerStyle={{paddingBottom: rhp(100)}}
+      contentContainerStyle={{paddingBottom: rhp(150)}}
     />
   );
 };

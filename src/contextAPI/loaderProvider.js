@@ -1,6 +1,8 @@
 import React, {useState, createContext, useContext} from 'react';
 import {ActivityIndicator, Modal, Text, View} from 'react-native';
 import {colors} from '../constants/colors';
+import {rfs} from '../constants/dimensions';
+import fonts from '../constants/fonts';
 
 const LoaderContext = createContext();
 
@@ -18,22 +20,26 @@ export const LoaderProvider = ({children}) => {
           <View
             style={{
               flex: 1,
-              backgroundColor: colors.backgroundClr,
+              backgroundColor: colors.PURPLE.backgroundClr,
               alignItems: 'center',
               justifyContent: 'center',
             }}>
             <View
               style={{
                 borderRadius: 15,
-                backgroundColor: colors.ashWhite,
+                backgroundColor: colors.WHITE.ashWhite,
                 padding: 25,
               }}>
-              <ActivityIndicator size="large" color={colors.darkOrange} />
+              <ActivityIndicator
+                size="large"
+                color={colors.ORANGE.darkOrange}
+              />
               <Text
                 style={{
-                  fontSize: 14,
-                  fontWeight: '200',
-                  color: colors.blackishOrange,
+                  fontSize: rfs(18),
+                  // fontWeight: '200',
+                  fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
+                  color: colors.ORANGE.darkOrange,
                   opacity: 1,
                 }}>
                 {'Loading'}

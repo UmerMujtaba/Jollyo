@@ -29,7 +29,7 @@ export const MainExerciseData = [
   {
     id: 6,
     imageSource: images.games.gamingKidsGroup,
-    heading: 'Games',
+    heading: 'Quiz Game',
     screen: ScreenNames.kidsGameExerciseScreen,
   },
 ];

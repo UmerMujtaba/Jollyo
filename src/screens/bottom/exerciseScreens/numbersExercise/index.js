@@ -104,7 +104,7 @@ const NumbersExercise = () => {
     dispatch(setIsCorrect(number === randomCount ? 'correct' : 'incorrect'));
     dispatch(
       setFeedbackColor(
-        number === randomCount ? colors.backgroundClr : colors.darkOrange,
+        number === randomCount ? colors.PURPLE.backgroundClr : 'transparent',
       ),
     );
     dispatch(setShowLottie(true));

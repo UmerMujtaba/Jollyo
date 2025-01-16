@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   heading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     fontSize: rfs(24),
-    color: colors.white,
+    color: colors.WHITE.white,
     textAlign: 'center',
     marginBottom: rhp(40),
   },

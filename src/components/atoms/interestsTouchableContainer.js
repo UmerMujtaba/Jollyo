@@ -27,6 +27,7 @@ const InterestsTouchableComponent = ({
           source={imageSource ? {uri: imageSource} : images.alphabets.a}
           resizeMode={FastImage.resizeMode.contain}
           style={styles.imgStyle}
+          defaultSource={images.defaultImg}
         />
         <Text style={styles.titleStyle}>{title}</Text>
       </TouchableOpacity>
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     width: isTablet ? rwp(120) : rwp(140),
     height: isTablet ? rhp(130) : rhp(140),
     borderRadius: 16,
-    backgroundColor: colors.lightGrey,
+    backgroundColor: colors.GREY.lightGrey,
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 5,
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
   insideContainer: {
     // height: rhp(135),
     height: isTablet ? rhp(125) : rhp(135),
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     fontSize: rfs(16),
   },
   tickCircle: {
@@ -72,14 +73,15 @@ const styles = StyleSheet.create({
     width: rhp(24),
     height: rhp(24),
     borderRadius: rhp(12),
-    backgroundColor: colors.backgroundClr,
+    backgroundColor: colors.PURPLE.backgroundClr,
     justifyContent: 'center',
     alignItems: 'center',
   },
   tick: {
     fontSize: rfs(12),
+    textAlign: 'center',
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    color: colors.white,
+    color: colors.WHITE.white,
   },
 });
 export default InterestsTouchableComponent;

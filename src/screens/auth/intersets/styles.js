@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   nameHeading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: rfs(28),
     textAlign: 'center',
     marginTop: rhp(30),
@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   ageHeading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: rfs(24),
     textAlign: 'center',
     marginTop: rhp(40),

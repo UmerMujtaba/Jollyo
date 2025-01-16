@@ -113,6 +113,7 @@ const LoginScreen = () => {
             source={images.cubImage}
             style={styles.imgStyle}
             resizeMode={FastImage.resizeMode.contain}
+            defaultSource={images.defaultImg}
           />
         </View>
       )}

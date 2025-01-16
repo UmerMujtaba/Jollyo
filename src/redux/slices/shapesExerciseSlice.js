@@ -8,6 +8,7 @@ const initialState = {
   randomShapes: [],
   playFireworks: false,
   showModal: false,
+  showLottie: false,
 };
 
 const shapesExerciseSlice = createSlice({
@@ -50,6 +51,9 @@ const shapesExerciseSlice = createSlice({
     setShowModal: (state, action) => {
       state.showModal = action.payload;
     },
+    setShowLottie: (state, action) => {
+      state.showLottie = action.payload;
+    },
     resetState: state => {
       state.currentExerciseIndex = 0;
       state.selectedOption = null;
@@ -66,6 +70,7 @@ export const {
   setSelectedOption,
   setIsCorrect,
   setRandomShapes,
+  setShowLottie,
   // setPlayFireworks,
   setShowModal,
   resetState,

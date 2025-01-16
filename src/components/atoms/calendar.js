@@ -79,13 +79,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    backgroundColor: colors.lightYellow,
+    backgroundColor: colors.YELLOW.lightYellow,
     width: wp(90),
     height: rhp(100),
     borderRadius: 16,
   },
   insideContainer: {
-    backgroundColor: '#fbd351',
+    backgroundColor: colors.YELLOW.darkYellow,
     height: rhp(95),
   },
   header: {
@@ -95,9 +95,10 @@ const styles = StyleSheet.create({
     marginBottom: rhp(20),
   },
   monthText: {
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: rfs(24),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
+    letterSpacing: 2,
   },
   dayContainer: {
     alignItems: 'center',
@@ -106,26 +107,26 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   selectedDayContainer: {
-    backgroundColor: colors.pink,
+    backgroundColor: colors.PINK.pink,
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
   dayText: {
-    color: colors.blacK,
+    color: colors.BLACK.pureBlack,
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     fontSize: rfs(16),
     marginBottom: rhp(10),
   },
   selectedDayText: {
-    color: colors.white,
+    color: colors.WHITE.white,
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
   dateText: {
-    color: colors.blacK,
+    color: colors.BLACK.pureBlack,
     fontSize: rfs(18),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
   selectedDateText: {
-    color: colors.white,
+    color: colors.WHITE.white,
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
 });

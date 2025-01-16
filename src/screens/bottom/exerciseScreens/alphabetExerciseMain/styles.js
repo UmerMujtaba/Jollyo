@@ -17,14 +17,14 @@ export const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    backgroundColor: colors.whiteGrey,
+    backgroundColor: colors.WHITE.whiteGrey,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     marginTop: rhp(10),
   },
   bodyInside: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
     borderRightColor: 'pink',
@@ -47,13 +47,13 @@ export const styles = StyleSheet.create({
   letterText: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.CondensedBold,
     fontSize: rfs(80),
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     marginTop: isTablet ? rhp(-12) : rhp(20),
     textAlign: 'center',
   },
   itemName: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     fontSize: rfs(40),
     marginTop: isTablet ? rhp(0) : rhp(10),
     textAlign: 'center',

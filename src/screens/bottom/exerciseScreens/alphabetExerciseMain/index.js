@@ -127,11 +127,6 @@ const AlphabetsExerciseMain = ({route}) => {
             progress={progress}
           />
           <View style={styles.imgContainer}>
-            {/* <FastImage
-              source={{uri: currentExercise.image}}
-              style={styles.imgStyle}
-            /> */}
-
             <FastImage
               defaultSource={images.defaultImg}
               source={

@@ -17,6 +17,7 @@ const RestartPrompt = ({onRestart}) => {
         source={images.bearCompletion}
         resizeMode={FastImage.resizeMode.contain}
         style={styles.completeImg}
+        defaultSource={images.defaultImg}
       />
       <Text style={[styles.restartPromptText, {fontSize: rfs(20)}]}>
         Do you want to start again ?

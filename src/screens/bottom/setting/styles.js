@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
   nameStyle: {
     fontSize: rfs(40),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.darkOrange,
+    color: colors.ORANGE.darkOrange,
     marginBottom: rhp(10),
     letterSpacing: 5,
   },
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     marginTop: 10,
   },
   btn: {
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     padding: 15,
     borderRadius: 16,
     width: '40%',
@@ -39,5 +39,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: rhp(20),
   },
-  logoutText: {color: 'white', fontSize: rfs(18), marginBottom: rhp(20)},
+  logoutText: {
+    color: colors.WHITE.white,
+    fontSize: rfs(18),
+    marginBottom: rhp(20),
+  },
+  bdy: {
+    alignItems: 'center',
+  },
 });

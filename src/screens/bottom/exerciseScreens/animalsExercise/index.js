@@ -205,7 +205,7 @@ const AnimalsExercise = () => {
               <NumbersQuestionBar title={Strings.canYouChooseTheCorrect} />
 
               <View style={styles.exerciseContainer}>
-                <Text style={styles.exerciseText}>Exercise</Text>
+                <Text style={styles.exerciseText}>{Strings.exercise}</Text>
                 <Text style={styles.exerciseCountText}>
                   {exerciseIndex} / {totalExercises}
                 </Text>
@@ -243,18 +243,6 @@ const AnimalsExercise = () => {
                 {Array.isArray(randomAnimals) && randomAnimals.length > 0 ? (
                   randomAnimals.map((animal, index) => (
                     <View key={index} style={styles.animalCard}>
-                      <FastImage
-                        defaultSource={images.defaultImg}
-                        source={
-                          imageError || !isConnected
-                            ? images.defaultImg
-                            : {uri: animal.image}
-                        }
-                        style={styles.animalImage}
-                        onError={() => setImageError(true)}
-                        resizeMode={FastImage.resizeMode.contain}
-                      />
-
                       <TouchableOpacity
                         hitSlop={{top: 5, bottom: 5, left: 5, right: 5}}
                         style={[
@@ -266,23 +254,35 @@ const AnimalsExercise = () => {
                             : styles.unchecked,
                         ]}
                         onPress={() => handleSelection(index)}>
-                        {selectedAnimals[index] &&
-                          (selectionStatus[index] === true ? (
-                            <FontAwesome6
-                              name="check"
-                              size={16}
-                              color="white"
-                              style={styles.btnText}
-                            />
-                          ) : (
-                            <EntypoIcon
-                              name="cross"
-                              size={16}
-                              color="white"
-                              style={styles.btnText}
-                            />
-                          ))}
+                        <FastImage
+                          defaultSource={images.defaultImg}
+                          source={
+                            imageError || !isConnected
+                              ? images.defaultImg
+                              : {uri: animal.image}
+                          }
+                          style={styles.animalImage}
+                          onError={() => setImageError(true)}
+                          resizeMode={FastImage.resizeMode.contain}
+                        />
                       </TouchableOpacity>
+
+                      {/* {selectedAnimals[index] &&
+                        (selectionStatus[index] === true ? (
+                          <FontAwesome6
+                            name="check"
+                            size={16}
+                            color="white"
+                            style={styles.btnText}
+                          />
+                        ) : (
+                          <EntypoIcon
+                            name="cross"
+                            size={16}
+                            color="white"
+                            style={styles.btnText}
+                          />
+                        ))} */}
                     </View>
                   ))
                 ) : (
@@ -320,3 +320,4 @@ const AnimalsExercise = () => {
 };
 
 export default AnimalsExercise;
+//

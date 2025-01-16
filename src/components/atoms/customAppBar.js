@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -89,12 +88,14 @@ const CustomAppBar = ({
       <View style={styles.textWrapper}>
         <Text style={[styles.textHeading, textProp]}>{title}</Text>
         {notification && (
-          <ProfileRoundedAvatar
-            imageSource={imagePath}
-            mainContainer={{backgroundColor: colors.darkPink}}
-            innerContainer={{backgroundColor: colors.lightPink}}
-            // isSelected={selectedAvatar === 'girl'}
-          />
+          <View style={{marginTop: rhp(10)}}>
+            <ProfileRoundedAvatar
+              imageSource={imagePath}
+              mainContainer={{backgroundColor: colors.PINK.darkPink}}
+              innerContainer={{backgroundColor: colors.PINK.lightPink}}
+              // isSelected={selectedAvatar === 'girl'}
+            />
+          </View>
         )}
       </View>
 
@@ -139,39 +140,37 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     paddingHorizontal: rwp(10),
-    // paddingVertical: isTablet ? rhp(10) : rhp(10),
     marginTop: isTablet ? rhp(10) : rhp(15),
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-    // backgroundColor: 'red',
   },
   btnStyle: {
     width: isTablet ? rwp(35) : rwp(45),
-    backgroundColor: colors.blackishOrange,
     height: isTablet ? rhp(45) : rhp(50),
-    // alignSelf: 'center',
+    backgroundColor: colors.ORANGE.blackishOrange,
     borderRadius: 16,
   },
   insideBtnStyle: {
     height: isTablet ? rhp(39) : rhp(44),
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',
     borderBottomColor: 'white',
     justifyContent: 'center',
   },
+
   questionBtnStyle: {
     width: isTablet ? rwp(35) : rwp(45),
-    backgroundColor: colors.darkPink,
+    backgroundColor: colors.PINK.darkPink,
     height: isTablet ? rhp(45) : rhp(50),
     alignSelf: 'flex-end',
     borderRadius: 16,
   },
   insideQuestionBtnStyle: {
     height: isTablet ? rhp(39) : rhp(44),
-    backgroundColor: colors.lightPink,
+    backgroundColor: colors.PINK.lightPink,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
     borderRightColor: 'pink',
@@ -179,20 +178,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   backIconStyle: {
-    // resizeMode: 'contain',
     height: rhp(20),
     width: rwp(20),
     alignSelf: 'center',
   },
   textWrapper: {
     width: '60%',
-    // backgroundColor: 'blue',
     justifyContent: 'center',
     alignItems: 'center',
   },
   textHeading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: isTablet ? rfs(24) : rfs(22),
   },
 });

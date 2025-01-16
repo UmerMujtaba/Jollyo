@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
     paddingTop: rhp(20),
   },
   emptySection: {
-    // backgroundColor: 'red',
     width: rwp(100),
     alignItems: 'center',
   },
@@ -21,7 +20,8 @@ export const styles = StyleSheet.create({
     marginTop: rhp(10),
     fontSize: rfs(27),
     marginBottom: rhp(10),
-    color: colors.darkOrange,
+    color: colors.ORANGE.darkOrange,
+    letterSpacing: 1,
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
   },
   horizontalList: {
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     marginTop: rhp(10),
     fontSize: rfs(18),
     marginBottom: rhp(10),
-    color: colors.white,
+    color: colors.WHITE.white,
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
   },
 });

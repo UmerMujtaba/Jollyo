@@ -3,6 +3,7 @@ import {Modal, View, Text, Image, TouchableOpacity} from 'react-native';
 import {colors} from '../../constants/colors';
 import fonts from '../../constants/fonts';
 import {hp, rfs, rhp, rwp, wp} from '../../constants/dimensions';
+import {Strings} from '../../constants/strings';
 
 const StickerModal = ({isVisible, earnedSticker, onClose}) => {
   return (
@@ -19,7 +20,9 @@ const StickerModal = ({isVisible, earnedSticker, onClose}) => {
           )}
 
           <Text style={styles.stickerText}>
-            You earned a sticker: {earnedSticker?.name || 'Unknown Sticker'}
+            {`${Strings.youEarnedASticker} ${
+              earnedSticker?.name || Strings.unknownSticker
+            }`}
           </Text>
 
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
@@ -39,7 +42,7 @@ const styles = {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: colors.WHITE.white,
     height: hp(70),
     width: wp(100),
     borderTopRightRadius: 16,
@@ -58,18 +61,18 @@ const styles = {
     marginTop: rhp(10),
     fontSize: rfs(28),
     textAlign: 'center',
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
   },
   closeButton: {
     marginTop: 20,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderRadius: 16,
   },
   closeButtonText: {
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: rfs(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
   },

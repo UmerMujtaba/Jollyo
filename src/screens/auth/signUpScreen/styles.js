@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {hp, isTablet, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
 import {colors} from '../../../constants/colors';
+import {rfs, rhp, rwp} from '../../../constants/dimensions';
 import fonts from '../../../constants/fonts';
 
 export const styles = StyleSheet.create({
@@ -17,11 +17,11 @@ export const styles = StyleSheet.create({
   emailInputField: {fontSize: rfs(24)},
   passwordInputField: {fontSize: rfs(24)},
   errorBorder: {
-    borderColor: colors.red,
+    borderColor: colors.RED.red,
     borderWidth: 1,
   },
   errorMessage: {
-    color: colors.red,
+    color: colors.RED.red,
     width: '85%',
     paddingHorizontal: 20,
     fontSize: rfs(16),

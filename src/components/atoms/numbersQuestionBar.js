@@ -1,19 +1,21 @@
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import crashlytics from '@react-native-firebase/crashlytics';
 import React from 'react';
-import {images} from '../../assets/images';
-import {Strings} from '../../constants/strings';
-import {isTablet, rfs, rhp, rwp, wp} from '../../constants/dimensions';
-import {colors} from '../../constants/colors';
-import fonts from '../../constants/fonts';
-import Tts from 'react-native-tts';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
-
+import Tts from 'react-native-tts';
+import {images} from '../../assets/images';
+import {colors} from '../../constants/colors';
+import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
+import fonts from '../../constants/fonts';
 const NumbersQuestionBar = ({title, name}) => {
   const handleSpeakerPress = () => {
     Tts.speak(title);
     Tts.setDefaultVoice('com.apple.speech.synthesis.voice.Albert');
     Tts.setDefaultPitch(0.7);
-    Tts.setDefaultRate(0.5, true);
+    Tts.setDefaultRate(0.3, true);
+
+    crashlytics().crash();
+    crashlytics().log('🚀 ~ handleSpeakerPress Button was pressed!');
   };
 
   return (
@@ -39,14 +41,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
   btn: {
-    backgroundColor: colors.blackishOrange,
+    backgroundColor: colors.ORANGE.blackishOrange,
     height: isTablet ? rhp(45) : rhp(50),
     width: isTablet ? rwp(35) : rwp(45),
     borderRadius: 16,
   },
   btnInside: {
     height: isTablet ? rhp(39) : rhp(44),
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
   question: {
     fontSize: rfs(32),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.darkOrange,
+    color: colors.ORANGE.darkOrange,
     paddingHorizontal: 20,
   },
 });

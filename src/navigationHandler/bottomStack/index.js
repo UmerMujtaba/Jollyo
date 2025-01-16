@@ -43,7 +43,7 @@ const Bottom = () => {
           style={[
             styles.iconContainer,
             {
-              backgroundColor: focused ? colors.white : 'transparent',
+              backgroundColor: focused ? colors.WHITE.white : 'transparent',
               width: rwp(40),
               height: rhp(40),
               borderRadius: 12,
@@ -63,7 +63,11 @@ const Bottom = () => {
             resizeMode="contain"
             style={[
               styles.icon,
-              {tintColor: focused ? colors.backgroundClr : colors.white},
+              {
+                tintColor: focused
+                  ? colors.PURPLE.backgroundClr
+                  : colors.WHITE.white,
+              },
             ]}
           />
         </View>
@@ -78,17 +82,16 @@ const Bottom = () => {
           animation: 'shift',
           animationEnabled: true,
           backgroundColor: 'orange',
-          paddingTop: 2,
+          paddingTop: rhp(2),
           borderTopLeftRadius: 30,
           borderColor: 'transparent',
           borderTopRightRadius: 30,
-          // borderRadius:20,
           borderLeftWidth: 0.2,
           borderRightWidth: 0.2,
           position: 'absolute',
           overflow: 'hidden',
         },
-        tabBarLabel: () => null, // Hide default labels
+        tabBarLabel: () => null,
       }}>
       <Tab.Screen
         name={ScreenNames.homeNavigator}
@@ -182,7 +185,7 @@ const styles = StyleSheet.create({
     height: rhp(25),
   },
   label: focused => ({
-    color: focused ? colors.gradientColor2 : colors.grey,
+    color: focused ? colors.BLUE.gradientColor2 : colors.GREY.grey,
     fontWeight: '500',
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     fontSize: rfs(12),

@@ -5,6 +5,9 @@ TO DO:
 4. animal on tap sound , one is playing, on tap of other, start the sound of other that is tapped
 5. on vehicle -> add sounds of vehicle
 6. resposiveness , fun check on IOS
+
+
+in next version
 7. multi lingual
 
 
@@ -16,5 +19,11 @@ TO DO:
 
 To check:
 1. Created a new user, on quiz game, no exercise fetched from firebase, as they were empty so called set random fun there, 
+2. crashlytics().crash();
+    crashlytics().log('🚀 ~ handleSpeakerPress Button was pressed!');
+    in numberQuestionBar.js
+
+to undo, 
+1. 2 input fields in poem screen, with style named roundedContainer2
 
 

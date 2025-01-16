@@ -43,6 +43,11 @@ const gamesExerciseSlice = createSlice({
     resetGame: state => {
       state.selectedGame = [false, false, false, false];
       state.selectionStatus = [null, null, null, null];
+      state.exerciseIndex = 1;
+      state.progress = '';
+      state.correctGame = '';
+      state.showLottie = '';
+      state.randomGame = '';
       state.isCorrect = '';
     },
   },

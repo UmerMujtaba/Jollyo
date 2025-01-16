@@ -39,6 +39,7 @@ import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
 import useRewardManager from '../../../../hooks/useRewardManager';
 import firestore from '@react-native-firebase/firestore';
 import {colors} from '../../../../constants/colors';
+import NumbersQuestionBar from '../../../../components/atoms/numbersQuestionBar';
 
 const getRandomQuestions = () => {
   let selected = [];
@@ -73,8 +74,8 @@ const KidsGameExercise = () => {
   const progressAnim = useState(new Animated.Value(0))[0];
   const {imageError, setImageError, isConnected} = useNetworkImageHandler();
 
-  const totalExercises = 2;
-  // const totalExercises = GameExerciseData.length;
+  // const totalExercises = 2;
+  const totalExercises = GameExerciseData.length;
 
   useEffect(() => {
     const unsubscribe = auth().onAuthStateChanged(setUser);
@@ -330,7 +331,7 @@ const KidsGameExercise = () => {
   if (loading) {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <ActivityIndicator size="large" color={colors.darkOrange} />
+        <ActivityIndicator size="large" color={colors.ORANGE.darkOrange} />
       </View>
     );
   }
@@ -351,23 +352,10 @@ const KidsGameExercise = () => {
         <View style={[styles.body, styles.bodyInside]}>
           {!showRestartPrompt ? (
             <View style={styles.bottomBody}>
-              <View style={styles.questionRow}>
-                <TouchableOpacity style={styles.btn} onPress={''}>
-                  <View style={[styles.btn, styles.btnInside]}>
-                    <FastImage
-                      source={images.icons.loudSpeaker}
-                      style={styles.backIconStyle}
-                      resizeMode={FastImage.resizeMode.contain}
-                    />
-                  </View>
-                </TouchableOpacity>
-                <Text style={styles.question}>
-                  {Strings.chooseTheCorrectWord}
-                </Text>
-              </View>
+              <NumbersQuestionBar title={Strings.chooseTheCorrectWord} />
 
               <View style={styles.exerciseContainer}>
-                <Text style={styles.exerciseText}>Exercise</Text>
+                <Text style={styles.exerciseText}>{Strings.exercise}</Text>
                 <Text style={styles.exerciseCountText}>
                   {exerciseIndex} / {totalExercises}
                 </Text>
@@ -401,33 +389,37 @@ const KidsGameExercise = () => {
               )}
 
               <View style={styles.gameContainer}>
-                {randomGame?.map((game, index) => (
-                  <View key={index} style={styles.gameCard}>
-                    <TouchableOpacity
-                      hitSlop={{top: 5, bottom: 5, left: 5, right: 5}}
-                      style={[
-                        styles.checkbox(selectedGame[index]),
-                        selectedGame[index]
-                          ? selectionStatus[index] === true
-                            ? styles.checkedGreen
-                            : styles.checkedRed
-                          : styles.unchecked,
-                      ]}
-                      onPress={() => handleSelection(index)}>
-                      <FastImage
-                        defaultSource={images.defaultImg}
-                        source={
-                          imageError || !isConnected
-                            ? images.defaultImg
-                            : {uri: game.image}
-                        }
-                        style={styles.gameImage}
-                        onError={() => setImageError(true)}
-                        resizeMode={FastImage.resizeMode.contain}
-                      />
-                    </TouchableOpacity>
-                  </View>
-                ))}
+                {randomGame && Array.isArray(randomGame) ? (
+                  randomGame.map((game, index) => (
+                    <View key={index} style={styles.gameCard}>
+                      <TouchableOpacity
+                        hitSlop={{top: 5, bottom: 5, left: 5, right: 5}}
+                        style={[
+                          styles.checkbox(selectedGame[index]),
+                          selectedGame[index]
+                            ? selectionStatus[index] === true
+                              ? styles.checkedGreen
+                              : styles.checkedRed
+                            : styles.unchecked,
+                        ]}
+                        onPress={() => handleSelection(index)}>
+                        <FastImage
+                          defaultSource={images.defaultImg}
+                          source={
+                            imageError || !isConnected
+                              ? images.defaultImg
+                              : {uri: game.image}
+                          }
+                          style={styles.gameImage}
+                          onError={() => setImageError(true)}
+                          resizeMode={FastImage.resizeMode.contain}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  ))
+                ) : (
+                  <Text style={styles.noGame}>{Strings.noGameAvailable}</Text>
+                )}
               </View>
 
               <View

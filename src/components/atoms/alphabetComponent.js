@@ -62,7 +62,7 @@ const AlphabetComponent = ({
         [{text: 'OK'}],
         {cancelable: false},
       );
-      return; // Prevent any further actions if no internet
+      return;
     }
     if (isPlaying) {
       console.log('Sound is already playing. Please wait for it to finish.');
@@ -94,7 +94,9 @@ const AlphabetComponent = ({
   };
 
   if (isLoading && !isConnected) {
-    return <ActivityIndicator size={'large'} color={colors.darkOrange} />;
+    return (
+      <ActivityIndicator size={'large'} color={colors.ORANGE.darkOrange} />
+    );
   }
 
   return (
@@ -107,7 +109,7 @@ const AlphabetComponent = ({
           styles.container,
           {
             height: rhp(150),
-            backgroundColor: colors.secondary,
+            backgroundColor: colors.BLUE.secondary,
             borderTopColor: 'orange',
             borderLeftColor: 'orange',
             borderRightColor: 'orange',
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
   container: {
     height: rhp(160),
     width: rwp(158),
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.BLUE.secondary,
     borderRadius: 12,
   },
   img: {

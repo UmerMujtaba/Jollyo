@@ -10,6 +10,7 @@ import {
 import fonts from '../../constants/fonts';
 import {colors} from '../../constants/colors';
 import {rfs, rhp, rwp} from '../../constants/dimensions';
+import {Strings} from '../../constants/strings';
 
 const {width} = Dimensions.get('window');
 const ITEM_WIDTH = rwp(60);
@@ -78,7 +79,10 @@ const HorizontalNumberList = ({selectedNumber, setSelectedNumber}) => {
         }}
         onMomentumScrollEnd={handleMomentumScrollEnd}
       />
-      <Text style={styles.selectedTextDisplay}>Age: {selectedNumber}</Text>
+      <Text
+        style={
+          styles.selectedTextDisplay
+        }>{`${Strings.age} ${selectedNumber}`}</Text>
     </View>
   );
 };
@@ -90,24 +94,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   selectedItem: {
-    backgroundColor: colors.darkPink,
+    backgroundColor: colors.PINK.darkPink,
     height: rhp(80),
     width: rhp(80),
     borderRadius: rhp(40),
   },
   text: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.darkOrange,
+    color: colors.ORANGE.darkOrange,
     fontSize: rfs(32),
   },
   selectedText: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: rfs(32),
   },
   selectedTextDisplay: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.white,
+    color: colors.WHITE.white,
     fontSize: rfs(24),
     textAlign: 'center',
     marginTop: rhp(5),

@@ -36,6 +36,7 @@ export const Strings = {
   exercise: 'Exercise',
   chooseTheCorrectWord: 'Choose the correct word:',
   welcomeAgain: 'Welcome again !',
+  welcome: 'Welcome !',
   noAnimalAvailable: 'No Animal Available',
   aLotInteresting: 'A lot interesting features on your\nfavorite topics',
   unlockAll: 'Unlock All',
@@ -44,6 +45,20 @@ export const Strings = {
   pronunciation: 'P r o n u n c i a t i o n s',
   searchMusic: 'Search Music',
   listenTheLatestPoems: 'Listen The Latest Poems',
+  noGameAvailable: 'No games available',
+  kidsProfileSetting: 'Kids Profile Setting',
+  manageYourKidsProfile: 'Manage your kids profile',
+  kidActivityStats: 'Kid Activity Stats',
+  reviewYourKidGoals: 'Review your kid goals/progress',
+  userGuide: 'User Guide',
+  goThroughGuideForApp: 'Go through guide for app intro!',
+  seeYouSoon: 'See you soon!',
+  eraser: 'Eraser',
+  resendCode: 'Resend Code',
+  youEarnedASticker: 'You earned a sticker:',
+  unknownSticker: 'Unknown Sticker',
+  totalExercises: 'Total Exercises:',
+  age: 'Age: ',
 };
 
 export const ScreenNames = {
@@ -80,4 +95,14 @@ export const ScreenNames = {
   pronunciation: 'Pronunciation',
   userGuide: 'UserGuide',
   poemsScreen: 'PoemsScreen',
+  poemMusicScreen: 'PoemMusicScreen',
+};
+
+export const IconNames = {
+  playBackOutline: 'play-back-outline',
+  playSkipBackOutline: 'play-skip-back-outline',
+  pauseOutline: 'pause-outline',
+  playOutline: 'play-outline',
+  playSkipForwardOutline: 'play-skip-forward-outline',
+  playForwardOutline: 'play-forward-outline',
 };

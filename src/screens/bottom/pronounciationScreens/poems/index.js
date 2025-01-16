@@ -10,20 +10,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {images} from '../../../../assets/images';
-import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
-import {isTablet, rfs, rhp, rwp, wp} from '../../../../constants/dimensions';
-import {useLoaderProvider} from '../../../../contextAPI';
-import {alphabetData} from '../../../../utils/alphabetsScreenData';
-import {styles} from './styles';
-import PoemTileComponent from '../../../../components/atoms/poemTileComponent';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {colors} from '../../../../constants/colors';
-import {Strings} from '../../../../constants/strings';
-import {poemsDataList} from '../../../../utils/poemsData';
-import {BlurView} from 'react-native-blur';
 import FastImage from 'react-native-fast-image';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {images} from '../../../../assets/images';
+import CustomAppBar from '../../../../components/atoms/customAppBar';
+import PoemTileComponent from '../../../../components/atoms/poemTileComponent';
+import {colors} from '../../../../constants/colors';
+import {rwp} from '../../../../constants/dimensions';
+import {ScreenNames, Strings} from '../../../../constants/strings';
+import {useLoaderProvider} from '../../../../contextAPI';
+import {useMusicPlayer} from '../../../../contextAPI/musicPlayerContext';
+import {poemsDataList} from '../../../../utils/poemsData';
+import {styles} from './styles';
 
 const PoemsScreen = ({route}) => {
   const [playingSound, setPlayingSound] = useState(null);
@@ -32,6 +30,9 @@ const PoemsScreen = ({route}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [clickedItem, setClickedItem] = useState(null);
   const [rotation] = useState(new Animated.Value(0));
+  const {loadSound, isPlaying} = useMusicPlayer();
+  console.log('🚀 ~ PoemsScreen ~ isPlaying:', isPlaying);
+
   useEffect(() => {
     // setLoader(true);
     setLoader(false);
@@ -42,7 +43,9 @@ const PoemsScreen = ({route}) => {
   }, [setLoader]);
   const renderItem = ({item}) => {
     console.log('🚀 ~ renderItem ~ item:', item);
-    const {duration, name, image} = item;
+    const {duration, name, image, screen, music} = item;
+    const data = item;
+    console.log('🚀 ~ renderItem ~ data:', data);
     return (
       <PoemTileComponent
         duration={duration}
@@ -50,26 +53,44 @@ const PoemsScreen = ({route}) => {
         imageSource={image}
         onPress={() => {
           setClickedItem(item);
-          // Alert.alert(name);
+          loadSound(item.music);
+          setTimeout(() => {
+            navigation.navigate(item.screen, {data: item});
+          }, 100);
         }}
       />
     );
   };
-  useEffect(() => {
-    Animated.loop(
-      Animated.timing(rotation, {
-        toValue: 360, // Rotate 360 degrees
-        duration: 4000, // Duration for one full rotation (adjust as per your needs)
-        useNativeDriver: true, // Enable native driver for smoother performance
-      }),
-    ).start(); // Start the animation
-  }, [rotation]);
 
-  // Interpolation to rotate the image
+  const filteredPoems = poemsDataList.filter(item => {
+    return item.name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+  useEffect(() => {
+    if (isPlaying) {
+      Animated.loop(
+        Animated.timing(rotation, {
+          toValue: 360,
+          duration: 4000,
+          useNativeDriver: true,
+        }),
+      ).start();
+    } else {
+      rotation.stopAnimation();
+      rotation.setValue(0);
+    }
+  }, [isPlaying, rotation]);
+
   const rotateInterpolate = rotation.interpolate({
     inputRange: [0, 360],
     outputRange: ['0deg', '360deg'],
   });
+
+  const handleCdPress = () => {
+    if (clickedItem) {
+      navigation.navigate(ScreenNames.poemMusicScreen, {data: clickedItem});
+    }
+  };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View style={styles.appBarView}>
@@ -82,61 +103,55 @@ const PoemsScreen = ({route}) => {
       </View>
       <View style={styles.body}>
         <Text style={styles.headerText}>{Strings.listenTheLatestPoems}</Text>
-        <View style={styles.roundedContainer}>
+        {/* <View style={styles.roundedContainer}>
           <FontAwesome
             name="search"
-            color={colors.darkOrange}
+            color={colors.ORANGE.darkOrange}
             style={styles.iconStyle}
           />
           <TextInput
             style={styles.textInput}
-            placeholderTextColor={colors.darkOrange}
+            placeholderTextColor={colors.ORANGE.darkOrange}
+            placeholder={Strings.searchMusic}
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+          />
+        </View> */}
+        <View style={styles.roundedContainer2}>
+          <FontAwesome
+            name="search"
+            color={colors.WHITE.white}
+            style={styles.iconStyle}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholderTextColor={colors.WHITE.white}
             placeholder={Strings.searchMusic}
             value={searchQuery}
             onChangeText={setSearchQuery}
           />
         </View>
 
-        {clickedItem && (
-          <TouchableOpacity
-            style={styles.absoluteView}
-            onPress={() => Alert.alert('Item clicked')}>
+        {/* {clickedItem && ( */}
+        {isPlaying && (
+          <TouchableOpacity style={styles.absoluteView} onPress={handleCdPress}>
             <Animated.View
-              style={{
-                height: rwp(60),
-                width: rwp(60),
-                borderRadius: rwp(30),
-                transform: [{rotate: rotateInterpolate}], // Continuous rotation applied
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+              style={[
+                styles.animatedContainer,
+                {transform: [{rotate: rotateInterpolate}]},
+              ]}>
               <FastImage
-                source={{uri: clickedItem.image}}
+                source={{uri: clickedItem?.image}}
                 resizeMode={FastImage.resizeMode.cover}
-                style={{
-                  height: rwp(60),
-                  width: rwp(60),
-                  borderRadius: rwp(30),
-                }}
+                style={styles.imgStyle}
+                defaultSource={images.defaultImg}
               />
-              {/* <View
-                style={{
-                  height: rwp(20),
-                  width: rwp(20),
-                  borderRadius: rwp(10),
-                  borderWidth: 5,
-                  borderColor: colors.darkOrange,
-                  backgroundColor: 'transparent',
-                  position: 'absolute',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}></View> */}
             </Animated.View>
           </TouchableOpacity>
         )}
 
         <FlatList
-          data={poemsDataList}
+          data={filteredPoems}
           renderItem={renderItem}
           keyExtractor={item => item.id}
           numColumns={1}

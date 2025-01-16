@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
+import LottieView from 'lottie-react-native';
 import React from 'react';
 import {ImageBackground, Text, View} from 'react-native';
-import FastImage from 'react-native-fast-image';
 import {images} from '../../../assets/images';
 import {TouchableButton} from '../../../components/atoms/button';
 import CustomAppBar from '../../../components/atoms/customAppBar';
@@ -9,7 +9,6 @@ import PremiumList from '../../../components/molecules/premiumList';
 import {isTablet, rhp, wp} from '../../../constants/dimensions';
 import {Strings} from '../../../constants/strings';
 import {styles} from './styles';
-import LottieView from 'lottie-react-native';
 
 const PremiumScreen = () => {
   const navigation = useNavigation();
@@ -28,11 +27,6 @@ const PremiumScreen = () => {
       <View style={styles.body}>
         <View style={[styles.body, styles.bodyInside]}>
           <View style={styles.insideBody}>
-            {/* <FastImage
-              source={images.premiumImage}
-              resizeMode={FastImage.resizeMode.contain}
-              style={styles.img}
-            /> */}
             <LottieView
               source={require('../../../assets/lottie/payment.json')}
               autoPlay
@@ -48,6 +42,7 @@ const PremiumScreen = () => {
               btnInside={{width: wp(70)}}
               btnPropStyle={{width: wp(70)}}
               title={'Continue'}
+              onPress={() => navigation.pop()}
             />
           </View>
         </View>

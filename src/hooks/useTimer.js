@@ -78,11 +78,7 @@ const TimerComponent = () => {
     );
   };
 
-  return (
-    <View>
-      <Text>Elapsed Time: {timer} minutes</Text>
-    </View>
-  );
+  return <View>{/* <Text>Elapsed Time: {timer} minutes</Text> */}</View>;
 };
 
 export default TimerComponent;

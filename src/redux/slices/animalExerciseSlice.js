@@ -41,6 +41,16 @@ const animalsExerciseSlice = createSlice({
     setCorrectAnimal: (state, action) => {
       state.correctAnimal = action.payload;
     },
+    resetAnimals: state => {
+      state.exerciseIndex = 1;
+      state.progress = 1;
+      state.selectedAnimals = '';
+      state.selectionStatus = '';
+      state.randomAnimals = '';
+      state.showLottie = '';
+      state.isCorrect = '';
+      state.correctAnimal = '';
+    },
   },
 });
 
@@ -53,6 +63,7 @@ export const {
   setShowLottie,
   setIsCorrect,
   setCorrectAnimal,
+  resetAnimals,
 } = animalsExerciseSlice.actions;
 
 export default animalsExerciseSlice.reducer;

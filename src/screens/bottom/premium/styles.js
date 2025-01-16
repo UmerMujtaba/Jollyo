@@ -1,16 +1,7 @@
-import {Dimensions, StyleSheet} from 'react-native';
-import fonts from '../../../constants/fonts';
-import {
-  height,
-  hp,
-  isTablet,
-  rfs,
-  rhp,
-  rwp,
-  width,
-  wp,
-} from '../../../constants/dimensions';
+import {StyleSheet} from 'react-native';
 import {colors} from '../../../constants/colors';
+import {hp, isTablet, rfs, rhp, rwp} from '../../../constants/dimensions';
+import fonts from '../../../constants/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,7 +11,7 @@ export const styles = StyleSheet.create({
   body: {
     flex: 1,
     width: '100%',
-    backgroundColor: colors.disabled,
+    backgroundColor: colors.WHITE.disabled,
     alignSelf: 'flex-end',
     marginTop: rhp(20),
     borderTopRightRadius: 16,
@@ -29,17 +20,13 @@ export const styles = StyleSheet.create({
   bodyInside: {
     flex: 1,
     marginTop: rhp(8),
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
     borderRightColor: 'pink',
     borderBottomColor: 'white',
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-  },
-  insideBody: {
-    // alignSelf: 'center',
-    // paddingHorizontal: rwp(20),
   },
   img: {
     width: rwp(300),
@@ -48,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   unlockAllText: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
     fontSize: rfs(24),
     letterSpacing: 2,
     marginBottom: rhp(10),
@@ -56,16 +43,12 @@ export const styles = StyleSheet.create({
   },
   subHeading: {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    color: colors.grey,
+    color: colors.GREY.grey,
     fontSize: rfs(16),
     letterSpacing: isTablet ? 7 : 3,
     marginBottom: isTablet ? rhp(10) : rhp(20),
     paddingHorizontal: rwp(10),
   },
-  //   paymentAnimation: {
-  //     height: Dimensions.get('screen').height,
-  //     width: Dimensions.get('screen').width,
-  //   },
   paymentAnimation: {
     alignSelf: 'center',
     height: isTablet ? rhp(350) : rhp(350),

@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     // height: 500,
     width: '100%',
-    backgroundColor: colors.disabled,
+    backgroundColor: colors.WHITE.disabled,
     alignSelf: 'flex-end',
     marginTop: 20,
     borderTopRightRadius: 16,
@@ -23,12 +23,11 @@ export const styles = StyleSheet.create({
   bodyInside: {
     flex: 1,
     marginTop: rhp(8),
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
     borderRightColor: 'pink',
     borderBottomColor: 'white',
-
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
   },

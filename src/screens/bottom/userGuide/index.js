@@ -1,13 +1,10 @@
 import React from 'react';
-import {ImageBackground, StatusBar, Text, View} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {ImageBackground, StatusBar, View} from 'react-native';
 import {images} from '../../../assets/images';
-import {Strings} from '../../../constants/strings';
-import {styles} from './styles';
 import CustomAppBar from '../../../components/atoms/customAppBar';
-import {rhp} from '../../../constants/dimensions';
-import UserGuideComponent from '../../../components/atoms/userGuideComponent';
 import UserGuideComponentList from '../../../components/molecules/userGuideComponentList';
+import {rhp} from '../../../constants/dimensions';
+import {styles} from './styles';
 
 const UserGuide = ({navigation}) => {
   return (

@@ -1,15 +1,7 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import {
-  hp,
-  isTablet,
-  rfs,
-  rhp,
-  rwp,
-  width,
-  wp,
-} from '../../../../constants/dimensions';
-import fonts from '../../../../constants/fonts';
 import {colors} from '../../../../constants/colors';
+import {isTablet, rfs, rhp, rwp, wp} from '../../../../constants/dimensions';
+import fonts from '../../../../constants/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -19,7 +11,7 @@ export const styles = StyleSheet.create({
   body: {
     flex: 1,
     width: '100%',
-    backgroundColor: colors.disabled,
+    backgroundColor: colors.WHITE.disabled,
     alignSelf: 'flex-end',
     marginTop: rhp(10),
     borderTopRightRadius: 16,
@@ -28,7 +20,7 @@ export const styles = StyleSheet.create({
   bodyInside: {
     flex: 1,
     marginTop: rhp(8),
-    backgroundColor: colors.white,
+    backgroundColor: colors.WHITE.white,
     borderTopColor: 'pink',
     borderLeftColor: 'pink',
     borderRightColor: 'pink',
@@ -53,13 +45,13 @@ export const styles = StyleSheet.create({
   exerciseText: {
     fontSize: rfs(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
   },
 
   exerciseCountText: {
     fontSize: rfs(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.backgroundClr,
+    color: colors.PURPLE.backgroundClr,
   },
   questionRow: {
     marginTop: rhp(20),
@@ -68,7 +60,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
   btn: {
-    backgroundColor: colors.blackishOrange,
+    backgroundColor: colors.ORANGE.blackishOrange,
     height: isTablet ? rhp(45) : rhp(50),
     width: isTablet ? rwp(35) : rwp(45),
     borderRadius: 16,
@@ -76,7 +68,7 @@ export const styles = StyleSheet.create({
 
   btnInside: {
     height: isTablet ? rhp(39) : rhp(44),
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',
@@ -92,21 +84,22 @@ export const styles = StyleSheet.create({
   question: {
     fontSize: rfs(32),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
-    color: colors.darkOrange,
+    color: colors.ORANGE.darkOrange,
     paddingHorizontal: 20,
   },
 
   progressBarContainer: {
-    width: '100%',
-    height: 4,
-    backgroundColor: colors.disabled,
+    width: '98%',
+    alignSelf: 'center',
+    height: rhp(10),
+    backgroundColor: colors.WHITE.disabled,
     borderRadius: 5,
     overflow: 'hidden',
     marginBottom: 20,
   },
   progressBar: {
     height: '100%',
-    backgroundColor: colors.green,
+    backgroundColor: colors.PURPLE.backgroundClr,
   },
   fireworksAnimation: {
     height: Dimensions.get('screen').height,
@@ -147,17 +140,17 @@ export const styles = StyleSheet.create({
   }),
 
   checkedGreen: {
-    backgroundColor: colors.correct,
+    backgroundColor: colors.GREEN.parrot,
   },
 
   checkedRed: {
-    backgroundColor: colors.wrong,
+    backgroundColor: colors.RED.red,
   },
 
   btnStyle: {
     width: wp(45),
     height: rhp(50),
-    backgroundColor: colors.blackishOrange,
+    backgroundColor: colors.ORANGE.blackishOrange,
     // alignSelf: 'center',
     borderRadius: 16,
     flexDirection: 'row',
@@ -167,16 +160,22 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     fontSize: rfs(20),
-    color: colors.white,
+    color: colors.WHITE.white,
     alignSelf: 'center',
   },
   insideBtnStyle: {
     height: rhp(44),
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',
     borderBottomColor: 'white',
     justifyContent: 'center',
+  },
+  noGame: {
+    textAlign: 'center',
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
+    fontSize: rfs(20),
+    color: colors.ORANGE.darkOrange,
   },
 });

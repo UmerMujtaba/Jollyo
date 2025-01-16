@@ -1,16 +1,15 @@
-import {Dimensions, Platform, StyleSheet} from 'react-native';
-import {isTablet, rfs, rhp, rwp, width} from '../../../constants/dimensions'; // Make sure these constants are correct
-import {colors} from '../../../constants/colors'; // Make sure the color constants are defined
-import fonts from '../../../constants/fonts'; // Make sure your fonts are defined if needed
+import {Dimensions, StyleSheet} from 'react-native';
+import {colors} from '../../../constants/colors';
+import {isTablet, rfs, rhp, rwp} from '../../../constants/dimensions';
+import fonts from '../../../constants/fonts';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.backgroundClr, // You can change this to a different background color if needed
+    backgroundColor: colors.PURPLE.backgroundClr,
   },
   topCircle: {
     backgroundColor: 'white',
-    // backgroundColor: isTablet ? colors.backgroundClr : colors.red,
     height: rwp(500),
     width: rwp(500),
     borderRadius: rwp(250),
@@ -19,7 +18,6 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 0,
     top: isTablet ? rhp(-270) : rhp(-100),
-    // top: rwp(-100),
   },
   carouselImg: {
     width: Dimensions.get('window').width * 0.7,
@@ -60,7 +58,7 @@ export const styles = StyleSheet.create({
   dotColor: (index, currentIndex) => ({
     height: isTablet ? rwp(8) : rwp(10),
     width: isTablet ? rwp(8) : rwp(10),
-    backgroundColor: currentIndex == index ? colors.darkOrange : 'white',
+    backgroundColor: currentIndex == index ? colors.ORANGE.darkOrange : 'white',
     marginHorizontal: rwp(5),
     alignSelf: 'center',
     borderRadius: isTablet ? rwp(4) : rwp(5),

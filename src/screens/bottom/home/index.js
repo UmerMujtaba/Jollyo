@@ -1,7 +1,7 @@
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import React, {useEffect} from 'react';
-import {ImageBackground, StatusBar, Text, View} from 'react-native';
+import {ImageBackground, ScrollView, StatusBar, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
@@ -62,11 +62,13 @@ const HomeScreen = ({navigation}) => {
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <StatusBar translucent={true} backgroundColor={'transparent'} />
+      {/* <ScrollView showsVerticalScrollIndicator={false}> */}
       <View style={styles.appBarContainer}>
         <FastImage
           source={imagePath}
           resizeMode={FastImage.resizeMode.contain}
           style={styles.avatarImg}
+          defaultSource={images.defaultImg}
         />
         <View style={{flexDirection: 'column'}}>
           <Text style={styles.nameHeading}>{`Hi, ${username}`}</Text>
@@ -74,6 +76,7 @@ const HomeScreen = ({navigation}) => {
         </View>
       </View>
       <ScrollableSelectionList />
+      {/* </ScrollView> */}
     </ImageBackground>
   );
 };

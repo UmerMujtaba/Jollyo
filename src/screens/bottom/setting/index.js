@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {ImageBackground, ScrollView, Text} from 'react-native';
+import {ImageBackground, ScrollView, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
 import CalendarComponent from '../../../components/atoms/calendar';
@@ -65,19 +65,22 @@ const SettingsScreen = () => {
 
   return (
     <ImageBackground style={styles.container} source={images.backgroundImage}>
-      <CustomAppBar
-        onBackPress={() => navigation.goBack()}
-        notification
-        onNotificationPress={() => {}}
-        back
-        cont={styles.appBarCont}
-      />
-      <Text style={styles.nameStyle}>{username}</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <CalendarComponent />
-        {/* <Text style={styles.logoutText}>Time spent in app:</Text> */}
-        <MenuContainer />
-        <ManageScreenTimer />
+        <View style={styles.bdy}>
+          <CustomAppBar
+            onBackPress={() => navigation.goBack()}
+            notification
+            onNotificationPress={() => {}}
+            back
+            cont={styles.appBarCont}
+          />
+          <Text style={styles.nameStyle}>{username}</Text>
+
+          <CalendarComponent />
+          {/* <Text style={styles.logoutText}>Time spent in app:</Text> */}
+          <MenuContainer />
+          <ManageScreenTimer />
+        </View>
       </ScrollView>
     </ImageBackground>
   );

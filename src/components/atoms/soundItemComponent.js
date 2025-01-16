@@ -17,14 +17,14 @@ const SoundItemComponent = ({title, onPress}) => {
 const styles = StyleSheet.create({
   container: {
     width: wp(95),
-    backgroundColor: colors.blackishOrange,
+    backgroundColor: colors.ORANGE.blackishOrange,
     height: rhp(94),
     borderRadius: isTablet ? 30 : 20,
     marginBottom: rhp(20),
   },
   bgCon: {
     height: rhp(84),
-    backgroundColor: colors.darkOrange,
+    backgroundColor: colors.ORANGE.darkOrange,
     borderTopColor: 'orange',
     borderLeftColor: 'orange',
     borderRightColor: 'orange',
@@ -32,9 +32,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   titleStyle: {
-    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.CondensedSemiBold,
     fontSize: rfs(24),
-    color: colors.white,
+    letterSpacing: 3,
+    color: colors.WHITE.white,
     textAlign: 'center',
   },
 });

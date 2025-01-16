@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   mainText: {
-    color: colors.blackishOrange,
+    color: colors.ORANGE.blackishOrange,
     fontSize: rfs(18),
     lineHeight: isTablet ? rhp(21.56) : rhp(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Regular,
   },
   btnText: {
-    color: colors.darkOrange,
+    color: colors.ORANGE.darkOrange,
     fontSize: rfs(18),
     lineHeight: isTablet ? rhp(21.56) : rhp(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,

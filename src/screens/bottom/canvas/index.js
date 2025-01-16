@@ -105,7 +105,7 @@ const CanvasScreen = () => {
                     marginHorizontal: isTablet ? rwp(5) : rwp(2),
                   }}
                 />
-                <Text style={[styles.btnText]}>Eraser</Text>
+                <Text style={[styles.btnText]}>{Strings.eraser}</Text>
               </View>
             </View>
           </View>
