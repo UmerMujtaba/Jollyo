@@ -18,11 +18,14 @@ import {
 import {styles} from './styles';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import {setNewUser} from '../../../redux/slices/userDataSlice';
+import {useDispatch} from 'react-redux';
 
 const SignUpScreen = () => {
   const keyboardStatus = useKeyboard();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
   const [confirmPassword, setConfirmPassword] = useState('');
   const [emailErrorMessage, setEmailErrorMessage] = useState('');
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
@@ -39,7 +42,7 @@ const SignUpScreen = () => {
         await firestore().collection('users').doc(user.uid).set({
           email: email,
         });
-
+        dispatch(setNewUser(true));
         console.log('User email saved to Firebase successfully!');
       } else {
         console.error('User is not authenticated');
@@ -82,6 +85,7 @@ const SignUpScreen = () => {
       if (user) {
         console.log('User account created!');
         await saveEmailToFirebase(user);
+
         navigateReset(ScreenNames.profile);
       } else {
         Alert.alert('Error', 'User is not authenticated.');

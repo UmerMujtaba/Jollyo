@@ -13,10 +13,9 @@ import {styles} from './styles';
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const userId = auth().currentUser?.uid;
-  const {username, imagePath, age, gender} = useSelector(
+  const {username, imagePath, age, gender, isNewUser} = useSelector(
     state => state.userReducer,
   );
-
   useEffect(() => {
     const fetchUserData = async () => {
       if (userId) {
@@ -71,7 +70,9 @@ const HomeScreen = ({navigation}) => {
         />
         <View style={{flexDirection: 'column'}}>
           <Text style={styles.nameHeading}>{`Hi, ${username}`}</Text>
-          <Text style={styles.welcome}>{Strings.welcomeAgain}</Text>
+          <Text style={styles.welcome}>
+            {isNewUser ? Strings.welcome : Strings.welcomeAgain}
+          </Text>
         </View>
       </View>
       <ScrollableSelectionList />

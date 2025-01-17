@@ -387,7 +387,6 @@ const KidsGameExercise = () => {
                   style={styles.fireworksAnimation}
                 />
               )}
-
               <View style={styles.gameContainer}>
                 {randomGame && Array.isArray(randomGame) ? (
                   randomGame.map((game, index) => (
@@ -418,7 +417,10 @@ const KidsGameExercise = () => {
                     </View>
                   ))
                 ) : (
-                  <Text style={styles.noGame}>{Strings.noGameAvailable}</Text>
+                  <ActivityIndicator
+                    color={colors.ORANGE.darkOrange}
+                    size={'large'}
+                  />
                 )}
               </View>
 

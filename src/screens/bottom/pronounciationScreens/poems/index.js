@@ -16,7 +16,6 @@ import {images} from '../../../../assets/images';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
 import PoemTileComponent from '../../../../components/atoms/poemTileComponent';
 import {colors} from '../../../../constants/colors';
-import {rwp} from '../../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../../constants/strings';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {useMusicPlayer} from '../../../../contextAPI/musicPlayerContext';
@@ -24,36 +23,58 @@ import {poemsDataList} from '../../../../utils/poemsData';
 import {styles} from './styles';
 
 const PoemsScreen = ({route}) => {
-  const [playingSound, setPlayingSound] = useState(null);
   const {setLoader} = useLoaderProvider();
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const [clickedItem, setClickedItem] = useState(null);
   const [rotation] = useState(new Animated.Value(0));
-  const {loadSound, isPlaying} = useMusicPlayer();
+  const {loadSound, isPlaying, setIsPlaying, sound, stopSound} =
+    useMusicPlayer();
   console.log('🚀 ~ PoemsScreen ~ isPlaying:', isPlaying);
-
   useEffect(() => {
-    // setLoader(true);
     setLoader(false);
     setTimeout(() => {
       setLoader(false);
     }, 1000);
     return () => setLoader(false);
   }, [setLoader]);
+
+  useEffect(() => {
+    if (isPlaying) {
+      Animated.loop(
+        Animated.timing(rotation, {
+          toValue: 360,
+          duration: 4000,
+          useNativeDriver: true,
+        }),
+      ).start();
+    } else {
+      rotation.stopAnimation();
+      rotation.setValue(0);
+    }
+  }, [isPlaying, rotation]);
+
   const renderItem = ({item}) => {
-    console.log('🚀 ~ renderItem ~ item:', item);
+    // console.log('🚀 ~ renderItem ~ item:', item);
     const {duration, name, image, screen, music} = item;
     const data = item;
-    console.log('🚀 ~ renderItem ~ data:', data);
+    // console.log('🚀 ~ renderItem ~ data:', data);
+
     return (
       <PoemTileComponent
         duration={duration}
         name={name}
         imageSource={image}
         onPress={() => {
+          // Stop the current sound if it's playing before loading a new one
+          if (sound && isPlaying) {
+            sound.stop();
+            setIsPlaying(false); // Stop current sound
+          }
+
           setClickedItem(item);
-          loadSound(item.music);
+          loadSound(item.music); // Load and start the new sound
+          setIsPlaying(true); // Ensure the sound starts playing
           setTimeout(() => {
             navigation.navigate(item.screen, {data: item});
           }, 100);
@@ -91,13 +112,21 @@ const PoemsScreen = ({route}) => {
       navigation.navigate(ScreenNames.poemMusicScreen, {data: clickedItem});
     }
   };
+  const handleNavigateBack = () => {
+    if (isPlaying) {
+      // Stop the sound when navigating back from PoemsScreen
+      setIsPlaying(false);
+      sound.stop();
+    }
+    navigation.goBack();
+  };
   return (
     <ImageBackground source={images.backgroundImage} style={styles.container}>
       <View style={styles.appBarView}>
         <CustomAppBar
           title={Strings.poems}
           back
-          onBackPress={() => navigation.goBack()}
+          onBackPress={handleNavigateBack}
           textProp={styles.appBarTitle}
         />
       </View>

@@ -5,7 +5,6 @@ import {ImageBackground, Text, TouchableOpacity, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {images} from '../../../../assets/images';
 import PoemAppBar from '../../../../components/molecules/poemAppBar';
 import {colors} from '../../../../constants/colors';
@@ -36,11 +35,23 @@ const PoemMusicScreen = ({route}) => {
     skipBackward,
     setCurrentTime,
     onSeek,
+    setIsPlaying,
   } = useMusicPlayer();
+
   const currentIndex = poemsDataList.findIndex(poem => poem.id === data.id);
+
   useEffect(() => {
+    if (sound) {
+      sound.stop();
+    }
+
     loadSound(data.music);
-  }, [data.music]);
+    setIsPlaying(true);
+    return () => {
+      sound?.stop();
+      setIsPlaying(false);
+    };
+  }, [data.music, loadSound, setIsPlaying, sound]);
 
   const nextPoem = () => {
     const nextPoem = poemsDataList[(currentIndex + 1) % poemsDataList.length];
@@ -55,6 +66,11 @@ const PoemMusicScreen = ({route}) => {
       ];
     loadSound(prevPoem.music);
     navigation.navigate(prevPoem.screen, {data: prevPoem});
+  };
+
+  const togglePlayPauseHandler = () => {
+    togglePlayPause();
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -111,14 +127,10 @@ const PoemMusicScreen = ({route}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={togglePlayPause}
+            onPress={togglePlayPauseHandler}
             style={styles.playPauseContainer}>
             <Ionicons
-              name={
-                isPlaying
-                  ? `${IconNames.pauseOutline}`
-                  : `${IconNames.playOutline}`
-              }
+              name={isPlaying ? IconNames.pauseOutline : IconNames.playOutline}
               size={rfs(30)}
               color={colors.WHITE.white}
               style={{

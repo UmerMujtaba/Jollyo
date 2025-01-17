@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
-import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
 import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
@@ -16,20 +15,40 @@ import {AnimalsData} from '../../../../utils/animalsData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {Strings} from '../../../../constants/strings';
+import AnimalSoundComponent from '../../../../components/atoms/animalSoundComponent';
+
 const AnimalsScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);
+  const [currentSound, setCurrentSound] = useState(null);
   const {setLoader} = useLoaderProvider();
   const navigation = useNavigation();
+
   useEffect(() => {
     setLoader(true);
-    setTimeout(() => {
-      setLoader(false);
-    }, 1000);
-    return () => setLoader(false);
-  }, [setLoader]);
+    const timer = setTimeout(() => setLoader(false), 1000);
+    return () => {
+      clearTimeout(timer);
+      if (currentSound) {
+        currentSound.stop(() => {
+          currentSound.release();
+        });
+      }
+    };
+  }, [setLoader, currentSound]);
+
+  const stopAndGoBack = () => {
+    if (currentSound) {
+      currentSound.stop(() => {
+        currentSound.release();
+        setCurrentSound(null);
+      });
+    }
+    setPlayingSound(null);
+    navigation.goBack();
+  };
   const renderItem = ({item}) => {
-    console.log('🚀 ~ renderItem ~ item:', item);
     const {letter, image, soundFile} = item;
+
     const handleSpeakerPress = () => {
       console.log('🚀 ~ handleSpeakerPress ~ item:', item);
       const word = item.letter;
@@ -39,14 +58,17 @@ const AnimalsScreen = () => {
       Tts.setDefaultPitch(0.7);
       Tts.setDefaultRate(0.5, true);
     };
+
     return (
       <View>
-        <AlphabetComponent
+        <AnimalSoundComponent
           letter={letter}
           URI={image}
           soundFile={soundFile}
           playingSound={playingSound}
           setPlayingSound={setPlayingSound}
+          currentSound={currentSound}
+          setCurrentSound={setCurrentSound}
         />
         <View style={{alignSelf: 'center', marginTop: rhp(10)}}>
           <View style={styles.btnContainer} activeOpacity={0.7}>
@@ -70,7 +92,7 @@ const AnimalsScreen = () => {
         }}>
         <CustomAppBar
           title={Strings.animals}
-          onBackPress={() => navigation.goBack()}
+          onBackPress={stopAndGoBack}
           back
         />
       </View>

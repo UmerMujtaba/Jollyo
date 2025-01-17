@@ -18,11 +18,14 @@ import {styles} from './styles';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import {colors} from '../../../constants/colors';
+import {setNewUser} from '../../../redux/slices/userDataSlice';
+import {useDispatch} from 'react-redux';
 
 const LoginScreen = () => {
   const keyboardStatus = useKeyboard();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const goToRegister = () => {
     navigate(ScreenNames.registerationScreen);
@@ -65,7 +68,7 @@ const LoginScreen = () => {
 
           // Optionally, you can store this data in a global state or Redux store
           // dispatch(setUserData(userData));
-
+          dispatch(setNewUser(false));
           navigateReset('BottomStack', {screen: ScreenNames.homeScreen});
         } else {
           console.log('User data not found in Firestore');

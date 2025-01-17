@@ -7,6 +7,7 @@ const initialState = {
   age: 1,
   imagePath: '',
   userId: null,
+  isNewUser: false,
 };
 
 const UserSlice = createSlice({
@@ -34,11 +35,15 @@ const UserSlice = createSlice({
       state.age = age;
       state.imagePath = imagePath || '';
     },
+    setNewUser: (state, action) => {
+      state.isNewUser = action.payload;
+    },
     resetUserData: state => {
       state.username = '';
       state.gender = null;
       state.age = 1;
       state.imagePath = '';
+      state.isNewUser = false; // Reset flag
     },
   },
 });
@@ -50,6 +55,7 @@ export const {
   setUserId,
   resetUserData,
   setUserData,
+  setNewUser,
 } = UserSlice.actions;
 
 export default UserSlice.reducer;

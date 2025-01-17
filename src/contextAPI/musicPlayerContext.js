@@ -43,6 +43,13 @@ export const MusicPlayerProvider = ({children}) => {
     soundRef.current = newSound;
   };
 
+  const stopSound = () => {
+    if (sound) {
+      sound.stop();
+      setIsPlaying(false);
+    }
+  };
+
   const togglePlayPause = () => {
     if (sound) {
       if (isPlaying) {
@@ -101,9 +108,11 @@ export const MusicPlayerProvider = ({children}) => {
         duration,
         progress,
         loadSound,
+        stopSound,
         setCurrentTime,
         setProgress,
         setDuration,
+        setIsPlaying,
         togglePlayPause,
         skipForward,
         skipBackward,
@@ -113,7 +122,6 @@ export const MusicPlayerProvider = ({children}) => {
     </MusicPlayerContext.Provider>
   );
 };
-
 export const useMusicPlayer = () => {
   return useContext(MusicPlayerContext);
 };
