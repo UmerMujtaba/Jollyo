@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
     fontSize: rfs(80),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     color: colors.YELLOW.mildYellow,
+    letterSpacing: 3,
   },
 });

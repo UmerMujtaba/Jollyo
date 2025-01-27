@@ -4,7 +4,7 @@ import {images} from '../assets/images';
 
 const data = [
   {
-    heading: 'Easy Learning',
+    heading: 'Easy learning',
     title:
       'Learning made fun and simple! With easy-to-follow lessons and interactive activities.',
     imgUrl: images.elephantBook,
@@ -16,7 +16,7 @@ const data = [
     imgUrl: images.bearBooks,
   },
   {
-    heading: 'Get Rewards!',
+    heading: 'Get rewards!',
     title:
       "Learning is more fun when there's a reward! You'll earn exciting rewards to be motivated.",
     imgUrl: images.bearPainting,

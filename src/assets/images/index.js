@@ -9,6 +9,9 @@ export const images = {
   bearPainting: require('./bearPainting.png'),
   elephantBook: require('./elephantBook.png'),
   bearCompletion: require('./bearCompletion.png'),
+  cubHeyImage: require('./cubHey.png'),
+  cubConfusedImage: require('./cubConfused.png'),
+  cubRotateImage: require('./cubRotate.png'),
   // twinkle: require('./twinkle.jpg'),
   // premiumImage: require('./premium.png'),
 

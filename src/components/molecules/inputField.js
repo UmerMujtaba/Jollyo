@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
     fontSize: rfs(20),
     color: colors.YELLOW.mildYellow,
+    letterSpacing: 1,
   },
 });
 export default InputField;

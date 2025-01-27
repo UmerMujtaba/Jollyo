@@ -11,6 +11,7 @@ export const colors = {
   BLACK: {
     pureBlack: '#000',
     blackWithOpacity: 'rgba(0,0,0,0.3)',
+    blackWithFiftyPercentOpacity: 'rgba(0, 0, 0, 0.5)',
   },
 
   WHITE: {
@@ -38,6 +39,7 @@ export const colors = {
     mildOrange: '#ff751e',
     blackishOrange: '#cc5200',
     pureOrange: '#F57214 ',
+    pureOrangeWithOpacity: 'rgba(255, 102, 0, 0.85)',
   },
 
   PURPLE: {

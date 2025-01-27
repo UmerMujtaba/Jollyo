@@ -24,16 +24,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   mainText: {
-    color: colors.ORANGE.blackishOrange,
+    color: colors.ORANGE.darkOrange,
     fontSize: rfs(18),
     lineHeight: isTablet ? rhp(21.56) : rhp(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Regular,
+    letterSpacing: 1,
   },
   btnText: {
     color: colors.ORANGE.darkOrange,
     fontSize: rfs(18),
     lineHeight: isTablet ? rhp(21.56) : rhp(20),
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
+    letterSpacing: 1,
   },
 });
 export default AuthPrompt;

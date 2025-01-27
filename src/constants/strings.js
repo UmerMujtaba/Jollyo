@@ -71,6 +71,8 @@ export const Strings = {
   poems: 'P o e m s',
   vehicles: 'V e h i c l e s',
   userGuideHeading: 'U s e r  G u i d e',
+  wellDone: 'Well Done! You pronounced correct word !!!!',
+  close: 'Close',
 };
 
 export const ScreenNames = {

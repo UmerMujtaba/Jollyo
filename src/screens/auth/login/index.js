@@ -6,7 +6,7 @@ import AuthPrompt from '../../../components/atoms/authPrompt';
 import {TouchableButton} from '../../../components/atoms/button';
 import {HeadingText} from '../../../components/atoms/heading';
 import InputFieldContainer from '../../../components/organisms/inputFieldContainer';
-import {rfs, rhp} from '../../../constants/dimensions';
+import {rfs, rhp, wp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
 import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
 import {useKeyboard} from '../../../hooks';
@@ -107,21 +107,23 @@ const LoginScreen = () => {
         passwordAutoCapitalize={'none'}
       />
 
-      <AuthPrompt
-        title={Strings.dntHaveAnAccount}
-        buttonText={Strings.register}
-        onPress={goToRegister}
-      />
+      <View style={{marginTop: rhp(10)}}>
+        <AuthPrompt
+          title={Strings.dntHaveAnAccount}
+          buttonText={Strings.register}
+          onPress={goToRegister}
+        />
+      </View>
       <TouchableButton
         title={Strings.login}
-        btnPropStyle={{marginTop: rhp(50)}}
+        btnPropStyle={{width: wp(80), marginTop: rhp(50)}}
+        btnInside={{width: wp(80)}}
         onPress={handleLogin}
       />
       {!keyboardStatus && (
-        <View
-          style={{flex: 1, justifyContent: 'flex-end', marginBottom: rhp(30)}}>
+        <View style={{flex: 1, justifyContent: 'flex-end'}}>
           <FastImage
-            source={images.cubImage}
+            source={images.cubHeyImage}
             style={styles.imgStyle}
             resizeMode={FastImage.resizeMode.contain}
             defaultSource={images.defaultImg}

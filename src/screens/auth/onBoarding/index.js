@@ -1,13 +1,24 @@
 import React, {useRef, useState} from 'react';
-import {FlatList, Image, StatusBar, Text, View} from 'react-native';
+import {
+  Button,
+  Dimensions,
+  FlatList,
+  Image,
+  StatusBar,
+  Text,
+  View,
+} from 'react-native';
 import {styles} from './styles';
 import data from '../../../utils/onBoardingScreenData';
 import {TouchableButton} from '../../../components/atoms/button';
 import {navigate} from '../../../navigationHandler/navigationRef';
 import {ScreenNames} from '../../../constants/strings';
 import FastImage from 'react-native-fast-image';
-import {rhp} from '../../../constants/dimensions';
+import {rhp, wp} from '../../../constants/dimensions';
 import {images} from '../../../assets/images';
+import {Linking} from 'react-native';
+import {WebView} from 'react-native-webview';
+
 
 const renderItem = ({item}) => {
   return (
@@ -34,6 +45,13 @@ const OnBoardingScreen = () => {
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 70,
   };
+
+  const openLink = () => {
+    Linking.openURL(
+      'https://stg.wowpowers.com/stream-player/edik/livestream/f615e198-1313-466d-9843-a152175d474f/video/4fe1243f-0163-4114-bb90-4fdfd7554a03',
+    ).catch(err => console.error('An error occurred', err));
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar translucent={true} backgroundColor={'transparent'} />
@@ -55,11 +73,14 @@ const OnBoardingScreen = () => {
           })}
         </View>
       </View>
-      <TouchableButton
-        title={'Continue'}
-        btnPropStyle={{marginTop: rhp(30)}}
-        onPress={() => navigate(ScreenNames.loginScreen)}
-      />
+      <View style={styles.btnView}>
+        <TouchableButton
+          title={'Continue'}
+          btnPropStyle={{width: wp(80)}}
+          btnInside={{width: wp(80)}}
+          onPress={() => navigate(ScreenNames.loginScreen)}
+        />
+      </View>
     </View>
   );
 };

@@ -9,7 +9,7 @@ import {Strings} from '../../constants/strings';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import {useIsFocused} from '@react-navigation/native';
-
+// import RNExitApp from 'react-native-exit-app';
 const ManageScreenTimer = () => {
   const [strokeWidth, setStrokeWidth] = useState(2);
   const [remainingTime, setRemainingTime] = useState(0);
@@ -73,7 +73,7 @@ const ManageScreenTimer = () => {
         setRemainingTime(prevTime => {
           if (prevTime <= 0) {
             clearInterval(interval);
-            exitApp.exit(); // Exit the app once the time is up
+            // RNExitApp.exitApp(); // Exit the app once the time is up
             return 0;
           }
           return prevTime - 1;

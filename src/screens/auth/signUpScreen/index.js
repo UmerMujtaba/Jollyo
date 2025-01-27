@@ -7,7 +7,7 @@ import {TouchableButton} from '../../../components/atoms/button';
 import {HeadingText} from '../../../components/atoms/heading';
 import InputField from '../../../components/molecules/inputField';
 import InputFieldContainer from '../../../components/organisms/inputFieldContainer';
-import {rfs, rhp} from '../../../constants/dimensions';
+import {rfs, rhp, wp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
 import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
 import {useKeyboard} from '../../../hooks';
@@ -133,7 +133,8 @@ const SignUpScreen = () => {
 
       <TouchableButton
         title={Strings.register}
-        btnPropStyle={{marginTop: rhp(20)}}
+        btnPropStyle={{marginTop: rhp(20), width: wp(80)}}
+        btnInside={{width: wp(80)}}
         onPress={handleRegister}
       />
 
@@ -141,9 +142,10 @@ const SignUpScreen = () => {
         <View
           style={{flex: 1, justifyContent: 'flex-end', marginBottom: rhp(10)}}>
           <FastImage
-            source={images.cubImage}
+            source={images.cubConfusedImage}
             style={styles.imgStyle}
             resizeMode={FastImage.resizeMode.contain}
+            defaultSource={images.defaultImg}
           />
         </View>
       )}

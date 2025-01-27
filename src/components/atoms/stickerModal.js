@@ -26,7 +26,7 @@ const StickerModal = ({isVisible, earnedSticker, onClose}) => {
           </Text>
 
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-            <Text style={styles.closeButtonText}>Close</Text>
+            <Text style={styles.closeButtonText}>{Strings.close}</Text>
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
@@ -39,7 +39,7 @@ const styles = {
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: colors.BLACK.blackWithFiftyPercentOpacity,
   },
   modalContent: {
     backgroundColor: colors.WHITE.white,
@@ -65,9 +65,9 @@ const styles = {
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
   },
   closeButton: {
-    marginTop: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    marginTop: rhp(20),
+    paddingHorizontal: rwp(20),
+    paddingVertical: rhp(10),
     backgroundColor: colors.ORANGE.darkOrange,
     borderRadius: 16,
   },

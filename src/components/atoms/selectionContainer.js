@@ -5,8 +5,8 @@ import {colors} from '../../constants/colors';
 import {rfs, rhp} from '../../constants/dimensions';
 import fonts from '../../constants/fonts';
 import {images} from '../../assets/images';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
-import SkeletonItem from '../../skeletons/homeItemsSkeleton';
+// import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+// import SkeletonItem from '../../skeletons/homeItemsSkeleton';
 const SelectionContainer = ({
   imageSource,
   heading,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   imageWrapper: {
-    width: '73.5%',
+    width: '72.5%',
     alignItems: 'flex-end',
   },
   imgStyle: {

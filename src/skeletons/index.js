@@ -1,3 +1,3 @@
-import SkeletonItem from './homeItemsSkeleton';
+// import SkeletonItem from './homeItemsSkeleton';
 
-export {SkeletonItem};
+// export {SkeletonItem};

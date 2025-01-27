@@ -6,7 +6,7 @@ import fonts from '../../../constants/fonts';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 10,
+    paddingHorizontal: rwp(10),
   },
   appBarContainer: {
     paddingVertical: rhp(20),

@@ -32,13 +32,14 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
     marginBottom: rhp(20),
     marginTop: rhp(60),
+    letterSpacing: 2,
   },
   carouserSubTitle: {
     fontSize: rfs(26),
     textAlign: 'center',
     color: 'white',
-    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Medium,
-    marginBottom: rhp(20),
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
+    letterSpacing: 1,
   },
   renderItem_parentView1: {
     marginTop: rhp(40),
@@ -52,8 +53,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: rhp(10),
-    marginBottom: rhp(40),
+    marginTop: rhp(20),
   },
   dotColor: (index, currentIndex) => ({
     height: isTablet ? rwp(8) : rwp(10),
@@ -64,4 +64,6 @@ export const styles = StyleSheet.create({
     borderRadius: isTablet ? rwp(4) : rwp(5),
     elevation: 5,
   }),
+  btnView: {flex: 1, justifyContent: 'center', marginBottom: rhp(40)},
+  // btnView: {flex: 1, justifyContent: 'center'},
 });

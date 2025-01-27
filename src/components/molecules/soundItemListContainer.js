@@ -36,10 +36,11 @@ const SoundItemListContainer = () => {
           <SoundItemComponent
             title={item.title}
             onPress={() => handlePress(item.screenName)}
+            imageSource={item.imageUri}
           />
         )}
-        keyExtractor={item => item.id}
         numColumns={2}
+        keyExtractor={(item, index) => index.toString()}
         columnWrapperStyle={styles.columnWrapperStyle}
         contentContainerStyle={styles.contentContainerStyle}
       />
@@ -54,7 +55,8 @@ const styles = StyleSheet.create({
   },
 
   columnWrapperStyle: {
-    flexDirection: 'column',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   contentContainerStyle: {
     paddingBottom: rhp(180),

@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {ImageBackground, ScrollView, Text, View} from 'react-native';
+import {Image, ImageBackground, ScrollView, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
 import CalendarComponent from '../../../components/atoms/calendar';
@@ -11,6 +11,10 @@ import ManageScreenTimer from '../../../components/atoms/manageScreenTimer';
 import {setUserData} from '../../../redux/slices/userDataSlice';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
+import {hp, rfs, rhp, wp} from '../../../constants/dimensions';
+import FastImage from 'react-native-fast-image';
+import {colors} from '../../../constants/colors';
+import fonts from '../../../constants/fonts';
 
 const SettingsScreen = () => {
   const navigation = useNavigation();
