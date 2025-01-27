@@ -1,9 +1,6 @@
-import React, {useRef, useState} from 'react';
+import React, { useState} from 'react';
 import {
-  Button,
-  Dimensions,
   FlatList,
-  Image,
   StatusBar,
   Text,
   View,
@@ -16,8 +13,6 @@ import {ScreenNames} from '../../../constants/strings';
 import FastImage from 'react-native-fast-image';
 import {rhp, wp} from '../../../constants/dimensions';
 import {images} from '../../../assets/images';
-import {Linking} from 'react-native';
-import {WebView} from 'react-native-webview';
 
 
 const renderItem = ({item}) => {
@@ -44,12 +39,6 @@ const OnBoardingScreen = () => {
   };
   const viewabilityConfig = {
     itemVisiblePercentThreshold: 70,
-  };
-
-  const openLink = () => {
-    Linking.openURL(
-      'https://stg.wowpowers.com/stream-player/edik/livestream/f615e198-1313-466d-9843-a152175d474f/video/4fe1243f-0163-4114-bb90-4fdfd7554a03',
-    ).catch(err => console.error('An error occurred', err));
   };
 
   return (
