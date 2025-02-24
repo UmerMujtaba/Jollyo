@@ -1,6 +1,8 @@
-import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Alert,
   Animated,
@@ -10,35 +12,26 @@ import {
   View,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {useDispatch, useSelector} from 'react-redux';
-import {images} from '../../../../assets/images';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
-import CustomBottomTab from '../../../../components/atoms/customBottomTab';
-import ExerciseHeader from '../../../../components/atoms/exerciseHeader';
-import StickerModal from '../../../../components/atoms/stickerModal';
-import {colors} from '../../../../constants/colors';
-import {Strings} from '../../../../constants/strings';
+import { useDispatch, useSelector } from 'react-redux';
+import { images } from '../../../../assets/images';
+import { colors } from '../../../../constants/colors';
+import { isTablet, rhp } from '../../../../constants/dimensions';
+import { Strings } from '../../../../constants/strings';
+import { useNetworkImageHandler, useStickerManager } from '../../../../hooks';
+import useRewardManager from '../../../../hooks/useRewardManager';
 import {
-  addNumberSticker,
-  addShapeSticker,
+  addShapeSticker
 } from '../../../../redux/slices/rewardsSlice';
 import {
   setCurrentExerciseIndex,
   setIsCorrect,
-  setPlayFireworks,
   setRandomShapes,
   setSelectedOption,
-  setShowLottie,
-  setShowModal,
+  setShowLottie
 } from '../../../../redux/slices/shapesExerciseSlice';
-import {shapesExerciseData} from '../../../../utils/shapesExerciseData';
-import {styles} from './styles';
-import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
-import {isTablet, rhp} from '../../../../constants/dimensions';
-import useRewardManager from '../../../../hooks/useRewardManager';
-import auth from '@react-native-firebase/auth';
+import { shapesExerciseData } from '../../../../utils/shapesExerciseData';
+import { styles } from './styles';
+import { CustomAppBar, CustomBottomTab, ExerciseHeader, RestartPrompt, StickerModal } from '../../../../components/atoms';
 
 const ShapesExercise = () => {
   const navigation = useNavigation();

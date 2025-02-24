@@ -8,14 +8,13 @@ import {
 } from 'react-native';
 import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
-import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {VehiclesData} from '../../../../utils/vehiclesData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {Strings} from '../../../../constants/strings';
+import { AlphabetComponent, CustomAppBar } from '../../../../components/atoms';
 
 const Vehicle = () => {
   const {setLoader} = useLoaderProvider();

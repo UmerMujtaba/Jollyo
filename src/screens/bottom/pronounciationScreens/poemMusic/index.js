@@ -6,13 +6,13 @@ import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {images} from '../../../../assets/images';
-import PoemAppBar from '../../../../components/molecules/poemAppBar';
 import {colors} from '../../../../constants/colors';
 import {isTablet, rfs, rwp} from '../../../../constants/dimensions';
 import {useMusicPlayer} from '../../../../contextAPI/musicPlayerContext';
 import {poemsDataList} from '../../../../utils/poemsData';
 import {styles} from './styles';
 import {IconNames} from '../../../../constants/strings';
+import { PoemAppBar } from '../../../../components/molecules';
 
 const formatTime = seconds => {
   const mins = Math.floor(seconds / 60);

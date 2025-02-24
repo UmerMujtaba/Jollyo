@@ -9,13 +9,11 @@ import {
 import Sound from 'react-native-sound';
 import {useSelector} from 'react-redux';
 import {images} from '../../../../assets/images';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
-import ExerciseLessonComponent from '../../../../components/atoms/exerciseLessonComponent';
-import ExerciseSetHeader from '../../../../components/atoms/exerciseSetHeader';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import useSound from '../../../../hooks/buttonClickHook';
 import {styles} from './styles';
 import {ScreenNames, Strings} from '../../../../constants/strings';
+import { CustomAppBar, ExerciseLessonComponent, ExerciseSetHeader } from '../../../../components/atoms';
 
 Sound.setCategory('Playback');
 

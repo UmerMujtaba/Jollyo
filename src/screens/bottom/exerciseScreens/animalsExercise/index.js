@@ -1,6 +1,8 @@
-import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Alert,
   Animated,
@@ -10,34 +12,25 @@ import {
   View,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
-import {useDispatch, useSelector} from 'react-redux';
-import {images} from '../../../../assets/images';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
-import CustomBottomTab from '../../../../components/atoms/customBottomTab';
-import NumbersQuestionBar from '../../../../components/atoms/numbersQuestionBar';
-import StickerModal from '../../../../components/atoms/stickerModal';
-import {Strings} from '../../../../constants/strings';
+import { useDispatch, useSelector } from 'react-redux';
+import { images } from '../../../../assets/images';
+import { isTablet, rhp } from '../../../../constants/dimensions';
+import { Strings } from '../../../../constants/strings';
+import { useNetworkImageHandler, useStickerManager } from '../../../../hooks';
+import useRewardManager from '../../../../hooks/useRewardManager';
 import {
   setCorrectAnimal,
   setExerciseIndex,
   setIsCorrect,
-  setProgress,
   setRandomAnimals,
   setSelectedAnimals,
   setSelectionStatus,
-  setShowLottie,
+  setShowLottie
 } from '../../../../redux/slices/animalExerciseSlice';
-import {addAnimalSticker} from '../../../../redux/slices/rewardsSlice';
-import {AnimalsData} from '../../../../utils/animalsData';
-import {styles} from './styles';
-import {useNetworkImageHandler, useStickerManager} from '../../../../hooks';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
-import {isTablet, rhp} from '../../../../constants/dimensions';
-import useRewardManager from '../../../../hooks/useRewardManager';
-import auth from '@react-native-firebase/auth';
+import { addAnimalSticker } from '../../../../redux/slices/rewardsSlice';
+import { AnimalsData } from '../../../../utils/animalsData';
+import { styles } from './styles';
+import { CustomAppBar, CustomBottomTab, NumbersQuestionBar, RestartPrompt, StickerModal } from '../../../../components/atoms';
 
 const AnimalsExercise = () => {
   const dispatch = useDispatch();
@@ -290,11 +283,13 @@ const AnimalsExercise = () => {
                 )}
               </View>
 
-              <TouchableOpacity style={[styles.btnStyle]}>
-                <View style={[styles.btnStyle, styles.insideBtnStyle]}>
-                  <Text style={styles.btnText}>{correctAnimal}</Text>
-                </View>
-              </TouchableOpacity>
+              <View style={{alignItems:'center'}}>
+                <TouchableOpacity style={[styles.btnStyle]}>
+                  <View style={[styles.btnStyle, styles.insideBtnStyle]}>
+                    <Text style={styles.btnText}>{correctAnimal}</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
           ) : (
             <RestartPrompt onRestart={handleRestart} />

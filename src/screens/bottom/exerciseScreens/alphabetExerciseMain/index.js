@@ -1,31 +1,27 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import Voice from '@react-native-voice/voice';
+import { useNavigation } from '@react-navigation/native';
+import LottieView from 'lottie-react-native';
+import React, { useEffect, useState } from 'react';
 import {
   Alert,
   Animated,
-  Button,
-  Image,
   ImageBackground,
   Modal,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import Tts from 'react-native-tts';
-import {images} from '../../../../assets/images';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
-import CustomBottomTab from '../../../../components/atoms/customBottomTab';
-import ExerciseHeader from '../../../../components/atoms/exerciseHeader';
-import {Strings} from '../../../../constants/strings';
-import {styles} from './styles';
-import {useSelector, useDispatch} from 'react-redux';
-import {setAlphabetProgress} from '../../../../redux/slices/alphabetsExerciseSlice';
-import {useNetworkImageHandler} from '../../../../hooks';
-import {isTablet, rhp} from '../../../../constants/dimensions';
 import RNHapticFeedback from 'react-native-haptic-feedback';
-import Voice from '@react-native-voice/voice';
-import LottieView from 'lottie-react-native';
+import Tts from 'react-native-tts';
+import { useDispatch, useSelector } from 'react-redux';
+import { images } from '../../../../assets/images';
+import { isTablet, rhp } from '../../../../constants/dimensions';
+import { Strings } from '../../../../constants/strings';
+import { useNetworkImageHandler } from '../../../../hooks';
+import { setAlphabetProgress } from '../../../../redux/slices/alphabetsExerciseSlice';
+import { styles } from './styles';
+import { CustomAppBar, CustomBottomTab, ExerciseHeader } from '../../../../components/atoms';
 
 const AlphabetsExerciseMain = ({route}) => {
   const navigation = useNavigation();

@@ -2,9 +2,9 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import {rhp} from '../../constants/dimensions';
 import {UserGuideData} from '../../utils/userGuideData';
-import UserGuideComponent from '../atoms/userGuideComponent';
+import { UserGuideComponent } from '../atoms';
 
-const UserGuideComponentList = () => {
+export const UserGuideComponentList = () => {
   const renderItem = ({item}) => {
     return (
       <UserGuideComponent
@@ -25,4 +25,3 @@ const UserGuideComponentList = () => {
     />
   );
 };
-export default UserGuideComponentList;

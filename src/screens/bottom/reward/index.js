@@ -10,12 +10,12 @@ import {
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
-import CustomAppBar from '../../../components/atoms/customAppBar';
 import {rhp} from '../../../constants/dimensions';
 import {styles} from './styles';
 import {Strings} from '../../../constants/strings';
 import auth from '@react-native-firebase/auth';
 import {fetchRewards} from '../../../helper/firebase';
+import { CustomAppBar } from '../../../components/atoms';
 const RewardsScreen = () => {
   const {animalsReward, numbersReward, shapesReward, quizzesReward} =
     useSelector(state => state.rewardsReducer);

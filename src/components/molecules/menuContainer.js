@@ -10,16 +10,16 @@ import useSound from '../../hooks/buttonClickHook';
 import {resetProgress} from '../../redux/slices/alphabetsExerciseSlice';
 import {resetRewardsData} from '../../redux/slices/rewardsSlice';
 import {resetUserData} from '../../redux/slices/userDataSlice';
-import MenuItemTile from '../atoms/menuTile';
 import {resetAnimals} from '../../redux/slices/animalExerciseSlice';
 import {resetGame} from '../../redux/slices/gameExerciseSlice';
 import {resetState} from '../../redux/slices/shapesExerciseSlice';
 import {resetExercise} from '../../redux/slices/numbersExerciseSlice';
 import {navigateReset} from '../../navigationHandler/navigationRef';
+import { MenuItemTile } from '../atoms';
 
 Sound.setCategory('Playback');
 
-const MenuContainer = () => {
+export const MenuContainer = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
@@ -65,7 +65,7 @@ const MenuContainer = () => {
         title={Strings.kidsProfileSetting}
         subHeading={Strings.manageYourKidsProfile}
         imageSource={images.icons.profileIcon}
-        onPress={handlePremium}
+        onPress={()=>navigation.navigate(ScreenNames.UnderProgressScreen)} 
       />
       <MenuItemTile
         title={Strings.kidActivityStats}
@@ -94,4 +94,3 @@ const styles = StyleSheet.create({
     // paddingVertical: 10,
   },
 });
-export default MenuContainer;

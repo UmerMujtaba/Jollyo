@@ -1,11 +1,11 @@
 import React from 'react';
 import {ImageBackground, StatusBar, View} from 'react-native';
 import {images} from '../../../assets/images';
-import CustomAppBar from '../../../components/atoms/customAppBar';
-import UserGuideComponentList from '../../../components/molecules/userGuideComponentList';
 import {rhp} from '../../../constants/dimensions';
 import {styles} from './styles';
 import {Strings} from '../../../constants/strings';
+import { CustomAppBar } from '../../../components/atoms';
+import { UserGuideComponentList } from '../../../components/molecules';
 
 const UserGuide = ({navigation}) => {
   return (

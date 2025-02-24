@@ -2,13 +2,12 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {FlatList, ImageBackground, View} from 'react-native';
 import {images} from '../../../../assets/images';
-import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {alphabetData} from '../../../../utils/alphabetsScreenData';
 import {styles} from './styles';
 import {Strings} from '../../../../constants/strings';
+import { AlphabetComponent, CustomAppBar } from '../../../../components/atoms';
 
 const AlphabetsScreen = ({route}) => {
   const [playingSound, setPlayingSound] = useState(null);

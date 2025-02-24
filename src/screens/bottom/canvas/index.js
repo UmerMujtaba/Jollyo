@@ -3,11 +3,11 @@ import React, {useRef, useState} from 'react';
 import {Alert, ImageBackground, Text, View} from 'react-native';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import {images} from '../../../assets/images';
-import {TouchableButton} from '../../../components/atoms/button';
 import {isTablet, rfs, rhp, rwp} from '../../../constants/dimensions';
 import {Strings} from '../../../constants/strings';
 import {styles} from './styles';
 import RNFS from 'react-native-fs';
+import { TouchableButton } from '../../../components/atoms';
 const isPointInPolygon = (point, polygon) => {
   let {x, y} = point;
   let isInside = false;

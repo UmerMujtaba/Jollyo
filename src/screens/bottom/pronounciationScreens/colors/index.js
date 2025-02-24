@@ -9,12 +9,12 @@ import {
 } from 'react-native';
 import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {ColorsData} from '../../../../utils/colorsData';
 import {styles} from './styles';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import {Strings} from '../../../../constants/strings';
+import { CustomAppBar } from '../../../../components/atoms';
 
 const ColorsScreen = () => {
   const {setLoader} = useLoaderProvider();

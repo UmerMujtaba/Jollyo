@@ -1,25 +1,23 @@
-import React, {useState} from 'react';
-import {Alert, ImageBackground, Text, View} from 'react-native';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import React, { useState } from 'react';
+import { Alert, ImageBackground, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {images} from '../../../assets/images';
-import AuthPrompt from '../../../components/atoms/authPrompt';
-import {TouchableButton} from '../../../components/atoms/button';
-import {HeadingText} from '../../../components/atoms/heading';
-import InputField from '../../../components/molecules/inputField';
-import InputFieldContainer from '../../../components/organisms/inputFieldContainer';
-import {rfs, rhp, wp} from '../../../constants/dimensions';
-import {ScreenNames, Strings} from '../../../constants/strings';
+import { useDispatch } from 'react-redux';
+import { images } from '../../../assets/images';
+import { AuthPrompt, HeadingText, TouchableButton } from '../../../components/atoms';
+import { rfs, rhp, wp } from '../../../constants/dimensions';
+import { ScreenNames, Strings } from '../../../constants/strings';
 import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
-import {useKeyboard} from '../../../hooks';
+import { useKeyboard } from '../../../hooks';
 import {
   navigate,
   navigateReset,
 } from '../../../navigationHandler/navigationRef';
-import {styles} from './styles';
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
-import {setNewUser} from '../../../redux/slices/userDataSlice';
-import {useDispatch} from 'react-redux';
+import { setNewUser } from '../../../redux/slices/userDataSlice';
+import { styles } from './styles';
+import { InputFieldContainer } from '../../../components/organisms';
+import { InputField } from '../../../components/molecules';
 
 const SignUpScreen = () => {
   const keyboardStatus = useKeyboard();

@@ -15,6 +15,7 @@ import {firebase} from '@react-native-firebase/auth';
 import PremiumScreen from '../screens/bottom/premium';
 import UserGuide from '../screens/bottom/userGuide';
 import PoemsScreen from '../screens/bottom/pronounciationScreens/poems';
+import UnderProgressScreen from '../screens/underProgressScreen';
 
 const NavigationStack = createNativeStackNavigator();
 
@@ -90,6 +91,11 @@ export const NavigationHandler = () => {
         <NavigationStack.Screen
           name={ScreenNames.userGuide}
           component={UserGuide}
+          options={{headerShown: false}}
+        />
+        <NavigationStack.Screen
+          name={ScreenNames.UnderProgressScreen}
+          component={UnderProgressScreen}
           options={{headerShown: false}}
         />
       </NavigationStack.Navigator>

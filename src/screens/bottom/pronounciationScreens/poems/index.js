@@ -1,26 +1,24 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 import {
-  Alert,
   Animated,
   FlatList,
   ImageBackground,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {images} from '../../../../assets/images';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
-import PoemTileComponent from '../../../../components/atoms/poemTileComponent';
-import {colors} from '../../../../constants/colors';
-import {ScreenNames, Strings} from '../../../../constants/strings';
-import {useLoaderProvider} from '../../../../contextAPI';
-import {useMusicPlayer} from '../../../../contextAPI/musicPlayerContext';
-import {poemsDataList} from '../../../../utils/poemsData';
-import {styles} from './styles';
+import { images } from '../../../../assets/images';
+import { CustomAppBar, PoemTileComponent } from '../../../../components/atoms';
+import { colors } from '../../../../constants/colors';
+import { ScreenNames, Strings } from '../../../../constants/strings';
+import { useLoaderProvider } from '../../../../contextAPI';
+import { useMusicPlayer } from '../../../../contextAPI/musicPlayerContext';
+import { poemsDataList } from '../../../../utils/poemsData';
+import { styles } from './styles';
 
 const PoemsScreen = ({route}) => {
   const {setLoader} = useLoaderProvider();

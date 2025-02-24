@@ -3,11 +3,6 @@ import React, {useRef, useState} from 'react';
 import {ImageBackground, StatusBar, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
-import HorizontalNumberList from '../../../components/atoms/ageFlatList';
-import {TouchableButton} from '../../../components/atoms/button';
-import CustomTextInput from '../../../components/atoms/customTextInput';
-import {HeadingText} from '../../../components/atoms/heading';
-import ProfilesAvatarContainer from '../../../components/molecules/profileAvatarsContainer';
 import {ScreenNames, Strings} from '../../../constants/strings';
 import {
   setAge,
@@ -20,6 +15,8 @@ import firestore from '@react-native-firebase/firestore';
 import {rhp} from '../../../constants/dimensions';
 import {navigateReset} from '../../../navigationHandler/navigationRef';
 import {colors} from '../../../constants/colors';
+import { CustomTextInput, HeadingText, HorizontalNumberList, TouchableButton } from '../../../components/atoms';
+import { ProfilesAvatarContainer } from '../../../components/molecules';
 
 const ProfileScreen = () => {
   const [usernameErrorMessage, setUsernameErrorMessage] = useState('');

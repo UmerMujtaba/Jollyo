@@ -3,12 +3,11 @@ import LottieView from 'lottie-react-native';
 import React from 'react';
 import {ImageBackground, Text, View} from 'react-native';
 import {images} from '../../../assets/images';
-import {TouchableButton} from '../../../components/atoms/button';
-import CustomAppBar from '../../../components/atoms/customAppBar';
-import PremiumList from '../../../components/molecules/premiumList';
 import {isTablet, rhp, wp} from '../../../constants/dimensions';
 import {Strings} from '../../../constants/strings';
 import {styles} from './styles';
+import { CustomAppBar, TouchableButton } from '../../../components/atoms';
+import { PremiumList } from '../../../components/molecules';
 
 const PremiumScreen = () => {
   const navigation = useNavigation();

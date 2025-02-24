@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, ImageBackground, View} from 'react-native';
 import {images} from '../../../../assets/images';
-import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {useLoaderProvider} from '../../../../contextAPI';
 import {numbersData} from '../../../../utils/numbersScreenData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import {Strings} from '../../../../constants/strings';
+import { AlphabetComponent, CustomAppBar } from '../../../../components/atoms';
 
 const NumbersScreen = () => {
   const [playingSound, setPlayingSound] = useState(null);

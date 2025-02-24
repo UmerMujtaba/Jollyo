@@ -14,6 +14,7 @@ export const images = {
   cubRotateImage: require('./cubRotate.png'),
   // twinkle: require('./twinkle.jpg'),
   // premiumImage: require('./premium.png'),
+  underProgress: require('./underProgress.png'),
 
   icons: {
     homeIcon: require('./icons/homeicon.png'),

@@ -110,6 +110,7 @@ export const ScreenNames = {
   userGuide: 'UserGuide',
   poemsScreen: 'PoemsScreen',
   poemMusicScreen: 'PoemMusicScreen',
+  UnderProgressScreen:'UnderProgressScreen',
 };
 
 export const IconNames = {

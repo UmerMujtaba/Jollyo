@@ -1,11 +1,10 @@
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {ScreenNames} from '../../constants/strings';
-import onBoardingScreen from '../../screens/auth/onBoarding';
-import OtPScreen from '../../screens/auth/otp';
-import ProfileScreen from '../../screens/auth/profile';
+import { ScreenNames } from '../../constants/strings';
 import KidsInterestSelectionScreen from '../../screens/auth/intersets';
 import LoginScreen from '../../screens/auth/login';
+import onBoardingScreen from '../../screens/auth/onBoarding';
+import ProfileScreen from '../../screens/auth/profile';
 import SignUpScreen from '../../screens/auth/signUpScreen';
 
 const AuthStack = createNativeStackNavigator();

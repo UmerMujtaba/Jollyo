@@ -2,10 +2,6 @@ import React, {useState} from 'react';
 import {Alert, ImageBackground, StatusBar, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {images} from '../../../assets/images';
-import AuthPrompt from '../../../components/atoms/authPrompt';
-import {TouchableButton} from '../../../components/atoms/button';
-import {HeadingText} from '../../../components/atoms/heading';
-import InputFieldContainer from '../../../components/organisms/inputFieldContainer';
 import {rfs, rhp, wp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
 import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
@@ -20,6 +16,8 @@ import firestore from '@react-native-firebase/firestore';
 import {colors} from '../../../constants/colors';
 import {setNewUser} from '../../../redux/slices/userDataSlice';
 import {useDispatch} from 'react-redux';
+import { AuthPrompt, HeadingText, TouchableButton } from '../../../components/atoms';
+import { InputFieldContainer } from '../../../components/organisms';
 
 const LoginScreen = () => {
   const keyboardStatus = useKeyboard();

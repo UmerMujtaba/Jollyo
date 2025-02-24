@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import PremiumComponent from '../atoms/premiumComponent';
 import {isTablet, rhp, rwp} from '../../constants/dimensions';
 import {premiumData} from '../../utils/premiumData';
+import { PremiumComponent } from '../atoms';
 
-const PremiumList = () => {
+export const PremiumList = () => {
   return (
     <FlatList
       data={premiumData}
@@ -30,4 +30,3 @@ const styles = StyleSheet.create({
     paddingRight: isTablet ? rwp(5) : rwp(0),
   },
 });
-export default PremiumList;

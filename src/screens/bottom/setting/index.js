@@ -1,20 +1,14 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
-import {Image, ImageBackground, ScrollView, Text, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {images} from '../../../assets/images';
-import CalendarComponent from '../../../components/atoms/calendar';
-import CustomAppBar from '../../../components/atoms/customAppBar';
-import MenuContainer from '../../../components/molecules/menuContainer';
-import {styles} from './styles';
-import ManageScreenTimer from '../../../components/atoms/manageScreenTimer';
-import {setUserData} from '../../../redux/slices/userDataSlice';
-import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import {hp, rfs, rhp, wp} from '../../../constants/dimensions';
-import FastImage from 'react-native-fast-image';
-import {colors} from '../../../constants/colors';
-import fonts from '../../../constants/fonts';
+import firestore from '@react-native-firebase/firestore';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { ImageBackground, ScrollView, Text, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { images } from '../../../assets/images';
+import { CalendarComponent, CustomAppBar, ManageScreenTimer } from '../../../components/atoms';
+import { setUserData } from '../../../redux/slices/userDataSlice';
+import { styles } from './styles';
+import { MenuContainer } from '../../../components/molecules';
 
 const SettingsScreen = () => {
   const navigation = useNavigation();

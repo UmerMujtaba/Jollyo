@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {hp, isTablet, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
+import { StyleSheet } from 'react-native';
+import { hp, wp } from '../../../constants/dimensions';
 
 export const styles = StyleSheet.create({
   container: {

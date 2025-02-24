@@ -11,9 +11,6 @@ import {
 import FastImage from 'react-native-fast-image';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../../assets/images';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
-import CustomBottomTab from '../../../../components/atoms/customBottomTab';
-import NumbersQuestionBar from '../../../../components/atoms/numbersQuestionBar';
 import {colors} from '../../../../constants/colors';
 import {Strings} from '../../../../constants/strings';
 import {styles} from './styles';
@@ -26,14 +23,19 @@ import {
   setIsCorrect,
   setShowLottie,
 } from '../../../../redux/slices/numbersExerciseSlice';
-import StickerModal from '../../../../components/atoms/stickerModal';
 import {addNumberSticker} from '../../../../redux/slices/rewardsSlice';
 import {useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import RestartPrompt from '../../../../components/atoms/restartPromptContainer';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import useRewardManager from '../../../../hooks/useRewardManager';
 import auth from '@react-native-firebase/auth';
+import {
+  StickerModal,
+  RestartPrompt,
+  NumbersQuestionBar,
+  CustomBottomTab,
+  CustomAppBar,
+} from '../../../../components/atoms';
 
 const QuestionImages = {
   image1: images.cubImage,

@@ -2,13 +2,12 @@ import React from 'react';
 import {FlatList, ImageBackground, View} from 'react-native';
 import Tts from 'react-native-tts';
 import {images} from '../../../../assets/images';
-import AlphabetComponent from '../../../../components/atoms/alphabetComponent';
-import CustomAppBar from '../../../../components/atoms/customAppBar';
 import {shapesData} from '../../../../utils/shapesScreenData';
 import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {isTablet, rhp} from '../../../../constants/dimensions';
 import {Strings} from '../../../../constants/strings';
+import { AlphabetComponent, CustomAppBar } from '../../../../components/atoms';
 
 const ShapesScreen = () => {
   const navigation = useNavigation();

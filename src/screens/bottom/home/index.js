@@ -5,10 +5,10 @@ import {ImageBackground, ScrollView, StatusBar, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
-import ScrollableSelectionList from '../../../components/molecules/selectionContainerList';
 import {Strings} from '../../../constants/strings';
 import {setUserData} from '../../../redux/slices/userDataSlice';
 import {styles} from './styles';
+import { ScrollableSelectionList } from '../../../components/molecules';
 
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();

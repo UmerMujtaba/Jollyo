@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import {Alert, ImageBackground, StatusBar, Text} from 'react-native';
 import {images} from '../../../assets/images';
-import {TouchableButton} from '../../../components/atoms/button';
-import {HeadingText} from '../../../components/atoms/heading';
-import InterestsSelection from '../../../components/molecules/selectedInterests';
 import {colors} from '../../../constants/colors';
 import {rhp, wp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
 import {navigateReset} from '../../../navigationHandler/navigationRef';
 import {styles} from './styles';
+import { HeadingText, TouchableButton } from '../../../components/atoms';
+import { InterestsSelection } from '../../../components/molecules';
 
 const KidsInterestSelectionScreen = () => {
   const [selectedItems, setSelectedItems] = useState([]);

@@ -128,9 +128,8 @@ export const styles = StyleSheet.create({
   },
   btnStyle: {
     width: wp(45),
-    backgroundColor: colors.PURPLE.blackishOrange,
+    backgroundColor: colors.ORANGE.blackishOrange,
     height: rhp(50),
-    alignSelf: 'center',
     borderRadius: 16,
     flexDirection: 'row',
   },

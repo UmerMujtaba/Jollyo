@@ -1,18 +1,18 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import {
   FlatList,
   StatusBar,
   Text,
   View,
 } from 'react-native';
-import {styles} from './styles';
-import data from '../../../utils/onBoardingScreenData';
-import {TouchableButton} from '../../../components/atoms/button';
-import {navigate} from '../../../navigationHandler/navigationRef';
-import {ScreenNames} from '../../../constants/strings';
 import FastImage from 'react-native-fast-image';
-import {rhp, wp} from '../../../constants/dimensions';
-import {images} from '../../../assets/images';
+import { images } from '../../../assets/images';
+import { wp } from '../../../constants/dimensions';
+import { ScreenNames } from '../../../constants/strings';
+import { navigate } from '../../../navigationHandler/navigationRef';
+import data from '../../../utils/onBoardingScreenData';
+import { styles } from './styles';
+import { TouchableButton } from '../../../components/atoms';
 
 
 const renderItem = ({item}) => {
