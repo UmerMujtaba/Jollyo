@@ -1,7 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { rhp, rwp } from '../../../constants/dimensions';
-
+import {
+  rhp,
+  rwp
+} from '../../../constants';
 export const ExerciseSetHeader = ({title, count, description}) => {
   return (
     <View style={{paddingHorizontal: rwp(20)}}>

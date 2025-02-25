@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { colors } from '../../../constants/colors';
-import { isTablet, rhp, wp } from '../../../constants/dimensions';
+import {
+  colors,
+  isTablet,
+  rhp,
+  wp
+} from '../../../constants';
 
 export const ToggleView = () => {
   const [currentText, setCurrentText] = useState('COVER');

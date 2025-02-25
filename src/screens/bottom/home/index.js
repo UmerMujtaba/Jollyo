@@ -1,14 +1,14 @@
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import React, {useEffect} from 'react';
-import {ImageBackground, ScrollView, StatusBar, Text, View} from 'react-native';
+import React, { useEffect } from 'react';
+import { ImageBackground, StatusBar, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {useDispatch, useSelector} from 'react-redux';
-import {images} from '../../../assets/images';
-import {Strings} from '../../../constants/strings';
-import {setUserData} from '../../../redux/slices/userDataSlice';
-import {styles} from './styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { images } from '../../../assets/images';
 import { ScrollableSelectionList } from '../../../components/molecules';
+import { Strings } from '../../../constants/strings';
+import { setUserData } from '../../../redux/slices/userDataSlice';
+import { styles } from './styles';
 
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();

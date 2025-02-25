@@ -1,14 +1,17 @@
 import React, { useRef, useState } from 'react';
 import {
-    Dimensions,
-    FlatList,
-    Text,
-    TouchableOpacity,
-    View
+  Dimensions,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
+import {
+  rhp,
+  rwp,
+  Strings,
+} from '../../../constants';
 import { styles } from './styles';
-import { rhp, rwp } from '../../../constants/dimensions';
-import { Strings } from '../../../constants/strings';
 
 
 const {width} = Dimensions.get('window');

@@ -3,9 +3,12 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import ProgressBar from 'react-native-progress/Bar';
 import { images } from '../../../assets/images';
-import { colors } from '../../../constants/colors';
-import { rhp, rwp } from '../../../constants/dimensions';
-import { Strings } from '../../../constants/strings';
+import {
+  colors,
+  rhp,
+  rwp,
+  Strings
+} from '../../../constants';
 import { useNetworkImageHandler } from '../../../hooks';
 import { styles } from './styles';
 

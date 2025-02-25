@@ -1,8 +1,13 @@
-import {StyleSheet} from 'react-native';
-import fonts from '../../../constants/fonts';
-import {isTablet, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
-import { colors } from '../../../constants/colors';
-
+import { StyleSheet } from 'react-native';
+import {
+  colors,
+  fonts,
+  isTablet,
+  rfs,
+  rhp,
+  rwp,
+  wp
+} from '../../../constants';
 export const styles = StyleSheet.create({
   container: {
     height: rhp(90),

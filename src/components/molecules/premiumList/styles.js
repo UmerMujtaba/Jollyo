@@ -1,16 +1,14 @@
 import { StyleSheet } from "react-native";
 import {
+  isTablet,
   rhp,
   rwp
 } from '../../../constants';
 
 
 export const styles = StyleSheet.create({
-  container: {
-    marginBottom: rhp(180),
-  },
-  contentContainer: {
-    marginInline: rwp(10),
-    paddingBottom: rhp(70),
+  flatListContainer: {
+    marginBottom: rhp(30),
+    paddingRight: isTablet ? rwp(5) : rwp(0),
   },
 });

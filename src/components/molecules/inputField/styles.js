@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
-import fonts from "../../../constants/fonts";
-import { colors } from "../../../constants/colors";
-import { rfs } from "../../../constants/dimensions";
-
+import {
+  colors,
+  fonts,
+  rfs
+} from '../../../constants';
 
 export const styles = StyleSheet.create({
   heading: {

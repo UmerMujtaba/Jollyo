@@ -1,8 +1,9 @@
 import React from 'react';
-import {FlatList} from 'react-native';
-import {rhp} from '../../constants/dimensions';
-import {UserGuideData} from '../../utils/userGuideData';
-import { UserGuideComponent } from '../atoms';
+import { FlatList } from 'react-native';
+import { UserGuideData } from '../../../utils/userGuideData';
+import { UserGuideComponent } from '../../atoms';
+import { styles } from './styles';
+
 
 export const UserGuideComponentList = () => {
   const renderItem = ({item}) => {
@@ -21,7 +22,7 @@ export const UserGuideComponentList = () => {
       data={UserGuideData}
       keyExtractor={item => item.id}
       renderItem={renderItem}
-      contentContainerStyle={{paddingBottom: rhp(150)}}
+      contentContainerStyle={styles.contentContainerStyle}
     />
   );
 };

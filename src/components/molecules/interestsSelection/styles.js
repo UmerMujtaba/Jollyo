@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
-import { rwp } from "../../../constants/dimensions";
-
+import {
+  rwp
+} from '../../../constants';
 
 export const styles = StyleSheet.create({
   container: {

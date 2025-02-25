@@ -1,7 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../constants/colors';
-import { hp, rfs, rhp, rwp, wp } from '../../../constants/dimensions';
-import fonts from '../../../constants/fonts';
+import {
+  colors,
+  fonts,
+  hp,
+  rfs,
+  rhp,
+  rwp,
+  wp
+} from '../../../constants';
 
 export const styles = StyleSheet.create({
   modalContainer: {

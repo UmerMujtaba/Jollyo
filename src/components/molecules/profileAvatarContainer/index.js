@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles';
-import { ProfileRoundedAvatar } from '../../atoms';
 import { images } from '../../../assets/images';
-import { Strings } from '../../../constants/strings';
+import {
+  Strings
+} from '../../../constants';
+import { ProfileRoundedAvatar } from '../../atoms';
+import { styles } from './styles';
+
 
 export const ProfilesAvatarContainer = ({onGenderSelect}) => {
   const [selectedAvatar, setSelectedAvatar] = useState(null);

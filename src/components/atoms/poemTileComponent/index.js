@@ -3,9 +3,11 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { images } from '../../../assets/images';
-import { colors } from '../../../constants/colors';
-import { styles } from './styles';
+import {
+  colors
+} from '../../../constants';
 import { useNetworkImageHandler } from '../../../hooks';
+import { styles } from './styles';
 export const PoemTileComponent = ({imageSource, name, duration, onPress}) => {
   const [isFavorited, setIsFavorited] = useState(false);
 

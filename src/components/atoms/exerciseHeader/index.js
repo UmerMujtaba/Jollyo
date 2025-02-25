@@ -1,9 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
-import { colors } from '../../../constants/colors';
-import { rhp, wp } from '../../../constants/dimensions';
-import { Strings } from '../../../constants/strings';
+import {
+  colors,
+  rhp,
+  Strings,
+  wp
+} from '../../../constants';
 import { styles } from './styles';
 
 export const ExerciseHeader = ({

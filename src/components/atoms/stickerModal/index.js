@@ -1,6 +1,8 @@
 import React from 'react';
 import { Image, Modal, Text, TouchableOpacity, View } from 'react-native';
-import { Strings } from '../../../constants/strings';
+import {
+  Strings
+} from '../../../constants';
 import { styles } from './styles';
 
 export const StickerModal = ({isVisible, earnedSticker, onClose}) => {

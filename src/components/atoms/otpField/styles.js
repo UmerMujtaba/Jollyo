@@ -1,8 +1,11 @@
-import {StyleSheet} from 'react-native';
-import fonts from '../../../constants/fonts';
-import {isTablet, rfs, rhp, rwp} from '../../../constants/dimensions';
-import { colors } from '../../../constants/colors';
-
+import { StyleSheet } from 'react-native';
+import {
+  colors,
+  fonts,
+  rfs,
+  rhp,
+  rwp
+} from '../../../constants';
 export const styles = StyleSheet.create({
   otpContainer: {
     marginTop: rhp(24),

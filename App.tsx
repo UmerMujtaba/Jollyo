@@ -4,13 +4,11 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import {LoaderProvider} from './src/contextAPI';
-import {SoundProvider} from './src/contextAPI/soundsContext';
 import {NavigationHandler} from './src/navigationHandler';
 import {persistor, store} from './src/redux/store';
 import {persistStore} from 'redux-persist';
-import {MusicPlayerProvider} from './src/contextAPI/musicPlayerContext';
 import crashlytics from '@react-native-firebase/crashlytics';
+import { LoaderProvider, MusicPlayerProvider, SoundProvider } from './src/contextAPI';
 
 const App = () => {
   const [isPurged, setIsPurged] = useState(false);

@@ -1,8 +1,12 @@
-import {StyleSheet} from 'react-native';
-import fonts from '../../../constants/fonts';
-import {hp, isTablet, rfs, rhp, rwp, wp} from '../../../constants/dimensions';
-import { colors } from '../../../constants/colors';
-
+import { StyleSheet } from 'react-native';
+import {
+  colors,
+  hp,
+  isTablet,
+  rhp,
+  rwp,
+  wp
+} from '../../../constants';
 export const styles = StyleSheet.create({
   container: {
     width: isTablet ? rhp(130) : rhp(120),

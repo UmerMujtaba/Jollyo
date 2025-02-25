@@ -2,7 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { images } from '../../../assets/images';
-import { colors } from '../../../constants/colors';
+import {
+  colors
+} from '../../../constants';
 import { styles } from './styles';
 
 export const ProfileRoundedAvatar = ({

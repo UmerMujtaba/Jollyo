@@ -3,20 +3,14 @@ import React, {useRef, useState} from 'react';
 import {ImageBackground, StatusBar, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {images} from '../../../assets/images';
-import {ScreenNames, Strings} from '../../../constants/strings';
-import {
-  setAge,
-  setGender,
-  setUsername,
-} from '../../../redux/slices/userDataSlice';
 import {styles} from './styles';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import {rhp} from '../../../constants/dimensions';
 import {navigateReset} from '../../../navigationHandler/navigationRef';
-import {colors} from '../../../constants/colors';
 import { CustomTextInput, HeadingText, HorizontalNumberList, TouchableButton } from '../../../components/atoms';
 import { ProfilesAvatarContainer } from '../../../components/molecules';
+import {setAge, setGender, setUsername} from '../../../redux/slices';
+import { rhp,colors,Strings,ScreenNames } from '../../../constants';
 
 const ProfileScreen = () => {
   const [usernameErrorMessage, setUsernameErrorMessage] = useState('');

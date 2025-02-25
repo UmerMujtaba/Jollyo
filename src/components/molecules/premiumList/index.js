@@ -1,9 +1,8 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
-import {isTablet, rhp, rwp} from '../../constants/dimensions';
-import {premiumData} from '../../utils/premiumData';
-import { PremiumComponent } from '../atoms';
+import { FlatList } from 'react-native-gesture-handler';
+import { premiumData } from '../../../utils/premiumData';
+import { PremiumComponent } from '../../atoms';
+import { styles } from './styles';
 
 export const PremiumList = () => {
   return (
@@ -24,9 +23,3 @@ export const PremiumList = () => {
     />
   );
 };
-const styles = StyleSheet.create({
-  flatListContainer: {
-    marginBottom: rhp(30),
-    paddingRight: isTablet ? rwp(5) : rwp(0),
-  },
-});

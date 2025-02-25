@@ -1,17 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
-  StyleSheet,
   TouchableOpacity,
-  View,
+  View
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Sound from 'react-native-sound';
-import {images} from '../../../assets/images';
-import {colors} from '../../../constants/colors';
-import {rhp, rwp} from '../../../constants/dimensions';
-import {useNetworkImageHandler} from '../../../hooks';
+import { images } from '../../../assets/images';
+import {
+  colors,
+  rhp
+} from '../../../constants';
+import { useNetworkImageHandler } from '../../../hooks';
 import { styles } from './styles';
 Sound.setCategory('Playback');
 

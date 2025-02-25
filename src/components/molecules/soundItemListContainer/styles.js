@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
-import { rhp, rwp } from "../../../constants/dimensions";
+import {
+  rhp
+} from '../../../constants';
 
 
 export const styles = StyleSheet.create({

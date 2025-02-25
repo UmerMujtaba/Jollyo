@@ -2,7 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { images } from '../../../assets/images';
-import { rfs } from '../../../constants/dimensions';
+import {
+  rfs
+} from '../../../constants';
 import { TouchableButton } from '../button';
 import { styles } from './styles';
 

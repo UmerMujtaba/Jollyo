@@ -1,22 +1,25 @@
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { View } from 'react-native';
 import Sound from 'react-native-sound';
-import {useDispatch} from 'react-redux';
-import {images} from '../../assets/images';
-import {ScreenNames, Strings} from '../../constants/strings';
-import firebaseHelperFunctions from '../../helper/firebaseHelperFunctions';
-import useSound from '../../hooks/buttonClickHook';
-import {resetProgress} from '../../redux/slices/alphabetsExerciseSlice';
-import {resetRewardsData} from '../../redux/slices/rewardsSlice';
-import {resetUserData} from '../../redux/slices/userDataSlice';
-import {resetAnimals} from '../../redux/slices/animalExerciseSlice';
-import {resetGame} from '../../redux/slices/gameExerciseSlice';
-import {resetState} from '../../redux/slices/shapesExerciseSlice';
-import {resetExercise} from '../../redux/slices/numbersExerciseSlice';
-import {navigateReset} from '../../navigationHandler/navigationRef';
-import { MenuItemTile } from '../atoms';
-
+import { useDispatch } from 'react-redux';
+import { images } from '../../../assets/images';
+import {
+  ScreenNames,
+  Strings
+} from '../../../constants';
+import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
+import useSound from '../../../hooks/buttonClickHook';
+import { navigateReset } from '../../../navigationHandler/navigationRef';
+import { resetProgress } from '../../../redux/slices/alphabetsExerciseSlice';
+import { resetAnimals } from '../../../redux/slices/animalExerciseSlice';
+import { resetGame } from '../../../redux/slices/gameExerciseSlice';
+import { resetExercise } from '../../../redux/slices/numbersExerciseSlice';
+import { resetRewardsData } from '../../../redux/slices/rewardsSlice';
+import { resetState } from '../../../redux/slices/shapesExerciseSlice';
+import { resetUserData } from '../../../redux/slices/userDataSlice';
+import { MenuItemTile } from '../../atoms';
+import { styles } from './styles';
 Sound.setCategory('Playback');
 
 export const MenuContainer = () => {
@@ -65,7 +68,7 @@ export const MenuContainer = () => {
         title={Strings.kidsProfileSetting}
         subHeading={Strings.manageYourKidsProfile}
         imageSource={images.icons.profileIcon}
-        onPress={()=>navigation.navigate(ScreenNames.UnderProgressScreen)} 
+        onPress={() => navigation.navigate(ScreenNames.UnderProgressScreen)}
       />
       <MenuItemTile
         title={Strings.kidActivityStats}
@@ -88,9 +91,4 @@ export const MenuContainer = () => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    // backgroundColor: 'teal',
-    // paddingVertical: 10,
-  },
-});
+

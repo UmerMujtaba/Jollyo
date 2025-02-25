@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 import { TextInput, View } from 'react-native';
-import { colors } from '../../../constants/colors';
+import {
+  colors
+} from '../../../constants';
 import { styles } from './styles';
 
 export const CustomTextInput = forwardRef(

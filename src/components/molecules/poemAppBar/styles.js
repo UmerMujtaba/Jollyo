@@ -1,7 +1,12 @@
 import { StyleSheet } from "react-native";
-import { isTablet, rhp, rwp, wp } from "../../../constants/dimensions";
-import { colors } from "../../../constants/colors";
 
+import {
+  colors,
+  isTablet,
+  rhp,
+  rwp,
+  wp
+} from '../../../constants';
 
 export const styles = StyleSheet.create({
   appBarView: {

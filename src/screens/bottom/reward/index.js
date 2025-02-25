@@ -14,8 +14,8 @@ import {rhp} from '../../../constants/dimensions';
 import {styles} from './styles';
 import {Strings} from '../../../constants/strings';
 import auth from '@react-native-firebase/auth';
-import {fetchRewards} from '../../../helper/firebase';
 import { CustomAppBar } from '../../../components/atoms';
+import { fetchRewards } from '../../../helper';
 const RewardsScreen = () => {
   const {animalsReward, numbersReward, shapesReward, quizzesReward} =
     useSelector(state => state.rewardsReducer);

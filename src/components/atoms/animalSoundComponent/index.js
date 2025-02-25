@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import {
-    ActivityIndicator,
-    Alert,
-    TouchableOpacity,
-    View
+  ActivityIndicator,
+  Alert,
+  TouchableOpacity,
+  View
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Sound from 'react-native-sound';
 import { images } from '../../../assets/images';
-import { colors } from '../../../constants/colors';
-import { rhp } from '../../../constants/dimensions';
+import {
+  colors,
+  rhp
+} from '../../../constants';
 import { useNetworkImageHandler } from '../../../hooks';
 import { styles } from './styles';
 

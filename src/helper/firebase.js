@@ -1,7 +1,6 @@
 // src/utils/firebase.js
 import firestore from '@react-native-firebase/firestore';
-import auth from '@react-native-firebase/auth';
-import {setFetchedRewards} from '../redux/slices/rewardsSlice';
+import { setFetchedRewards } from '../redux/slices';
 
 const usersCollection = firestore().collection('users');
 

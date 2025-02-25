@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
-import { styles } from './styles';
-import { Strings } from '../../../constants/strings';
+import React, { useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { Timer } from '../../atoms';
+import { styles } from './styles';
+import { Strings } from '../../../constants';
 
 export const TimerContainer = () => {
   const [resetKey, setResetKey] = useState(0);

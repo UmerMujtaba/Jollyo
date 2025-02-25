@@ -4,11 +4,13 @@ import FastImage from 'react-native-fast-image';
 import Sound from 'react-native-sound';
 import { useSelector } from 'react-redux';
 import { images } from '../../../assets/images';
-import { colors } from '../../../constants/colors';
-import { rhp } from '../../../constants/dimensions';
+import {
+  colors,
+  rhp
+} from '../../../constants';
 import useSound from '../../../hooks/buttonClickHook';
-import { styles } from './styles';
 import { ProfileRoundedAvatar } from '../ProfileRoundedAvatar';
+import { styles } from './styles';
 
 Sound.setCategory('Playback');
 

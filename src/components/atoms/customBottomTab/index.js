@@ -4,8 +4,12 @@ import FastImage from 'react-native-fast-image';
 import Sound from 'react-native-sound';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { images } from '../../../assets/images';
+import {
+  rfs,
+  rhp,
+  rwp
+} from '../../../constants';
 import useSound from '../../../hooks/buttonClickHook';
-import { rfs, rhp, rwp } from '../../../constants/dimensions';
 import { styles } from './styles';
 
 Sound.setCategory('Playback');

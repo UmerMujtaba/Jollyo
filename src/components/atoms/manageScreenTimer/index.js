@@ -5,8 +5,10 @@ import { useIsFocused } from '@react-navigation/native';
 import { debounce } from 'lodash';
 import React, { useCallback, useEffect, useState } from 'react';
 import { AppState, Text, View } from 'react-native';
-import { colors } from '../../../constants/colors';
-import { Strings } from '../../../constants/strings';
+import {
+  colors,
+  Strings
+} from '../../../constants';
 import { styles } from './styles';
 // import RNExitApp from 'react-native-exit-app';
 export const ManageScreenTimer = () => {

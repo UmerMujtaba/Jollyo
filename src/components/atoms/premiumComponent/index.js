@@ -1,6 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { rfs, rhp, wp } from '../../../constants/dimensions';
+import {
+  rfs,
+  rhp,
+  wp
+} from '../../../constants';
 import { TouchableButton } from '../button';
 import { styles } from './styles';
 

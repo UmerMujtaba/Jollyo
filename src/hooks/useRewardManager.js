@@ -1,5 +1,4 @@
 import {useDispatch} from 'react-redux';
-import {saveUserReward} from '../helper/firebase';
 import {
   addAnimalSticker,
   addNumberSticker,
@@ -7,6 +6,7 @@ import {
   addShapeSticker,
 } from '../redux/slices/rewardsSlice';
 import auth from '@react-native-firebase/auth';
+import { saveUserReward } from '../helper';
 
 const useRewardManager = () => {
   const dispatch = useDispatch();
