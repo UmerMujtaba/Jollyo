@@ -8,7 +8,7 @@ import {
 import auth from '@react-native-firebase/auth';
 import { saveUserReward } from '../helper';
 
-const useRewardManager = () => {
+export const useRewardManager = () => {
   const dispatch = useDispatch();
 
   const awardRewardToUser = async (rewardType, rewardDataArray) => {
@@ -16,7 +16,7 @@ const useRewardManager = () => {
 
     if (currentUser) {
       const userId = currentUser.uid;
-      // console.log('🚀 ~ awardRewardToUser ~ userId:', userId);
+      
 
       for (const rewardData of rewardDataArray) {
         try {
@@ -52,4 +52,3 @@ const useRewardManager = () => {
   return {awardRewardToUser};
 };
 
-export default useRewardManager;

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {stickers} from '../utils/stickersData';
 
-const useStickerManager = () => {
+export const useStickerManager = () => {
   const [usedStickers, setUsedStickers] = useState([]);
 
   const getStickerForExercise = () => {
@@ -24,4 +24,3 @@ const useStickerManager = () => {
   return {getStickerForExercise};
 };
 
-export default useStickerManager;

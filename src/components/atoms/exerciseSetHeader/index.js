@@ -4,6 +4,8 @@ import {
   rhp,
   rwp
 } from '../../../constants';
+import { styles } from './styles';
+
 export const ExerciseSetHeader = ({title, count, description}) => {
   return (
     <View style={{paddingHorizontal: rwp(20)}}>

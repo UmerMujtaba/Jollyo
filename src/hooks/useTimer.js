@@ -5,7 +5,7 @@ import {setElapsedTime, resetElapsedTime} from '../redux/slices/timerSlice';
 
 const THREE_HOURS_IN_SECONDS = 3 * 60 * 60;
 
-const TimerComponent = () => {
+export const useTimer = () => {
   const [appState, setAppState] = useState(AppState.currentState);
   const [timer, setTimer] = useState(null);
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const TimerComponent = () => {
     return () => {
       subscription.remove();
       clearInterval(timer);
-      // console.log('🚀 ~ return ~ timer:', timer);
+      
     };
   }, [appState]);
 
@@ -70,7 +70,7 @@ const TimerComponent = () => {
           onPress: () => {
             dispatch(resetElapsedTime());
             clearInterval(timer);
-            // Close the app (this requires native code for full closure)
+            
           },
         },
       ],
@@ -80,5 +80,3 @@ const TimerComponent = () => {
 
   return <View>{/* <Text>Elapsed Time: {timer} minutes</Text> */}</View>;
 };
-
-export default TimerComponent;

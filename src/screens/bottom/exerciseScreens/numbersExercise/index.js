@@ -24,10 +24,9 @@ import {
   setShowLottie,
 } from '../../../../redux/slices/numbersExerciseSlice';
 import {addNumberSticker} from '../../../../redux/slices/rewardsSlice';
-import {useStickerManager} from '../../../../hooks';
+import {useRewardManager, useStickerManager} from '../../../../hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {isTablet, rhp} from '../../../../constants/dimensions';
-import useRewardManager from '../../../../hooks/useRewardManager';
 import auth from '@react-native-firebase/auth';
 import {
   StickerModal,

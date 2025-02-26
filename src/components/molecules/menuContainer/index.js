@@ -8,8 +8,6 @@ import {
   ScreenNames,
   Strings
 } from '../../../constants';
-import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
-import useSound from '../../../hooks/buttonClickHook';
 import { navigateReset } from '../../../navigationHandler/navigationRef';
 import { resetProgress } from '../../../redux/slices/alphabetsExerciseSlice';
 import { resetAnimals } from '../../../redux/slices/animalExerciseSlice';
@@ -20,6 +18,8 @@ import { resetState } from '../../../redux/slices/shapesExerciseSlice';
 import { resetUserData } from '../../../redux/slices/userDataSlice';
 import { MenuItemTile } from '../../atoms';
 import { styles } from './styles';
+import { signOut } from '../../../helper';
+import { useSound } from '../../../hooks';
 Sound.setCategory('Playback');
 
 export const MenuContainer = () => {
@@ -44,7 +44,7 @@ export const MenuContainer = () => {
     dispatch(resetExercise());
 
     setTimeout(() => {
-      firebaseHelperFunctions.signOut();
+      signOut();
       navigateReset(ScreenNames.AuthStack, {screen: ScreenNames.loginScreen});
     }, 400);
   };

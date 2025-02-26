@@ -20,7 +20,7 @@ const navigationOptions = () => ({
   animation: 'slide_from_right',
 });
 
-const PronunciationNavigator = () => {
+export const PronunciationNavigator = () => {
   return (
     <PronunciationStack.Navigator initialRouteName={ScreenNames.pronunciation}>
       <PronunciationStack.Screen
@@ -72,4 +72,3 @@ const PronunciationNavigator = () => {
   );
 };
 
-export default PronunciationNavigator;

@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import {PermissionsAndroid, Platform} from 'react-native';
 import AudioRecorderPlayer from 'react-native-audio-recorder-player';
 
-const useAudioRecorder = () => {
+export const useAudioRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [audioFile, setAudioFile] = useState(null);
   const audioRecorderPlayer = new AudioRecorderPlayer();
@@ -80,4 +80,3 @@ const useAudioRecorder = () => {
   };
 };
 
-export default useAudioRecorder;

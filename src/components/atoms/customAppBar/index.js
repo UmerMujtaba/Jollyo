@@ -8,9 +8,9 @@ import {
   colors,
   rhp
 } from '../../../constants';
-import useSound from '../../../hooks/buttonClickHook';
 import { ProfileRoundedAvatar } from '../ProfileRoundedAvatar';
 import { styles } from './styles';
+import { useSound } from '../../../hooks';
 
 Sound.setCategory('Playback');
 

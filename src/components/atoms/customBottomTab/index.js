@@ -9,8 +9,8 @@ import {
   rhp,
   rwp
 } from '../../../constants';
-import useSound from '../../../hooks/buttonClickHook';
 import { styles } from './styles';
+import { useSound } from '../../../hooks';
 
 Sound.setCategory('Playback');
 

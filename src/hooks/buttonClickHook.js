@@ -3,7 +3,7 @@ import Sound from 'react-native-sound';
 
 Sound.setCategory('Playback');
 
-const useSound = soundUrl => {
+export const useSound = soundUrl => {
   const [sound, setSound] = useState(null);
 
   useEffect(() => {

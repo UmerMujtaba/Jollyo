@@ -8,8 +8,6 @@ import { images } from '../../../assets/images';
 import { AuthPrompt, HeadingText, TouchableButton } from '../../../components/atoms';
 import { rfs, rhp, wp } from '../../../constants/dimensions';
 import { ScreenNames, Strings } from '../../../constants/strings';
-import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
-import { useKeyboard } from '../../../hooks';
 import {
   navigate,
   navigateReset,
@@ -18,6 +16,8 @@ import { setNewUser } from '../../../redux/slices/userDataSlice';
 import { styles } from './styles';
 import { InputFieldContainer } from '../../../components/organisms';
 import { InputField } from '../../../components/molecules';
+import { signUpWithEmail } from '../../../helper';
+import { useKeyboard } from '../../../hooks';
 
 const SignUpScreen = () => {
   const keyboardStatus = useKeyboard();
@@ -77,7 +77,7 @@ const SignUpScreen = () => {
     }
 
     try {
-      await firebaseHelperFunctions.signUpWithEmail(email, password);
+      await signUpWithEmail(email, password);
       const user = auth().currentUser;
 
       if (user) {

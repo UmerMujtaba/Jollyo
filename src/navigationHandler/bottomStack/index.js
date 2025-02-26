@@ -3,23 +3,20 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {Image, Pressable, StyleSheet, View} from 'react-native';
 import {images} from '../../assets/images';
-import {colors} from '../../constants/colors';
-import {isTablet, rfs, rhp, rwp} from '../../constants/dimensions';
-import fonts from '../../constants/fonts';
-import {ScreenNames} from '../../constants/strings';
 import CanvasScreen from '../../screens/bottom/canvas';
 import RewardsScreen from '../../screens/bottom/reward';
 import SettingsScreen from '../../screens/bottom/setting';
 import HomeNavigator from '../homeStack';
 import PronunciationNavigator from '../pronounciationStack';
-import useSound from '../../hooks/buttonClickHook';
 import Sound from 'react-native-sound';
 import {useNavigation} from '@react-navigation/native';
+import { useSound } from '../../hooks';
+import { colors, fonts, isTablet, rfs, rhp, rwp, ScreenNames } from '../../constants';
 
 Sound.setCategory('Playback');
 
 const Tab = createBottomTabNavigator();
-const Bottom = () => {
+export const Bottom = () => {
   const TabBarIconWithLabel = ({focused, iconSource, label, screenName}) => {
     const navigation = useNavigation();
     const playSound = useSound(
@@ -172,7 +169,6 @@ const Bottom = () => {
   );
 };
 
-export default Bottom;
 
 const styles = StyleSheet.create({
   iconContainer: {

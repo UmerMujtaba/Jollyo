@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import NetInfo from '@react-native-community/netinfo';
 
-const useNetworkImageHandler = () => {
+export const useNetworkImageHandler = () => {
   const [imageError, setImageError] = useState(false);
   const [isConnected, setIsConnected] = useState(true);
 
@@ -20,4 +20,3 @@ const useNetworkImageHandler = () => {
   return {imageError, setImageError, isConnected};
 };
 
-export default useNetworkImageHandler;

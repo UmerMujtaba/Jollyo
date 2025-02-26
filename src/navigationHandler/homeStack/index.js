@@ -12,7 +12,7 @@ const navigationOptions = () => ({
   animation: 'slide_from_right',
 });
 
-const HomeNavigator = () => {
+export const HomeNavigator = () => {
   return (
     <HomeStack.Navigator initialRouteName={ScreenNames.homeScreen}>
       <HomeStack.Screen
@@ -24,4 +24,3 @@ const HomeNavigator = () => {
   );
 };
 
-export default HomeNavigator;

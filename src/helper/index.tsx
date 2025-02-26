@@ -5,4 +5,16 @@ import {
   saveUserReward,
 } from './firebase';
 
-export {fetchRewards, storeUserData, fetchUserData,saveUserReward}
+import { signInWithEmail,signUpWithEmail,signOut,isUserLoggedIn,getCurrentUser } from './firebaseHelperFunctions';
+
+export {
+  fetchRewards,
+  storeUserData,
+  fetchUserData,
+  saveUserReward,
+  signInWithEmail,
+  signUpWithEmail,
+  signOut,
+  isUserLoggedIn,
+  getCurrentUser,
+};

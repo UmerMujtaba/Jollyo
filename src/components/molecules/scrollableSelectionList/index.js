@@ -5,7 +5,7 @@ import Sound from 'react-native-sound';
 import { SelectionContainer } from '../../atoms';
 import { styles } from './styles';
 import { MainExerciseData } from '../../../utils/mainExerciseData';
-import useSound from '../../../hooks/buttonClickHook';
+import { useSound } from '../../../hooks';
 
 Sound.setCategory('Playback');
 

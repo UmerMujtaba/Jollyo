@@ -16,8 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { images } from '../../../../assets/images';
 import { isTablet, rhp } from '../../../../constants/dimensions';
 import { Strings } from '../../../../constants/strings';
-import { useNetworkImageHandler, useStickerManager } from '../../../../hooks';
-import useRewardManager from '../../../../hooks/useRewardManager';
+import { useNetworkImageHandler, useRewardManager, useStickerManager } from '../../../../hooks';
 import {
   setCorrectAnimal,
   setExerciseIndex,

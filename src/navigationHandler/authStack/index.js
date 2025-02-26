@@ -16,7 +16,7 @@ const navigationOptions = () => ({
   animation: 'slide_from_right',
 });
 
-const Auth = () => {
+export const Auth = () => {
   return (
     <AuthStack.Navigator initialRouteName={ScreenNames.BoardingScreen}>
       {/* <AuthStack.Navigator initialRouteName={ScreenNames.profile}> */}
@@ -55,4 +55,3 @@ const Auth = () => {
   );
 };
 
-export default Auth;

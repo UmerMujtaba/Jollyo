@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import Sound from 'react-native-sound';
 import { styles } from './styles';
-import useSound from '../../../hooks/buttonClickHook';
+import { useSound } from '../../../hooks';
 
 Sound.setCategory('Playback');
 

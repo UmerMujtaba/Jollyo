@@ -19,8 +19,7 @@ import { images } from '../../../../assets/images';
 import { colors } from '../../../../constants/colors';
 import { isTablet, rhp } from '../../../../constants/dimensions';
 import { Strings } from '../../../../constants/strings';
-import { useNetworkImageHandler, useStickerManager } from '../../../../hooks';
-import useRewardManager from '../../../../hooks/useRewardManager';
+import { useNetworkImageHandler, useRewardManager, useStickerManager } from '../../../../hooks';
 import {
   setCorrectGame,
   setExerciseIndex,

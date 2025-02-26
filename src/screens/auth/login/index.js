@@ -4,8 +4,6 @@ import FastImage from 'react-native-fast-image';
 import {images} from '../../../assets/images';
 import {rfs, rhp, wp} from '../../../constants/dimensions';
 import {ScreenNames, Strings} from '../../../constants/strings';
-import firebaseHelperFunctions from '../../../helper/firebaseHelperFunctions';
-import {useKeyboard} from '../../../hooks';
 import {
   navigate,
   navigateReset,
@@ -18,6 +16,8 @@ import {setNewUser} from '../../../redux/slices/userDataSlice';
 import {useDispatch} from 'react-redux';
 import { AuthPrompt, HeadingText, TouchableButton } from '../../../components/atoms';
 import { InputFieldContainer } from '../../../components/organisms';
+import { signInWithEmail } from '../../../helper';
+import { useKeyboard } from '../../../hooks';
 
 const LoginScreen = () => {
   const keyboardStatus = useKeyboard();
@@ -47,7 +47,7 @@ const LoginScreen = () => {
     }
 
     try {
-      await firebaseHelperFunctions.signInWithEmail(email, password);
+      await signInWithEmail(email, password);
       console.log('User logged in successfully!');
 
       const user = auth().currentUser;
