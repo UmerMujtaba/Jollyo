@@ -1,4 +1,10 @@
 {
-  "name": "Jollyo",
-  "displayName": "Jollyo"
+  "name": "Kiddu",
+  "displayName": "Kiddu",
+  "android": {
+    "package": "com.anonymous.kiddu"
+  },
+  "ios": {
+    "bundleIdentifier": "com.anonymous.kiddu"
+  }
 }

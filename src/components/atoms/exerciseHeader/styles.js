@@ -1,0 +1,44 @@
+import { StyleSheet } from 'react-native';
+import { colors, fonts, hp, rfs, rhp, rwp, wp } from '../../../constants';
+
+export const styles = StyleSheet.create({
+  container: {
+    paddingVertical: rhp(20),
+    paddingHorizontal: rwp(20),
+    height: rhp(150),
+    width: '100%',
+    // backgroundColor: 'red',
+    marginBottom: rhp(40),
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  title: {
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
+    color: colors.PURPLE.backgroundClr,
+    fontSize: wp(6),
+  },
+  bottomBar: {
+    marginTop: rhp(20),
+    width: '100%',
+    height: 4,
+    backgroundColor: colors.WHITE.disabled,
+    borderRadius: 20,
+  },
+  topBar: {
+    width: '20%',
+    height: 4,
+    backgroundColor: colors.GREEN.green,
+    borderRadius: 20,
+  },
+  description: {
+    fontFamily: fonts.SF_PRO_TEXT.Fredoka.Bold,
+    color: colors.PURPLE.backgroundClr,
+    fontSize: wp(8),
+    marginTop: hp(1),
+  },
+  progressBar: {
+    marginVertical: rhp(10),
+  },
+});
