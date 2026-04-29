@@ -1,0 +1,23 @@
+pluginManagement {
+    includeBuild("../node_modules/@react-native/gradle-plugin")
+}
+
+plugins {
+    id("com.facebook.react.settings")
+}
+
+extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
+    // This handles the autolinking for all standard libraries
+    ex.autolinkLibrariesFromCommand()
+}
+
+rootProject.name = 'Kiddu'
+
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
+
+// Manual inclusion for react-native-worklets
+// Note: In RN 0.83+, most libraries autolink automatically. 
+// Only keep this if the library fails to autolink or requires a custom path.
+include ':react-native-worklets'
+project(':react-native-worklets').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-worklets/android')

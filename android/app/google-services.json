@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "257367991161",
+    "project_id": "kiddu-1f1f0",
+    "storage_bucket": "kiddu-1f1f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257367991161:android:9aaffe3ba4f51c945c45a8",
+        "android_client_info": {
+          "package_name": "com.kiddu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDo_e2U_4Rn_HMrU_w9gPJeiasaMdWryk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
