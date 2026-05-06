@@ -1,20 +1,15 @@
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import React, { useEffect, useState } from 'react';
-import {
-  Button,
-  ImageBackground,
-  ScrollView,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
+import React, { useEffect } from 'react';
+import { ImageBackground, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { useDispatch, useSelector } from 'react-redux';
 import { images } from '../../../assets/images';
 import { ScrollableSelectionList } from '../../../components/molecules';
+import { hp } from '../../../constants';
 import { Strings } from '../../../constants/strings';
 import { setUserData } from '../../../redux/slices/userDataSlice';
+import { Spacer } from '../../../utils/spacer';
 import { styles } from './styles';
 
 const HomeScreen = ({ navigation }) => {
@@ -26,7 +21,6 @@ const HomeScreen = ({ navigation }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       if (userId) {
-        console.log('🚀 ~ fetchUserData ~ userId:', userId);
         try {
           const userDoc = await firestore()
             .collection('users')
@@ -35,7 +29,6 @@ const HomeScreen = ({ navigation }) => {
 
           if (userDoc.exists) {
             const userData = userDoc.data();
-            const { username, gender, age, imagePath } = userData;
 
             dispatch(
               setUserData({

@@ -14,10 +14,11 @@ export const styles = StyleSheet.create({
     color: colors.WHITE.white,
     fontSize: wp(6),
     marginVertical: rhp(18),
+    textAlign: 'center',
   },
   canvas: {
     width: wp(95),
-    height: hp(60),
+    height: hp(52),
     backgroundColor: colors.WHITE.white,
     alignSelf: 'center',
   },
