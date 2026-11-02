@@ -81,4 +81,10 @@ node_modules/
 ios/Pods/
 android/.gradle/
 android/app/build/
-.DS_Store
+.DS_Store android/app/Untitled.jks
+ android/app/debug
+ # Android generated files
+android/app/debug/
+android/app/release/
+*.apk
+*.aab
